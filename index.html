@@ -385,6 +385,83 @@ html{scroll-padding-top:88px}
 @media(max-width:680px){.page-index-inner{min-height:52px;gap:17px}.page-index-inner a{font-size:9px}.hero-proof>div{padding:0 10px}.hero-proof strong{font-size:25px}.gallery-grid{grid-template-columns:1fr}.gallery-card{display:grid;grid-template-columns:1fr}.gallery-visual{min-height:210px}.gallery-card-copy{min-height:175px}}
 @media(hover:none){.gallery-card:hover{transform:none;box-shadow:none}}
 
+
+/* Dark editorial direction: unified graphite and forest-green canvas */
+:root{
+ --paper:#0b1210;--warm:#111d19;--ink:#f1f0e9;--muted:#a6b0a9;
+ --line:rgba(218,209,187,.16);--white:#f8f7f1;--sage:#14231d;
+ --forest:#d9c39b;--deep:#070d0b;--gold:#c6a972;--lime:#d6ff3f;
+ color-scheme:dark;
+}
+html{background:#0b1210}
+body{background:#0b1210;color:#f1f0e9}
+.header,.header.scrolled{background:rgba(8,16,13,.88);border-bottom-color:rgba(218,209,187,.13)}
+.brand,.brand-name{color:#f3f0e7}
+.brand-name small{color:#c6a972}
+.header-contact{background:#c6a972;color:#0a120f}
+.header-contact span{color:#24372e}
+.hero{background:radial-gradient(ellipse at 78% 38%,rgba(198,169,114,.13),transparent 34%),radial-gradient(ellipse at 12% 22%,rgba(33,79,62,.34),transparent 42%),#0b1210}
+.hero:before{background-image:linear-gradient(rgba(218,209,187,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(218,209,187,.035) 1px,transparent 1px)}
+.hero:after{border-color:rgba(198,169,114,.2);box-shadow:0 0 0 42px rgba(198,169,114,.025),0 0 0 84px rgba(198,169,114,.018)}
+.eyebrow,.section-label{color:#c6a972}
+.hero h1,.section-title,.section-copy .lead{color:#f4f1e8}
+.hero-copy,.section-copy,.method-intro,.milestone-intro{color:#b7c0b9}
+.hero-proof{border-color:var(--line)}
+.hero-proof>div{border-color:var(--line)}
+.hero-proof strong{color:#e0c99f}
+.hero-proof span{color:#9eaaa2}
+.button{border-color:#c6a972}
+.button.primary{background:#c6a972;color:#0b1210;border-color:#c6a972}
+.button.primary:hover{background:#e0c99f;color:#0b1210}
+.button.secondary{color:#eee9dc;background:rgba(255,255,255,.025)}
+.button.secondary:hover{background:rgba(198,169,114,.12)}
+.intro-band{background:#101a16;border-color:var(--line)}
+.intro-band p{color:#b9c2bb}
+.intro-band strong{color:#e2c99b}
+.page-index{background:#101a16;border-color:var(--line)}
+.page-index-inner>span:first-child{color:#c6a972}
+.page-index-inner a{color:#dce2dc}
+.page-index-inner a:hover,.page-index-inner a.is-current{color:#e3c99a}
+.page-index-inner .index-note{color:#829087}
+section.content-section,.content-section{background:#0b1210;border-color:var(--line)}
+.content-section:nth-of-type(even){background:linear-gradient(110deg,rgba(34,76,59,.2),transparent 72%),#0d1713}
+.leadership,.method,.milestones,.faq,.contact{background:#111d18!important}
+.leadership-panel,.expertise-grid,.method-grid,.milestone-grid{background:rgba(198,169,114,.22);border-color:rgba(198,169,114,.22)}
+.leadership-item,.expertise-card,.method-grid article,.milestone-grid article{background:#14221c;color:#f1f0e9}
+.leadership-item h3,.expertise-card h3,.method-grid h3,.sector-list h3,.principle strong,.milestone-grid h3{color:#ead9b9}
+.leadership-item p,.expertise-card p,.method-grid p,.sector-list p,.principle span,.milestone-grid p{color:#aeb9b1}
+.leadership-item small,.expertise-no,.method-grid article>span,.sector-list article>span,.milestone-grid article>span{color:#c6a972}
+.expertise-card:hover,.leadership-item:hover{background:#1a2c23;box-shadow:0 18px 40px rgba(0,0,0,.22)}
+.sector-list,.sector-list article{border-color:var(--line)}
+.principle{border-color:#c6a972}
+.project-feature-grid{background:rgba(198,169,114,.25);border-color:rgba(198,169,114,.25)}
+.project-feature{background:#14231d}
+.project-feature:hover{background:#1b3027}
+.gallery-section{background:#101a16}
+.gallery-head p,.gallery-note{color:#aeb9b1}
+.gallery-card{background:#14221c;border-color:var(--line)}
+.gallery-visual{background:#18362b}
+.gallery-visual:before{background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)}
+.gallery-visual:after{border-color:rgba(212,189,147,.18)}
+.milestone-note{background:#18271f;border-color:#c6a972}
+.milestone-note strong{color:#ead9b9}
+.milestone-note span{color:#aeb9b1}
+.faq-list,.faq-list details{border-color:var(--line)}
+.faq-list summary{color:#ead9b9}
+.faq-list details p{color:#aeb9b1}
+.contact-card{background:#17251e;border-color:var(--line)}
+.contact-card a{color:#ead9b9}
+.contact-card p{color:#c6a972}
+.contact-note{color:#aeb9b1}
+.footer-inner{color:#9aa69e}
+.footer-inner a{color:#dfc99e}
+footer{background:#080f0c;border-top:1px solid var(--line)}
+.portfolio,.timeline-section{background:#07110d}
+.portfolio .section-title,.timeline-section .section-title{color:#f4f1e8}
+.section-copy{color:#b7c0b9}
+::selection{background:#c6a972;color:#0b1210}
+@media(prefers-reduced-motion:reduce){.page-index-inner a:after{transition:none}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Gabriel Ioryem","jobTitle":"Electrical Engineer and Founder & CEO","url":"https://gabriel-ioryem.vercel.app/","email":"mailto:info@kellelectricals.com","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Madonna University Nigeria"},"worksFor":{"@type":"Organization","name":"Kell Electricals Ltd","url":"https://kellelectricals.com"}}</script>\n
   <style id="editorial-motion-layer">
