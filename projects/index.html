@@ -100,7 +100,49 @@
     }
     @media(max-width:390px){.nav{gap:10px}.nav .nav-cta{font-size:9px}.image-wrap{aspect-ratio:1.5}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
-  </style>
+  
+/* Dark editorial system matching the Gabriel Ioryem homepage */
+:root{--forest:#e2c99b;--deep:#07110d;--gold:#c6a972;--paper:#0b1210;--warm:#14221c;--ink:#f1f0e9;--muted:#a8b2aa;--line:rgba(218,209,187,.16);--white:#14221c;color-scheme:dark}
+html,body{background:#0b1210;color:#f1f0e9}
+.site-header{border-color:var(--line);background:rgba(8,16,13,.9);backdrop-filter:blur(16px)}
+.brand{color:#f3f0e7}
+.nav{color:#d6ded7}
+.nav a:hover,.nav a[aria-current=page]{color:#e2c99b}
+.nav .nav-cta{background:#c6a972;color:#0b1210}
+.nav .nav-cta:hover{background:#e2c99b;color:#0b1210}
+.eyebrow,.section-kicker{color:#c6a972}
+h1,h2.section-title{color:#f1eee5}
+.hero-copy,.aside-copy,.section-note{color:#aeb9b1}
+.hero-aside{border-color:#c6a972}
+.aside-number{color:#e2c99b}
+.aside-label{color:#c6a972}
+.disclosure{background:#14221c;border-color:var(--line)}
+.disclosure p{color:#b8c2ba}
+.disclosure strong{color:#ead9b9}
+.disclosure-mark{color:#e2c99b;border-color:#c6a972}
+.project-card{background:#14221c;border-color:var(--line)}
+.project-card:hover{border-color:#c6a972;box-shadow:0 20px 42px rgba(0,0,0,.28)}
+.image-wrap{background:#1a3026}
+.image-wrap img{filter:saturate(.78) brightness(.78)}
+.project-index{background:rgba(7,17,13,.92);color:#e8d7b4;border:1px solid rgba(198,169,114,.35)}
+.image-wrap:after{content:"ILLUSTRATIVE IMAGE";position:absolute;right:13px;bottom:12px;padding:6px 8px;background:rgba(7,17,13,.86);color:#e3d4b6;font-size:8px;letter-spacing:.12em}
+.category{color:#c6a972}
+.card-no{color:#7e8b82}
+.card-title{color:#ead9b9}
+.card-copy{color:#aeb9b1}
+.card-link{color:#e2c99b}
+.card-link span{border-color:rgba(218,209,187,.28)}
+.project-card:hover .card-link span{background:#c6a972;color:#0b1210;border-color:#c6a972}
+.closing{background:#17271f;border:1px solid rgba(198,169,114,.25)}
+.closing .eyebrow{color:#d4bd93}
+.closing h2{color:#f3f0e7}
+.closing-action{border-color:#c6a972;color:#ead9b9}
+.closing-action:hover{background:#c6a972;color:#0b1210}
+footer{border-color:var(--line)}
+.footer-inner{color:#96a39a}
+.footer-inner a{color:#dfc99e}
+::selection{background:#c6a972;color:#0b1210}
+</style>
 </head>
 <body>
   <header class="shell site-header">
