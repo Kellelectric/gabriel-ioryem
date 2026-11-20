@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabriel-ioryem.vercel.app/sitemap.xml
