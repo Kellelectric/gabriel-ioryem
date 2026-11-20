@@ -203,6 +203,117 @@ body{background:var(--paper);color:var(--ink)}
 @media(max-width:600px){.command-top{align-items:flex-start;flex-direction:column}.command-flow{grid-template-columns:1fr;gap:8px}.flow-link{width:1px;height:18px;margin-inline:auto}.flow-link:nth-of-type(4){display:block}.command-flow .flow-node:nth-of-type(3),.command-flow .flow-node:nth-of-type(4){grid-column:auto}.flow-node{min-height:110px}.flow-node>b{margin-top:10px}.flow-icon{display:none}.readout-facts{grid-template-columns:1fr}.readout-facts div{padding:8px 0 8px 12px}.knowledge-tab{font-size:18px;padding:16px}.knowledge-detail{min-height:0}}
 @media(prefers-reduced-motion:reduce){.flow-link i{animation:none}.mode-button,.flow-node,.knowledge-tab{transition:none}}
 
+
+/* Refinement pass: responsive rhythm, tap targets and calmer motion */
+:root{--section-space:clamp(76px,9vw,118px)}
+.content-section,.gallery-section,.timeline-section{padding-block:var(--section-space)}
+.shell{width:min(1160px,calc(100% - 64px));margin-inline:auto}
+.section-grid{column-gap:clamp(34px,6vw,88px);row-gap:22px}
+.section-title{max-width:760px;text-wrap:balance}
+.section-copy p,.method-intro,.portfolio-copy p{line-height:1.9}
+.header{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.header-contact{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 18px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--lime,#d6ff3f);outline-offset:3px}
+.button,.form-submit,.header-contact,.mode-button,.knowledge-tab{touch-action:manipulation}
+.command-panel{border-radius:3px;padding:clamp(24px,4.2vw,48px)}
+.command-flow{grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);gap:8px}
+.flow-node{min-width:0;overflow-wrap:anywhere;border-radius:2px}
+.flow-link i{animation-duration:3.8s;animation-timing-function:cubic-bezier(.45,0,.55,1)}
+.mode-button{min-height:42px;border-radius:2px}
+.knowledge-tab{min-height:66px}
+.knowledge-detail{border-radius:2px}
+.project-feature,.expertise-card,.method-grid article,.timeline article{overflow:hidden}
+img{max-width:100%}
+html{scroll-padding-top:88px}
+@media(max-width:980px){
+ .shell{width:min(100% - 52px,900px)}
+ .section-grid{grid-template-columns:1fr;gap:18px}
+ .section-title{max-width:780px}
+ .command-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .flow-link{display:none}
+ .flow-node{min-height:142px}
+ .command-readout{gap:22px}
+ .readout-facts{gap:10px}
+}
+@media(max-width:680px){
+ :root{--section-space:72px}
+ .shell{width:calc(100% - 40px)}
+ .header{height:68px}
+ .nav-wrap{gap:12px}
+ .brand{gap:9px;max-width:calc(100% - 130px)}
+ .brand-name{font-size:12px;white-space:nowrap}
+ .brand-name small{font-size:7px;letter-spacing:.13em}
+ .brand-mark{width:33px;height:33px}
+ .header-contact{padding:0 12px;font-size:9px;white-space:nowrap}
+ .hero{padding-top:112px;padding-bottom:64px}
+ .hero-grid{grid-template-columns:1fr;gap:32px}
+ .hero h1{font-size:clamp(46px,12vw,64px);line-height:.98;letter-spacing:-.035em}
+ .hero-copy{max-width:36rem;font-size:13px;line-height:1.8}
+ .hero-art{min-height:340px}
+ .portrait-frame{width:min(74%,290px)}
+ .actions{display:grid;grid-template-columns:1fr;gap:10px;max-width:360px}
+ .actions .button{min-height:48px;justify-content:center}
+ .section-title{font-size:clamp(36px,9vw,50px);line-height:1.02}
+ .section-label{margin-bottom:14px}
+ .timeline{grid-template-columns:1fr 1fr;margin-top:34px}
+ .journey-entry{grid-template-columns:42px 1fr;gap:14px;padding:22px 0}
+ .journey-tag{grid-column:2;justify-self:start}
+ .method-grid{grid-template-columns:1fr 1fr}
+ .gallery-grid{grid-template-columns:1fr 1fr}
+ .command-panel{margin-top:30px;padding:22px 18px}
+ .command-top h3{font-size:32px}
+ .command-top{gap:12px}
+ .mode-switch{display:grid;grid-template-columns:1fr;gap:7px;margin:22px 0}
+ .mode-button{text-align:left;padding:12px 14px}
+ .command-flow{grid-template-columns:1fr;gap:8px}
+ .flow-node{min-height:0;padding:15px 14px}
+ .flow-node>b{margin-top:8px;font-size:21px}
+ .flow-node>small{margin-top:5px}
+ .flow-icon{display:none}
+ .flow-link{display:block;width:1px;height:15px;margin:0 auto;background:rgba(214,255,63,.3)}
+ .flow-link i{width:1px;height:55%;inset:0 0 auto;animation:flow-pulse-vertical 3.8s ease-in-out infinite}
+ @keyframes flow-pulse-vertical{0%{transform:translateY(-110%)}100%{transform:translateY(210%)}}
+ .command-readout{grid-template-columns:1fr;gap:18px;margin-top:20px;padding-top:18px}
+ .command-readout strong{font-size:25px}
+ .readout-facts{grid-template-columns:1fr 1fr;gap:12px}
+ .readout-facts div{padding:7px 0 7px 10px}
+ .readout-facts div:last-child{grid-column:1/-1}
+ .knowledge-layout{margin-top:28px}
+ .knowledge-tabs{display:grid;grid-template-columns:1fr 1fr}
+ .knowledge-tab{grid-template-columns:22px 1fr;gap:8px;min-height:78px;padding:12px;font-size:16px;line-height:1.12}
+ .knowledge-tab b{display:none}
+ .knowledge-detail{padding:24px 20px}
+ .knowledge-detail h3{margin-top:25px;font-size:31px}
+ .knowledge-points{gap:6px}
+ .knowledge-points span{font-size:9px;line-height:1.4}
+ .contact-form{padding:20px}
+}
+@media(max-width:420px){
+ :root{--section-space:62px}
+ .shell{width:calc(100% - 32px)}
+ .header-contact{font-size:8px;padding:0 10px}
+ .brand-name{font-size:11px}
+ .hero h1{font-size:clamp(43px,11.5vw,54px)}
+ .hero-art{min-height:300px}
+ .timeline,.method-grid,.gallery-grid{grid-template-columns:1fr}
+ .knowledge-tabs{grid-template-columns:1fr}
+ .knowledge-tab{min-height:58px;grid-template-columns:26px 1fr}
+ .readout-facts{grid-template-columns:1fr}
+ .readout-facts div:last-child{grid-column:auto}
+ .plate-head h3{font-size:31px}
+ .system-map{grid-template-columns:1fr}
+ .form-grid{grid-template-columns:1fr}
+}
+@media(hover:none){
+ .expertise-card:hover,.milestone-grid article:hover,.project-feature:hover,.method-grid article:hover{transform:none;box-shadow:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .flow-link i{animation:none!important}
+ .hero:before,.hero-art:before,.hero-art:after,.circuit-trace,.circuit-node,.system-map:before{animation:none!important}
+ .reveal{opacity:1!important;transform:none!important}
+ *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Gabriel Ioryem","jobTitle":"Electrical Engineer and Founder & CEO","url":"https://gabriel-ioryem.vercel.app/","email":"mailto:info@kellelectricals.com","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Madonna University Nigeria"},"worksFor":{"@type":"Organization","name":"Kell Electricals Ltd","url":"https://kellelectricals.com"}}</script>\n
   <style id="editorial-motion-layer">
@@ -351,6 +462,8 @@ body{background:var(--paper);color:var(--ink)}
         </div>
       </div>
     
+</section>
+
 <section class="content-section command-centre" id="command-centre">
   <div class="shell">
     <div class="section-grid command-intro">
@@ -403,8 +516,6 @@ body{background:var(--paper);color:var(--ink)}
     </div>
     <p class="knowledge-footnote">Technical explanations are general engineering principles. Final selection and compliance checks must be based on the site, applicable standards and verified calculations.</p>
   </div>
-</section>
-
 </section>
 
 <section class="content-section method" id="method"><div class="shell"><p class="section-label">05 / How I work</p><h2 class="section-title">From understanding the problem to proving the solution.</h2><p class="method-intro">A disciplined process helps turn requirements into systems that are safe, practical and ready for everyday use.</p><div class="method-grid">
