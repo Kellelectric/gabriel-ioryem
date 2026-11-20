@@ -486,7 +486,7 @@ html{scroll-padding-top:88px}
         <div class="flow-link"><i></i></div>
         <article class="flow-node active" data-flow="loads"><span>04 / OUTPUT</span><b>Essential loads</b><small>Prioritised circuits</small><div class="flow-icon">⌂</div></article>
       </div>
-      <div class="command-readout">
+      <div class="command-readout" aria-live="polite" aria-atomic="true">
         <div><span class="readout-label">SELECTED OPERATING MODE</span><strong id="mode-title">Balanced supply</strong><p id="mode-description">The available sources share the demand according to system settings, battery state and operating limits.</p></div>
         <div class="readout-facts"><div><small>POWER PRIORITY</small><b id="priority-value">Grid + PV</b></div><div><small>BATTERY ROLE</small><b id="battery-value">Charge / support</b></div><div><small>DESIGN FOCUS</small><b id="focus-value">Efficiency &amp; continuity</b></div></div>
       </div>
@@ -501,13 +501,13 @@ html{scroll-padding-top:88px}
       <div class="section-copy"><p class="lead">Good engineering is not simply the installation of equipment. It is the reasoning that determines what should be installed, how it should be protected and how it will perform.</p><p>Select a topic to explore the principles I consider when assessing and developing electrical systems.</p></div>
     </div>
     <div class="knowledge-layout">
-      <div class="knowledge-tabs" role="tablist" aria-label="Engineering topics">
-        <button type="button" class="knowledge-tab active" role="tab" aria-selected="true" data-topic="protection"><span>01</span> Electrical protection <b>↗</b></button>
-        <button type="button" class="knowledge-tab" role="tab" aria-selected="false" data-topic="load"><span>02</span> Load assessment <b>↗</b></button>
-        <button type="button" class="knowledge-tab" role="tab" aria-selected="false" data-topic="solar"><span>03</span> Solar system sizing <b>↗</b></button>
-        <button type="button" class="knowledge-tab" role="tab" aria-selected="false" data-topic="distribution"><span>04</span> Power distribution <b>↗</b></button>
+      <div class="knowledge-tabs" role="tablist" aria-label="Engineering topics" aria-orientation="vertical">
+        <button type="button" id="topic-tab-protection" class="knowledge-tab active" role="tab" aria-selected="true" aria-controls="knowledge-panel" tabindex="0" data-topic="protection"><span>01</span> Electrical protection <b>↗</b></button>
+        <button type="button" id="topic-tab-load" class="knowledge-tab" role="tab" aria-selected="false" aria-controls="knowledge-panel" tabindex="-1" data-topic="load"><span>02</span> Load assessment <b>↗</b></button>
+        <button type="button" id="topic-tab-solar" class="knowledge-tab" role="tab" aria-selected="false" aria-controls="knowledge-panel" tabindex="-1" data-topic="solar"><span>03</span> Solar system sizing <b>↗</b></button>
+        <button type="button" id="topic-tab-distribution" class="knowledge-tab" role="tab" aria-selected="false" aria-controls="knowledge-panel" tabindex="-1" data-topic="distribution"><span>04</span> Power distribution <b>↗</b></button>
       </div>
-      <article class="knowledge-detail" aria-live="polite">
+      <article class="knowledge-detail" id="knowledge-panel" role="tabpanel" aria-labelledby="topic-tab-protection" tabindex="0" aria-live="polite">
         <div class="knowledge-detail-top"><span id="topic-number">ENGINEERING NOTE / 01</span><span class="knowledge-symbol" id="topic-symbol">⌁</span></div>
         <h3 id="topic-title">Protection begins with understanding the fault.</h3>
         <p id="topic-copy">Electrical protection is a coordinated system of devices and design decisions. Circuit breakers, fuses, residual-current protection and earthing arrangements must be selected for the installation, not simply chosen by rating.</p>
@@ -518,19 +518,19 @@ html{scroll-padding-top:88px}
   </div>
 </section>
 
-<section class="content-section method" id="method"><div class="shell"><p class="section-label">05 / How I work</p><h2 class="section-title">From understanding the problem to proving the solution.</h2><p class="method-intro">A disciplined process helps turn requirements into systems that are safe, practical and ready for everyday use.</p><div class="method-grid">
+<section class="content-section method" id="method"><div class="shell"><p class="section-label">07 / How I work</p><h2 class="section-title">From understanding the problem to proving the solution.</h2><p class="method-intro">A disciplined process helps turn requirements into systems that are safe, practical and ready for everyday use.</p><div class="method-grid">
 <article><span>01</span><h3>Understand</h3><p>Listen, clarify objectives and understand how the space or operation is used.</p></article><article><span>02</span><h3>Assess</h3><p>Review existing conditions, site constraints, loads, risks and technical requirements.</p></article><article><span>03</span><h3>Plan</h3><p>Develop a considered scope, select appropriate system approaches and coordinate resources.</p></article><article><span>04</span><h3>Execute</h3><p>Coordinate implementation with attention to safety and workmanship.</p></article><article><span>05</span><h3>Test</h3><p>Inspect, verify and test relevant functions before handover.</p></article><article><span>06</span><h3>Support</h3><p>Provide clear handover information and consider maintainability and ongoing support.</p></article></div></div></section>
-<section class="content-section capabilities" id="sectors"><div class="shell section-grid"><div><p class="section-label">06 / Where I add value</p><h2 class="section-title">Engineering for the places people live and work.</h2></div><div class="sector-list">
+<section class="content-section capabilities" id="sectors"><div class="shell section-grid"><div><p class="section-label">08 / Where I add value</p><h2 class="section-title">Engineering for the places people live and work.</h2></div><div class="sector-list">
 <article><span>01</span><div><h3>Residential environments</h3><p>Electrical infrastructure, backup power, solar and storage, smart home systems and security.</p></div></article>
 <article><span>02</span><div><h3>Commercial properties</h3><p>Electrical installations, power continuity, lighting, access control and building technology.</p></div></article>
 <article><span>03</span><div><h3>Industrial and operational sites</h3><p>Power distribution, machinery supplies, fault investigation and operational continuity.</p></div></article>
 <article><span>04</span><div><h3>Institutions and organisations</h3><p>Practical engineering services aligned with site requirements, safety and operational needs.</p></div></article></div></div></section>
-<section class="content-section portfolio" id="projects"><div class="shell"><div class="portfolio-top"><div><p class="section-label">07 / Project experience</p><h2 class="section-title">Explore the thinking behind integrated engineering systems.</h2></div><div class="portfolio-copy"><p>Illustrative engineering case studies demonstrating challenges and system considerations. These are examples, not claims of specific client commissions.</p></div></div><div class="project-feature-grid">
+<section class="content-section portfolio" id="projects"><div class="shell"><div class="portfolio-top"><div><p class="section-label">09 / Project experience</p><h2 class="section-title">Explore the thinking behind integrated engineering systems.</h2></div><div class="portfolio-copy"><p>Illustrative engineering case studies demonstrating challenges and system considerations. These are examples, not claims of specific client commissions.</p></div></div><div class="project-feature-grid">
 <a class="project-feature" href="/projects/residential-electrical-installation/"><span class="project-kicker">01 / ELECTRICAL INFRASTRUCTURE</span><h3>Residential electrical installation</h3><p>Planning circuits, distribution, protection and maintainability.</p><span class="project-link">Explore case study ↗</span></a>
 <a class="project-feature" href="/projects/hybrid-solar-battery-storage/"><span class="project-kicker">02 / ENERGY SYSTEMS</span><h3>Hybrid solar &amp; battery storage</h3><p>Considering demand, solar generation, storage and backup operation.</p><span class="project-link">Explore case study ↗</span></a>
 <a class="project-feature" href="/projects/commercial-electrical-upgrade/"><span class="project-kicker">03 / COMMERCIAL SYSTEMS</span><h3>Commercial electrical upgrade</h3><p>Improving existing infrastructure with capacity, safety and continuity in mind.</p><span class="project-link">Explore case study ↗</span></a></div><div class="portfolio-foot"><span>More scenarios across security, automation, power quality and backup power.</span><a class="button" href="/projects/">View all case studies ↗</a></div></div></section>
 
-    <section class="gallery-section" id="project-gallery"><div class="shell"><div class="gallery-head"><div><p class="section-label">Field notes / visual archive</p><h2 class="section-title">Engineering, shown through the work.</h2></div><p>A curated record of real installations, site conditions, technical details and completed work. These frames are reserved for original photographs supplied for publication.</p></div><div class="gallery-grid"><article class="gallery-slot"><b>01 / ELECTRICAL INSTALLATION</b><strong>Distribution &amp; building services</strong><span>Reserved for genuine panel, containment, wiring and installation photographs.</span></article><article class="gallery-slot"><b>02 / SOLAR &amp; STORAGE</b><strong>Energy systems in practice</strong><span>Reserved for actual PV arrays, inverter rooms, battery banks and commissioning images.</span></article><article class="gallery-slot"><b>03 / CONTROL &amp; SECURITY</b><strong>Integrated systems</strong><span>Reserved for real automation, CCTV, access control and control-panel photographs.</span></article></div><p class="gallery-note">Photography placeholders only. No stock images or generated images are presented as Kell Electricals project evidence.</p></div></section><section class="content-section milestones" id="milestones"><div class="shell"><p class="section-label">08 / Milestones &amp; professional contribution</p><h2 class="section-title">Building capability through consistent engineering practice.</h2><p class="milestone-intro">A snapshot of the foundations and responsibilities that shape my work. These are professional milestones, not awards or unverified project claims.</p><div class="milestone-grid">
+    <section class="gallery-section" id="project-gallery"><div class="shell"><div class="gallery-head"><div><p class="section-label">10 / Field notes &amp; visual archive</p><h2 class="section-title">Engineering, shown through the work.</h2></div><p>A curated record of real installations, site conditions, technical details and completed work. These frames are reserved for original photographs supplied for publication.</p></div><div class="gallery-grid"><article class="gallery-slot"><b>01 / ELECTRICAL INSTALLATION</b><strong>Distribution &amp; building services</strong><span>Reserved for genuine panel, containment, wiring and installation photographs.</span></article><article class="gallery-slot"><b>02 / SOLAR &amp; STORAGE</b><strong>Energy systems in practice</strong><span>Reserved for actual PV arrays, inverter rooms, battery banks and commissioning images.</span></article><article class="gallery-slot"><b>03 / CONTROL &amp; SECURITY</b><strong>Integrated systems</strong><span>Reserved for real automation, CCTV, access control and control-panel photographs.</span></article></div><p class="gallery-note">Photography placeholders only. No stock images or generated images are presented as Kell Electricals project evidence.</p></div></section><section class="content-section milestones" id="milestones"><div class="shell"><p class="section-label">11 / Milestones &amp; professional contribution</p><h2 class="section-title">Building capability through consistent engineering practice.</h2><p class="milestone-intro">A snapshot of the foundations and responsibilities that shape my work. These are professional milestones, not awards or unverified project claims.</p><div class="milestone-grid">
 <article><span>2010</span><h3>Founded an engineering services business</h3><p>Established Kell Electricals, growing a platform for electrical and technical services in Abuja, Nigeria.</p></article>
 <article><span>15+ YEARS</span><h3>Long-term industry practice</h3><p>More than fifteen years working across electrical engineering, power solutions and technical service delivery.</p></article>
 <article><span>B.ENG.</span><h3>Formal engineering education</h3><p>Electrical and Electronics Engineering, Madonna University, Nigeria.</p></article>
@@ -538,7 +538,7 @@ html{scroll-padding-top:88px}
 </div><div class="milestone-note"><strong>Professional focus</strong><span>Safety · Technical accuracy · Quality workmanship · Maintainability · Accountability</span></div></div></section>
     <section class="content-section" id="principles">
       <div class="shell">
-        <p class="section-label">09 / Working principles</p><h2 class="section-title">The standard behind every decision.</h2>
+        <p class="section-label">12 / Working principles</p><h2 class="section-title">The standard behind every decision.</h2>
         <div class="principles">
           <div class="principle"><strong>Safety</strong><span>Protecting people, property and the integrity of every system.</span></div>
           <div class="principle"><strong>Accuracy</strong><span>Making decisions from sound assessment and technical evidence.</span></div>
@@ -550,7 +550,7 @@ html{scroll-padding-top:88px}
 
     <section class="content-section contact" id="contact">
       <div class="shell section-grid">
-        <div><p class="section-label">10 / Contact</p><h2 class="section-title">Good work begins with a thoughtful conversation.</h2></div>
+        <div><p class="section-label">13 / Contact</p><h2 class="section-title">Good work begins with a thoughtful conversation.</h2></div>
         <div class="section-copy">
           <p class="lead">For engineering enquiries, partnerships and professional conversations, connect through Kell Electricals Ltd.</p>
           <div class="contact-card"><div><p>Professional &amp; business enquiries</p><a href="mailto:info@kellelectricals.com">info@kellelectricals.com</a></div><div class="contact-actions"><a class="button primary" href="https://kellelectricals.com/book-appointment">Book a conversation ↗</a><a class="button secondary" href="https://kellelectricals.com/client-quote-request">Request a project quote ↗</a></div></div><p class="contact-note">For personal professional enquiries, partnerships or speaking opportunities, use the form below or email directly.</p><form class="contact-form" id="professional-enquiry"><h3>Start a conversation</h3><p>Share a little context and your email application will open with a prepared enquiry addressed to the Kell Electricals team.</p><div class="form-grid"><div class="form-field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" autocomplete="name" required></div><div class="form-field"><label for="enquiry-email">Email address</label><input id="enquiry-email" name="email" type="email" autocomplete="email" required></div><div class="form-field full"><label for="enquiry-type">Enquiry type</label><select id="enquiry-type" name="type" required><option value="">Select an enquiry type</option><option>Professional collaboration</option><option>Speaking or media</option><option>Engineering project</option><option>Business partnership</option><option>Other</option></select></div><div class="form-field full"><label for="enquiry-message">How can I help?</label><textarea id="enquiry-message" name="message" required></textarea></div></div><button class="form-submit" type="submit">Prepare enquiry ↗</button><p class="form-disclaimer">This form prepares an email on your device. It does not transmit or store information on this website.</p></form><a class="cv-inline" href="/cv/">Read my professional profile and print a CV ↗</a>
@@ -560,7 +560,7 @@ html{scroll-padding-top:88px}
     </section>
   </main>
 
-<section class="content-section faq" id="questions"><div class="shell section-grid"><div><p class="section-label">11 / A few useful details</p><h2 class="section-title">Questions visitors often ask.</h2></div><div class="faq-list">
+<section class="content-section faq" id="questions"><div class="shell section-grid"><div><p class="section-label">14 / A few useful details</p><h2 class="section-title">Questions visitors often ask.</h2></div><div class="faq-list">
 <details><summary>What is your professional background?</summary><p>I have a B.Eng. in Electrical and Electronics Engineering from Madonna University, Nigeria, and more than 15 years of experience in the electrical engineering and technical services field.</p></details>
 <details><summary>What is your role at Kell Electricals Ltd?</summary><p>I am the Founder and CEO, providing leadership and oversight across the business and its engineering service delivery.</p></details>
 <details><summary>What areas of engineering do you work across?</summary><p>Electrical systems, solar and battery storage, building services, automation, security systems, generator integration and power continuity.</p></details>
@@ -596,15 +596,29 @@ html{scroll-padding-top:88px}
   solar:{number:"ENGINEERING NOTE / 03",symbol:"☼",title:"Solar sizing is a balance of demand and resource.",copy:"A practical solar design considers daily energy use, peak demand, available roof area, solar resource, battery autonomy, inverter capability and the operating profile of the site. A panel count alone is not a system design.",points:["Daily energy consumption","PV yield and orientation","Battery autonomy and inverter capacity"]},
   distribution:{number:"ENGINEERING NOTE / 04",symbol:"⇄",title:"Distribution must remain safe, clear and maintainable.",copy:"A good distribution arrangement separates circuits logically, provides suitable isolation and protection, manages cable capacity and voltage drop, and leaves clear documentation for testing, fault-finding and future changes.",points:["Circuit schedules and segregation","Cable sizing and voltage drop","Labelling, access and documentation"]}
  };
- document.querySelectorAll("[data-topic]").forEach(button=>button.addEventListener("click",()=>{
+ const topicTabs=[...document.querySelectorAll("[data-topic]")];
+ const activateTopic=button=>{
   const t=topics[button.dataset.topic];if(!t)return;
-  document.querySelectorAll("[data-topic]").forEach(b=>{const active=b===button;b.classList.toggle("active",active);b.setAttribute("aria-selected",String(active));});
+  topicTabs.forEach(b=>{const active=b===button;b.classList.toggle("active",active);b.setAttribute("aria-selected",String(active));b.tabIndex=active?0:-1;});
+  document.getElementById("knowledge-panel").setAttribute("aria-labelledby",button.id);
   document.getElementById("topic-number").textContent=t.number;
   document.getElementById("topic-symbol").textContent=t.symbol;
   document.getElementById("topic-title").textContent=t.title;
   document.getElementById("topic-copy").textContent=t.copy;
   const points=document.getElementById("topic-points");points.replaceChildren(...t.points.map(p=>{const span=document.createElement("span");span.textContent=p;return span;}));
- }));
+ };
+ topicTabs.forEach((button,index)=>{
+  button.addEventListener("click",()=>activateTopic(button));
+  button.addEventListener("keydown",event=>{
+   let next=index;
+   if(event.key==="ArrowDown"||event.key==="ArrowRight")next=(index+1)%topicTabs.length;
+   else if(event.key==="ArrowUp"||event.key==="ArrowLeft")next=(index-1+topicTabs.length)%topicTabs.length;
+   else if(event.key==="Home")next=0;
+   else if(event.key==="End")next=topicTabs.length-1;
+   else return;
+   event.preventDefault();topicTabs[next].focus();activateTopic(topicTabs[next]);
+  });
+ });
 })();
 </script>
 
