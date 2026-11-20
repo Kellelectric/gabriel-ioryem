@@ -101,6 +101,21 @@
     @media(max-width:390px){.nav{gap:10px}.nav .nav-cta{font-size:9px}.image-wrap{aspect-ratio:1.5}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
   
+
+    .project-tools{display:grid;grid-template-columns:1fr minmax(220px,300px);gap:18px;align-items:center;margin:28px 0 18px}
+    .filter-list{display:flex;flex-wrap:wrap;gap:8px}
+    .filter-button{appearance:none;border:1px solid rgba(218,209,187,.24);background:#14221c;color:#cbd3cc;padding:9px 12px;font:600 9px/1.2 var(--sans);letter-spacing:.045em;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+    .filter-button:hover,.filter-button[aria-pressed=true]{background:#c6a972;border-color:#c6a972;color:#0b1210}
+    .project-search{width:100%;min-height:40px;border:1px solid rgba(218,209,187,.24);background:#101a15;color:#f1f0e9;padding:10px 13px;font:11px var(--sans);border-radius:0}
+    .project-search::placeholder{color:#87948a}
+    .project-search:focus-visible,.filter-button:focus-visible{outline:2px solid #c6a972;outline-offset:3px}
+    .results-line{display:flex;justify-content:space-between;gap:16px;margin:0 0 18px;color:#9eaaa1;font-size:10px}
+    .results-line strong{color:#e2c99b;font-weight:600}
+    .project-card[hidden]{display:none}
+    .no-results{display:none;padding:35px 20px;border:1px solid var(--line);color:#b8c2ba;text-align:center;font-size:12px}
+    .no-results.is-visible{display:block}
+    @media(max-width:760px){.project-tools{grid-template-columns:1fr;gap:13px}.filter-list{gap:6px}.filter-button{padding:9px 10px}.results-line{font-size:9px}}
+
 /* Dark editorial system matching the Gabriel Ioryem homepage */
 :root{--forest:#e2c99b;--deep:#07110d;--gold:#c6a972;--paper:#0b1210;--warm:#14221c;--ink:#f1f0e9;--muted:#a8b2aa;--line:rgba(218,209,187,.16);--white:#14221c;color-scheme:dark}
 html,body{background:#0b1210;color:#f1f0e9}
@@ -187,47 +202,63 @@ footer{border-color:var(--line)}
         <p class="section-note">Select a discipline to explore the challenge, engineering approach and key technical considerations.</p>
       </div>
 
-      <div class="project-grid">
-        <a class="project-card" href="/projects/residential-electrical-installation/">
+      <div class="project-tools" aria-label="Filter engineering case studies">
+        <div class="filter-list" role="group" aria-label="Filter by engineering discipline">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All disciplines</button>
+          <button class="filter-button" type="button" data-filter="residential" aria-pressed="false">Residential</button>
+          <button class="filter-button" type="button" data-filter="solar" aria-pressed="false">Solar &amp; storage</button>
+          <button class="filter-button" type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
+          <button class="filter-button" type="button" data-filter="industrial" aria-pressed="false">Industrial</button>
+          <button class="filter-button" type="button" data-filter="security" aria-pressed="false">Security</button>
+          <button class="filter-button" type="button" data-filter="power-quality" aria-pressed="false">Power quality</button>
+          <button class="filter-button" type="button" data-filter="automation" aria-pressed="false">Automation</button>
+          <button class="filter-button" type="button" data-filter="backup" aria-pressed="false">Backup power</button>
+        </div>
+        <label><span class="sr-only">Search case studies</span><input class="project-search" id="project-search" type="search" placeholder="Search systems, disciplines or topics…" autocomplete="off"></label>
+      </div>
+      <p class="results-line"><span id="results-count" role="status" aria-live="polite"><strong>8</strong> illustrative case studies</span><span>Filter by discipline or search a technical topic</span></p>
+      <div class="project-grid" id="project-grid">
+        <a class="project-card" data-category="residential" data-search="01 / 08 residential engineering 01 residential electrical installation & power distribution planning circuits, distribution and protection around how a home is used, maintained and expected to grow. explore case study ↗" href="/projects/residential-electrical-installation/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=82" alt="Contemporary residential property"><span class="project-index">01 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Residential engineering</span><span class="card-no">01</span></div><h3 class="card-title">Residential Electrical Installation &amp; Power Distribution</h3><p class="card-copy">Planning circuits, distribution and protection around how a home is used, maintained and expected to grow.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/hybrid-solar-battery-storage/">
+        <a class="project-card" data-category="solar" data-search="02 / 08 renewable energy 02 hybrid solar power & battery storage sizing solar generation, inverter capacity and battery storage around real energy demand and backup expectations. explore case study ↗" href="/projects/hybrid-solar-battery-storage/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=82" alt="Solar panels under a clear sky"><span class="project-index">02 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Renewable energy</span><span class="card-no">02</span></div><h3 class="card-title">Hybrid Solar Power &amp; Battery Storage</h3><p class="card-copy">Sizing solar generation, inverter capacity and battery storage around real energy demand and backup expectations.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/commercial-electrical-upgrade/">
+        <a class="project-card" data-category="commercial" data-search="03 / 08 commercial engineering 03 commercial building electrical upgrade reviewing existing infrastructure and adapting power distribution to the demands of an evolving workplace. explore case study ↗" href="/projects/commercial-electrical-upgrade/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=82" alt="Modern commercial office interior"><span class="project-index">03 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Commercial engineering</span><span class="card-no">03</span></div><h3 class="card-title">Commercial Building Electrical Upgrade</h3><p class="card-copy">Reviewing existing infrastructure and adapting power distribution to the demands of an evolving workplace.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/industrial-machinery-power/">
+        <a class="project-card" data-category="industrial" data-search="04 / 08 industrial engineering 04 industrial machinery power & distribution considering machine starting characteristics, load behaviour, protection and the realities of plant operation. explore case study ↗" href="/projects/industrial-machinery-power/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=82" alt="Engineer inspecting industrial equipment"><span class="project-index">04 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Industrial engineering</span><span class="card-no">04</span></div><h3 class="card-title">Industrial Machinery Power &amp; Distribution</h3><p class="card-copy">Considering machine starting characteristics, load behaviour, protection and the realities of plant operation.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/cctv-access-control/">
+        <a class="project-card" data-category="security" data-search="05 / 08 security systems 05 cctv surveillance & access control designing useful camera coverage, controlled entry and a practical approach to recording and system access. explore case study ↗" href="/projects/cctv-access-control/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=82" alt="Security camera mounted on a building"><span class="project-index">05 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Security systems</span><span class="card-no">05</span></div><h3 class="card-title">CCTV Surveillance &amp; Access Control</h3><p class="card-copy">Designing useful camera coverage, controlled entry and a practical approach to recording and system access.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/electrical-fault-power-quality/">
+        <a class="project-card" data-category="power-quality" data-search="06 / 08 testing & maintenance 06 electrical fault diagnosis & power quality tracing recurring faults methodically, checking system performance and addressing causes rather than symptoms. explore case study ↗" href="/projects/electrical-fault-power-quality/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=82" alt="Electrical engineer working with test equipment"><span class="project-index">06 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Testing &amp; maintenance</span><span class="card-no">06</span></div><h3 class="card-title">Electrical Fault Diagnosis &amp; Power Quality</h3><p class="card-copy">Tracing recurring faults methodically, checking system performance and addressing causes rather than symptoms.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/smart-building-automation/">
+        <a class="project-card" data-category="automation" data-search="07 / 08 building automation 07 smart building & home automation bringing lighting, comfort and control functions together in a system that remains practical to operate. explore case study ↗" href="/projects/smart-building-automation/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1200&q=82" alt="Modern smart home lighting and automation"><span class="project-index">07 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Building automation</span><span class="card-no">07</span></div><h3 class="card-title">Smart Building &amp; Home Automation</h3><p class="card-copy">Bringing lighting, comfort and control functions together in a system that remains practical to operate.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
 
-        <a class="project-card" href="/projects/generator-automatic-transfer/">
+        <a class="project-card" data-category="backup" data-search="08 / 08 backup power 08 generator integration & automatic transfer coordinating standby generation, source transfer, interlocking and protection for continuity of supply. explore case study ↗" href="/projects/generator-automatic-transfer/">
           <div class="image-wrap"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=82" alt="Electrical power equipment in an industrial setting"><span class="project-index">08 / 08</span></div>
           <div class="card-content"><div class="card-meta"><span class="category">Backup power</span><span class="card-no">08</span></div><h3 class="card-title">Generator Integration &amp; Automatic Transfer</h3><p class="card-copy">Coordinating standby generation, source transfer, interlocking and protection for continuity of supply.</p><span class="card-link">Explore case study <span aria-hidden="true">↗</span></span></div>
         </a>
       </div>
+      <div class="no-results" id="no-results">No case studies match that search. Try another term or select “All disciplines”.</div>
     </section>
 
     <section class="closing" aria-label="Project enquiry">
@@ -245,5 +276,41 @@ footer{border-color:var(--line)}
       <span><a href="https://kellelectricals.com">Kell Electricals Ltd</a> · Engineering Trust. Powering Lives.</span>
     </div>
   </footer>
+
+<script>
+(() => {
+  const cards = Array.from(document.querySelectorAll('.project-card'));
+  const filters = Array.from(document.querySelectorAll('.filter-button'));
+  const search = document.getElementById('project-search');
+  const count = document.getElementById('results-count');
+  const empty = document.getElementById('no-results');
+  if (!cards.length || !search || !count || !empty) return;
+  let active = 'all';
+  const apply = () => {
+    const query = search.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const categoryMatch = active === 'all' || card.dataset.category === active;
+      const searchMatch = !query || (card.dataset.search + ' ' + card.dataset.category).includes(query);
+      const show = categoryMatch && searchMatch;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    count.innerHTML = '<strong>' + visible + '</strong> of <strong>' + cards.length + '</strong> illustrative case studies';
+    empty.classList.toggle('is-visible', visible === 0);
+  };
+  filters.forEach(button => button.addEventListener('click', () => {
+    active = button.dataset.filter;
+    filters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    apply();
+  }));
+  search.addEventListener('input', apply);
+  search.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { search.value = ''; apply(); }
+  });
+  apply();
+})();
+</script>
+
 </body>
 </html>
