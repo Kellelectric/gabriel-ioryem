@@ -1196,6 +1196,19 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
 }
 @media(prefers-reduced-motion:reduce){.primary-nav a,.primary-nav a:after,.site-menu-toggle span{transition:none}}
 </style>
+
+<style id="selected-project-references">
+.reference-section{background:#f0ebe3}
+.reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:42px;background:#d8d0c3;border:1px solid #d8d0c3}
+.reference-card{display:flex;min-height:218px;flex-direction:column;padding:27px;background:#f7f4ef}
+.reference-card .reference-sector{color:#13322c;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.reference-card h3{margin:35px 0 7px;color:#13322c;font:500 31px/1.05 var(--serif)}
+.reference-card p{margin:0;color:#606a63;font-size:12px}
+.reference-card small{margin-top:auto;padding-top:24px;color:#7a817b;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.reference-disclosure{max-width:760px;margin:20px 0 0;color:#68716b;font-size:11px;line-height:1.8}
+@media(max-width:850px){.reference-grid{grid-template-columns:1fr 1fr}.reference-card:last-child{grid-column:1/-1}}
+@media(max-width:680px){.reference-grid{grid-template-columns:1fr}.reference-card:last-child{grid-column:auto}.reference-card{min-height:190px;padding:23px}.reference-card h3{margin-top:25px}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -1206,7 +1219,7 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
         <a href="#about">Profile</a>
         <a href="#expertise">Expertise</a>
         <a href="#command-centre">Systems</a>
-        <a href="/projects/">Projects</a>
+        <a href="#project-references">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="header-contact" href="#contact">Let’s connect <span>↗</span></a>
@@ -1371,16 +1384,31 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
     </div>
   </div>
 </section>
-<section class="content-section portfolio" id="projects"><div class="shell"><div class="portfolio-top"><div><p class="section-label">09 / Project experience</p><h2 class="section-title">Explore the thinking behind integrated engineering systems.</h2></div><div class="portfolio-copy"><p>Illustrative engineering technical notes demonstrating challenges and system considerations. These are examples, not claims of specific client commissions.</p></div></div><div class="project-feature-grid">
+
+<section class="content-section reference-section" id="project-references">
+  <div class="shell">
+    <div class="section-grid">
+      <div><p class="section-label">09 / Selected project references</p><h2 class="section-title">Engineering work connected to real places.</h2></div>
+      <div class="section-copy"><p class="lead">A selection of residential and institutional project references in Abuja.</p><p>These entries identify the project and location only. Detailed work scopes, engineering decisions, equipment schedules, testing records and outcomes will be added when the supporting project documentation has been verified.</p></div>
+    </div>
+    <div class="reference-grid">
+      <article class="reference-card"><span class="reference-sector">Residential development</span><h3>Paradise Phase 1</h3><p>Life Camp, Abuja, Nigeria</p><small>Selected project reference</small></article>
+      <article class="reference-card"><span class="reference-sector">Residential development</span><h3>Drol Apartments</h3><p>Jahi, Abuja, Nigeria</p><small>Selected project reference</small></article>
+      <article class="reference-card"><span class="reference-sector">Institutional facility</span><h3>CBN Multipurpose Cooperative</h3><p>Garki II, Abuja, Nigeria</p><small>Selected project reference</small></article>
+    </div>
+    <p class="reference-disclosure">Project references are presented separately from the illustrative engineering scenarios and technical notes below. No unverified project specifications, performance claims or client information are implied.</p>
+  </div>
+</section>
+\n<section class="content-section portfolio" id="projects"><div class="shell"><div class="portfolio-top"><div><p class="section-label">10 / Illustrative engineering scenarios</p><h2 class="section-title">Explore the thinking behind integrated engineering systems.</h2></div><div class="portfolio-copy"><p>Illustrative engineering technical notes demonstrating challenges and system considerations. These are examples, not claims of specific client commissions.</p></div></div><div class="project-feature-grid">
 <a class="project-feature" href="/projects/residential-electrical-installation/"><span class="project-kicker">01 / ELECTRICAL INFRASTRUCTURE</span><h3>Residential electrical installation</h3><p>Planning circuits, distribution, protection and maintainability.</p><span class="project-link">Explore technical note ↗</span></a>
 <a class="project-feature" href="/projects/hybrid-solar-battery-storage/"><span class="project-kicker">02 / ENERGY SYSTEMS</span><h3>Hybrid solar &amp; battery storage</h3><p>Considering demand, solar generation, storage and backup operation.</p><span class="project-link">Explore technical note ↗</span></a>
 <a class="project-feature" href="/projects/commercial-electrical-upgrade/"><span class="project-kicker">03 / COMMERCIAL SYSTEMS</span><h3>Commercial electrical upgrade</h3><p>Improving existing infrastructure with capacity, safety and continuity in mind.</p><span class="project-link">Explore technical note ↗</span></a></div><div class="portfolio-foot"><span>More scenarios across security, automation, power quality and backup power.</span><a class="button" href="/projects/">View all technical notes ↗</a></div></div></section>
 
-    <section class="gallery-section" id="project-gallery"><div class="shell"><div class="gallery-head"><div><p class="section-label">10 / Field notes &amp; visual archive</p><h2 class="section-title">Engineering, shown through the work.</h2></div><p>A curated record of real installations, site conditions, technical details and completed work. These frames are reserved for original photographs supplied for publication.</p></div><div class="gallery-grid">
+    <section class="gallery-section" id="project-gallery"><div class="shell"><div class="gallery-head"><div><p class="section-label">11 / Field notes &amp; visual archive</p><h2 class="section-title">Engineering, shown through the work.</h2></div><p>A curated record of real installations, site conditions, technical details and completed work. These frames are reserved for original photographs supplied for publication.</p></div><div class="gallery-grid">
 <article class="gallery-card"><div class="gallery-visual distribution-visual" aria-hidden="true"><span class="visual-code">SINGLE-LINE / 01</span><svg viewBox="0 0 420 230" role="presentation"><path d="M210 25V65M210 65H92V102M210 65V102M210 65H328V102M92 144V182H328V144M210 182V205" /><rect x="160" y="7" width="100" height="34" rx="2"/><rect x="45" y="102" width="94" height="42" rx="2"/><rect x="163" y="102" width="94" height="42" rx="2"/><rect x="281" y="102" width="94" height="42" rx="2"/><circle cx="210" cy="182" r="7"/></svg><div class="visual-labels"><span>SUPPLY</span><span>MAIN DB</span><span>FINAL CIRCUITS</span></div></div><div class="gallery-card-copy"><b>01 / ELECTRICAL INFRASTRUCTURE</b><h3>Distribution &amp; building services</h3><p>Conceptual view of how supply, distribution and final circuits connect within a building.</p><span class="illustration-note">TECHNICAL ILLUSTRATION · NOT A SITE PHOTOGRAPH</span></div></article>
 <article class="gallery-card"><div class="gallery-visual solar-visual" aria-hidden="true"><span class="visual-code">ENERGY FLOW / 02</span><svg viewBox="0 0 420 230" role="presentation"><path d="M74 112H144M276 112H346M210 45V82M210 142V183" /><rect x="20" y="82" width="54" height="60" rx="2"/><path d="M29 96H65M29 108H65M29 120H65M47 88V136" /><rect x="144" y="82" width="132" height="60" rx="3"/><path d="M165 98H255M165 112H255M165 126H225" /><rect x="346" y="82" width="54" height="60" rx="2"/><path d="M355 98H391M355 112H391M355 126H391" /><rect x="164" y="183" width="92" height="34" rx="2"/><path d="M177 194H243M177 205H243" /></svg><div class="visual-labels"><span>PV / GRID</span><span>INVERTER</span><span>LOAD</span></div></div><div class="gallery-card-copy"><b>02 / POWER CONTINUITY</b><h3>Solar, storage &amp; backup</h3><p>An explanatory energy pathway connecting generation, conversion, storage and essential loads.</p><span class="illustration-note">TECHNICAL ILLUSTRATION · NOT A SITE PHOTOGRAPH</span></div></article>
 <article class="gallery-card"><div class="gallery-visual control-visual" aria-hidden="true"><span class="visual-code">CONTROL LAYER / 03</span><svg viewBox="0 0 420 230" role="presentation"><rect x="140" y="18" width="140" height="55" rx="3"/><rect x="35" y="146" width="100" height="48" rx="3"/><rect x="160" y="146" width="100" height="48" rx="3"/><rect x="285" y="146" width="100" height="48" rx="3"/><path d="M210 73V108H85V146M210 108V146M210 108H335V146"/><circle cx="210" cy="108" r="5"/><path d="M157 40H263M157 52H230M52 163H118M52 176H105M177 163H243M177 176H230M302 163H368M302 176H355"/></svg><div class="visual-labels"><span>CONTROL</span><span>SECURITY</span><span>MONITORING</span></div></div><div class="gallery-card-copy"><b>03 / AUTOMATION &amp; SECURITY</b><h3>Connected control systems</h3><p>A simplified representation of control, access, monitoring and security subsystems.</p><span class="illustration-note">TECHNICAL ILLUSTRATION · NOT A SITE PHOTOGRAPH</span></div></article>
-</div><p class="gallery-note">These diagrams explain engineering concepts. Original project photographs can be added when approved site images are available.</p></div></section><section class="content-section milestones" id="milestones"><div class="shell"><p class="section-label">11 / Milestones &amp; professional contribution</p><h2 class="section-title">Building capability through consistent engineering practice.</h2><p class="milestone-intro">A snapshot of the foundations and responsibilities that shape my work. These are professional milestones, not awards or unverified project claims.</p><div class="milestone-grid">
+</div><p class="gallery-note">These diagrams explain engineering concepts. Original project photographs can be added when approved site images are available.</p></div></section><section class="content-section milestones" id="milestones"><div class="shell"><p class="section-label">12 / Milestones &amp; professional contribution</p><h2 class="section-title">Building capability through consistent engineering practice.</h2><p class="milestone-intro">A snapshot of the foundations and responsibilities that shape my work. These are professional milestones, not awards or unverified project claims.</p><div class="milestone-grid">
 <article><span>2010</span><h3>Founded an engineering services business</h3><p>Established Kell Electricals, growing a platform for electrical and technical services in Abuja, Nigeria.</p></article>
 <article><span>15+ YEARS</span><h3>Long-term industry practice</h3><p>More than fifteen years working across electrical engineering, power solutions and technical service delivery.</p></article>
 <article><span>B.ENG.</span><h3>Formal engineering education</h3><p>Electrical and Electronics Engineering, Madonna University, Nigeria.</p></article>
@@ -1388,7 +1416,7 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
 </div><div class="milestone-note"><strong>Professional focus</strong><span>Safety · Technical accuracy · Quality workmanship · Maintainability · Accountability</span></div></div></section>
     <section class="content-section" id="principles">
       <div class="shell">
-        <p class="section-label">12 / Working principles</p><h2 class="section-title">The standard behind every decision.</h2>
+        <p class="section-label">13 / Working principles</p><h2 class="section-title">The standard behind every decision.</h2>
         <div class="principles">
           <div class="principle"><strong>Safety</strong><span>Protecting people, property and the integrity of every system.</span></div>
           <div class="principle"><strong>Accuracy</strong><span>Making decisions from sound assessment and technical evidence.</span></div>
@@ -1413,7 +1441,7 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
   </div>
 </section><section class="content-section contact" id="contact">
       <div class="shell section-grid">
-        <div><p class="section-label">13 / Contact</p><h2 class="section-title">Good work begins with a thoughtful conversation.</h2></div>
+        <div><p class="section-label">14 / Contact</p><h2 class="section-title">Good work begins with a thoughtful conversation.</h2></div>
         <div class="section-copy">
           <p class="lead">For engineering enquiries, partnerships and professional conversations, connect through Kell Electricals Ltd.</p>
           <div class="contact-card"><div><p>Professional &amp; business enquiries</p><a href="mailto:info@kellelectricals.com">info@kellelectricals.com</a></div><div class="contact-actions"><a class="button primary" href="https://kellelectricals.com/book-appointment">Book a conversation ↗</a><a class="button secondary" href="https://kellelectricals.com/client-quote-request">Request a project quote ↗</a></div></div><p class="contact-note">For personal professional enquiries, partnerships or speaking opportunities, use the form below or email directly.</p><form class="contact-form" id="professional-enquiry"><h3>Start a conversation</h3><p>Share a little context and your email application will open with a prepared enquiry addressed to the Kell Electricals team.</p><div class="form-grid"><div class="form-field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" autocomplete="name" required></div><div class="form-field"><label for="enquiry-email">Email address</label><input id="enquiry-email" name="email" type="email" autocomplete="email" required></div><div class="form-field full"><label for="enquiry-type">Enquiry type</label><select id="enquiry-type" name="type" required><option value="">Select an enquiry type</option><option>Professional collaboration</option><option>Speaking or media</option><option>Engineering project</option><option>Business partnership</option><option>Other</option></select></div><div class="form-field full"><label for="enquiry-message">How can I help?</label><textarea id="enquiry-message" name="message" required></textarea></div></div><button class="form-submit" type="submit">Prepare enquiry ↗</button><p class="form-disclaimer">This form prepares an email on your device. It does not transmit or store information on this website.</p></form><a class="cv-inline" href="/cv/">Read my professional profile and print a CV ↗</a>
@@ -1422,7 +1450,7 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
       </div>
     </section>
 
-    <section class="content-section faq" id="questions"><div class="shell section-grid"><div><p class="section-label">14 / A few useful details</p><h2 class="section-title">Questions visitors often ask.</h2></div><div class="faq-list">
+    <section class="content-section faq" id="questions"><div class="shell section-grid"><div><p class="section-label">15 / A few useful details</p><h2 class="section-title">Questions visitors often ask.</h2></div><div class="faq-list">
 <details><summary>What is your professional background?</summary><p>I have a B.Eng. in Electrical and Electronics Engineering from Madonna University, Nigeria, and more than 15 years of experience in the electrical engineering and technical services field.</p></details>
 <details><summary>What is your role at Kell Electricals Ltd?</summary><p>I am the Founder and CEO, providing leadership and oversight across the business and its engineering service delivery.</p></details>
 <details><summary>What areas of engineering do you work across?</summary><p>Electrical systems, solar and battery storage, building services, automation, security systems, generator integration and power continuity.</p></details>
