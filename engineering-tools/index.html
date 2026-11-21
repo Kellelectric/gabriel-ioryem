@@ -157,7 +157,9 @@
       const byId = id => document.getElementById(id);
       const read = id => Number(byId(id).value);
       const valid = (ids, predicate) => ids.every(id => {
-        const el = byId(id), n = Number(el.value), ok = el.value.trim() !== "" && Number.isFinite(n) && predicate(id, n);
+        const el = byId(id), n = Number(el.value);
+        const rangeError = el.validity.rangeUnderflow || el.validity.rangeOverflow || el.validity.badInput;
+        const ok = el.value.trim() !== "" && Number.isFinite(n) && !rangeError && predicate(id, n);
         el.setAttribute("aria-invalid", String(!ok));
         return ok;
       });
