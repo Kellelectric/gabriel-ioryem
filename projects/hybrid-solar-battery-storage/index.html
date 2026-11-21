@@ -150,6 +150,54 @@ section#command-centre :is(h1,h2,h3,h4),section#principles :is(h1,h2,h3,h4),sect
 .lab-footnote{margin:12px 0 0!important;color:#85938a!important;font-size:10px}
 @media(max-width:600px){.interactive-lab{padding:19px 14px}.lab-status{grid-template-columns:1fr}.flow-canvas{padding:6px}.flow-label{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.flow-line.active{animation:none}}
+
+
+/* Site-wide dark-green surface legibility and interaction contrast */
+:root{--contrast-forest:#13322c;--contrast-paper:#f4f5f2;--contrast-copy:#e5ece7;--contrast-muted:#c3d0c8;--contrast-orange:#e87532;--contrast-orange-hover:#cf5f24}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel){
+ background:var(--contrast-forest)!important;color:var(--contrast-paper)!important;border-color:rgba(229,236,231,.24)!important;
+}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel) :is(h1,h2,h3,h4,h5,strong,b,.eyebrow,.section-label){
+ color:#fff!important;
+}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel) :is(p,li,small,label,span,figcaption,.intro,.disclaimer,.footnote,.note){
+ color:var(--contrast-copy)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(button,[role="button"]){
+ color:#fff!important;border-color:rgba(229,236,231,.42)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(button[aria-pressed="true"],button[aria-selected="true"],button.active){
+ background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(button:hover,button:focus-visible){
+ border-color:var(--contrast-orange)!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail){
+ color:var(--contrast-copy)!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail) :is(h2,h3,h4,strong,b){
+ color:#fff!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail) :is(p,li,small,span,label){
+ color:var(--contrast-copy)!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail) a:not(.button){
+ color:#fff!important;text-decoration-color:rgba(255,255,255,.65);
+}
+body :is(.node-controls,.mode-controls,.upgrade-stages,.motor-controls,.security-controls,.fault-list,.auto-map,.ats-modes) button{
+ background:#24483f!important;color:#fff!important;border-color:rgba(229,236,231,.35)!important;
+}
+body :is(.node-controls,.mode-controls,.upgrade-stages,.motor-controls,.security-controls,.fault-list,.auto-map,.ats-modes) button[aria-pressed="true"]{
+ background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(.lab-footnote,.lab-note,.upgrade-note,.explorer-disclaimer,.security-footnote,.auto-note,.ats-disclaimer,.dist-note){
+ color:var(--contrast-muted)!important;
+}
+body :is(.actions,.actions a,.actions button){color:#fff!important}
+body :is(.actions a,.actions button){border-color:rgba(255,255,255,.55)!important}
+body :is(.actions a:hover,.actions button:hover){background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important}
+body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--contrast-orange)!important;outline-offset:3px}
+
 </style>
 <p class="lab-kicker">Interactive engineering visual</p>
 <h2 id="solar-lab-title">See how the power system responds.</h2>
