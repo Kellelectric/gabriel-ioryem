@@ -184,7 +184,8 @@ footer{border-color:var(--line)}
 .verified-card p,.verified-note{margin:0;color:#59665f;font-size:12px;line-height:1.7}
 .verified-note{margin-top:15px}
 @media(max-width:760px){.verified-grid{grid-template-columns:1fr}.verified-card{padding:18px}}
-.image-wrap.image-placeholder{display:grid;place-items:center;background:linear-gradient(135deg,#1a3026,#294638 58%,#3a5748);border-bottom:1px solid rgba(198,169,114,.25)}.image-wrap.image-placeholder:after{display:none}.placeholder-label{text-align:center;padding:20px;color:#d8e2da}.placeholder-label strong{display:block;font:500 clamp(23px,3vw,31px)/1.1 var(--serif);color:#f1eee5}.placeholder-label span{display:block;margin-top:9px;color:#c6a972;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}\n</style>
+.image-wrap.image-placeholder{display:grid;place-items:center;background:linear-gradient(135deg,#1a3026,#294638 58%,#3a5748);border-bottom:1px solid rgba(198,169,114,.25)}.image-wrap.image-placeholder:after{display:none}.placeholder-label{text-align:center;padding:20px;color:#d8e2da}.placeholder-label strong{display:block;font:500 clamp(23px,3vw,31px)/1.1 var(--serif);color:#f1eee5}.placeholder-label span{display:block;margin-top:9px;color:#c6a972;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}\n.skip-link{position:fixed;z-index:1000;top:10px;left:10px;padding:12px 16px;background:#13322c;color:#fff!important;border:2px solid #c4a574;transform:translateY(-160%);transition:transform .18s ease;font:700 13px/1.2 Inter,Arial,sans-serif}.skip-link:focus{transform:translateY(0);outline:3px solid #a83f0b;outline-offset:3px}#main-content{scroll-margin-top:24px}@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
+  </style>
 <style id="identity-refresh">
 
 /* Portfolio identity refresh: neutral project directory */
@@ -333,6 +334,7 @@ body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-se
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="shell site-header">
     <a class="brand" href="/">Gabriel Ioryem</a>
     <nav class="nav" aria-label="Main navigation">
@@ -343,7 +345,7 @@ body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-se
     </nav>
   </header>
 
-  <main class="shell">
+  <main class="shell" id="main-content">
     <section class="hero">
       <div class="hero-grid">
         <div>
