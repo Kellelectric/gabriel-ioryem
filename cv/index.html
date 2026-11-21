@@ -73,7 +73,22 @@ a:focus-visible,button:focus-visible{outline:2px solid #e87532!important;outline
 @media print{html,body{background:#fff!important;color:#202824!important}.sheet{background:#fff!important;border:0!important;box-shadow:none!important}.top,.stats,.footer{border-color:#dfe5e1!important}h1,.section h2,.stat strong{color:#13322c!important}.role,.summary,.item p,.identity,.note,.footer,.stat span{color:#58645d!important}.item h3{color:#25342c!important}.skills span,.principles span{color:#46534b!important;border-color:#e5dfd4!important}.note{background:#f4f5f2!important}}
 
 </style>
-</head>
+<style id="contrast-correction">
+/* CV contrast correction */
+:root{color-scheme:light!important}
+html,body{background:#e8ece9!important;color:#202824!important}
+.sheet{background:#f4f5f2!important;color:#202824!important}
+.sheet p,.sheet li,.sheet .identity,.sheet .role,.sheet .summary,.sheet .item p,.sheet .note,.sheet .footer,.sheet .stat span{color:#59665f!important}
+.sheet h1,.sheet h2,.sheet .stat strong{color:#13322c!important}
+.sheet h3{color:#26352e!important}
+.sheet .eyebrow,.sheet .date{color:#405b4e!important}
+.sheet .skills span,.sheet .principles span{color:#405149!important;border-color:#d5ded8!important}
+.sheet .principles span{border-top-color:#13322c!important}
+.sheet .note{background:#e8ece9!important}
+.actions{background:#13322c!important;color:#fff!important}
+.actions a,.actions button{color:#fff!important}
+.actions .download-bio{background:#e87532!important;color:#fff!important}
+</style></head>
 <body>
 <div class="actions"><a href="/">← Back to portfolio</a><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="download-bio" href="/cv/Gabriel-Ioryem-Biography.txt" download>Download biography ↓</a><button onclick="window.print()">Print / Save CV as PDF ↗</button></div></div>
 <main class="sheet">
