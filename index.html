@@ -923,6 +923,39 @@ body :is(.actions a,.actions button){border-color:rgba(255,255,255,.55)!importan
 body :is(.actions a:hover,.actions button:hover){background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important}
 body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--contrast-orange)!important;outline-offset:3px}
 
+
+/* Explicit visibility correction for live Engineering Notes panel text */
+body #engineering-notes #knowledge-panel{
+  background:#f4f5f2!important;
+  color:#202824!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body #engineering-notes #knowledge-panel #topic-copy{
+  display:block!important;
+  color:#34443b!important;
+  -webkit-text-fill-color:#34443b!important;
+  opacity:1!important;
+  visibility:visible!important;
+  font-size:15px!important;
+  line-height:1.85!important;
+  font-weight:400!important;
+}
+body #engineering-notes #knowledge-panel #topic-title{
+  color:#13322c!important;
+  -webkit-text-fill-color:#13322c!important;
+}
+body #engineering-notes #knowledge-panel #topic-number,
+body #engineering-notes #knowledge-panel #topic-symbol{
+  color:#355b4d!important;
+  -webkit-text-fill-color:#355b4d!important;
+}
+body #engineering-notes #knowledge-panel #topic-points span{
+  color:#344a3d!important;
+  -webkit-text-fill-color:#344a3d!important;
+  background:#e8ece9!important;
+}
+
 </style>
 </head>
 <body>
