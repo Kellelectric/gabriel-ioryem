@@ -39,6 +39,8 @@ for (const pagePath of pages) {
     assert.equal(contentOf(html, "property", "og:url"), canonical);
     assert.ok(contentOf(html, "property", "og:title"), "Open Graph title is present");
     assert.ok(contentOf(html, "property", "og:description"), "Open Graph description is present");
+    assert.equal(contentOf(html, "name", "twitter:title"), contentOf(html, "property", "og:title"));
+    assert.equal(contentOf(html, "name", "twitter:description"), contentOf(html, "property", "og:description"));
     assert.equal(contentOf(html, "property", "og:site_name"), "Gabriel Ioryem");
     assert.equal(contentOf(html, "name", "twitter:card"), "summary");
     assert.ok(contentOf(html, "name", "twitter:title"), "Twitter title is present");
