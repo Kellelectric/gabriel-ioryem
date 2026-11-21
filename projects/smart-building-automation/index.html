@@ -126,6 +126,54 @@ section#command-centre :is(h1,h2,h3,h4),section#principles :is(h1,h2,h3,h4),sect
 </head><body><header class="wrap top"><a class="brand" href="/">Gabriel Ioryem</a><nav><a href="/">Home</a><a href="/projects/">All technical notes</a><a href="https://kellelectricals.com">Kell Electricals</a></nav></header><main class="wrap"><section class="detail-hero"><a class="back" href="/projects/">← Back to engineering technical notes</a><p class="eyebrow">Automation</p><h1>Smart Building & Home Automation</h1><p class="lead">Automation works best when it makes everyday operation simpler and remains understandable to the people responsible for the building.</p></section><img class="detail-image" src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1800&q=85" alt="Smart Building & Home Automation"><p class="image-disclosure" style="margin:10px 0 0;color:#87948b;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Illustrative stock image · Not original project photography</p><section class="automation-lab" aria-labelledby="automation-title">
 <style>
 .automation-lab{margin:42px 0 8px;padding:30px;background:#111e19;border:1px solid rgba(198,169,114,.28)}.automation-lab h2{font:500 clamp(28px,3.5vw,40px)/1.1 'Cormorant Garamond',Georgia,serif;color:#ead9b9;margin:8px 0}.automation-intro{font-size:13px;color:#aeb9b1;max-width:620px}.auto-map{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:22px 0}.auto-map button{background:#172820;border:1px solid var(--line);color:#dce3dc;padding:16px 10px;min-height:80px;cursor:pointer;font:600 11px Inter,Arial,sans-serif}.auto-map button[aria-pressed=true]{border-color:#d5b77e;background:#29372c;color:#f3dfb8}.auto-map button:focus-visible{outline:2px solid #d5b77e;outline-offset:3px}.auto-map button span{display:block;color:#aeb9b1;font-size:10px;font-weight:400;margin-top:6px}.auto-detail{padding:24px;background:#172820;border:1px solid var(--line)}.auto-detail .eyebrow{color:#c6a972}.auto-detail h3{font:500 28px 'Cormorant Garamond',Georgia,serif;color:#f0e7d5;margin:8px 0}.auto-detail p{font-size:13px;color:#b8c3ba}.auto-detail .check{border-top:1px solid var(--line);padding-top:14px;color:#dfc99e}.auto-note{font-size:11px;color:#829188;margin:16px 0 0}@media(max-width:720px){.automation-lab{padding:20px 16px}.auto-map{grid-template-columns:repeat(2,1fr)}}
+
+
+/* Site-wide dark-green surface legibility and interaction contrast */
+:root{--contrast-forest:#13322c;--contrast-paper:#f4f5f2;--contrast-copy:#e5ece7;--contrast-muted:#c3d0c8;--contrast-orange:#e87532;--contrast-orange-hover:#cf5f24}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel){
+ background:var(--contrast-forest)!important;color:var(--contrast-paper)!important;border-color:rgba(229,236,231,.24)!important;
+}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel) :is(h1,h2,h3,h4,h5,strong,b,.eyebrow,.section-label){
+ color:#fff!important;
+}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel) :is(p,li,small,label,span,figcaption,.intro,.disclaimer,.footnote,.note){
+ color:var(--contrast-copy)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(button,[role="button"]){
+ color:#fff!important;border-color:rgba(229,236,231,.42)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(button[aria-pressed="true"],button[aria-selected="true"],button.active){
+ background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(button:hover,button:focus-visible){
+ border-color:var(--contrast-orange)!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail){
+ color:var(--contrast-copy)!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail) :is(h2,h3,h4,strong,b){
+ color:#fff!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail) :is(p,li,small,span,label){
+ color:var(--contrast-copy)!important;
+}
+body :is(.project-card,.disclosure,.card,.note,.lab-status div,.lab-explain,.upgrade-detail,.fault-detail,.auto-detail,.ats-status,.dist-info,.motor-detail,.security-detail) a:not(.button){
+ color:#fff!important;text-decoration-color:rgba(255,255,255,.65);
+}
+body :is(.node-controls,.mode-controls,.upgrade-stages,.motor-controls,.security-controls,.fault-list,.auto-map,.ats-modes) button{
+ background:#24483f!important;color:#fff!important;border-color:rgba(229,236,231,.35)!important;
+}
+body :is(.node-controls,.mode-controls,.upgrade-stages,.motor-controls,.security-controls,.fault-list,.auto-map,.ats-modes) button[aria-pressed="true"]{
+ background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important;
+}
+body :is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(.lab-footnote,.lab-note,.upgrade-note,.explorer-disclaimer,.security-footnote,.auto-note,.ats-disclaimer,.dist-note){
+ color:var(--contrast-muted)!important;
+}
+body :is(.actions,.actions a,.actions button){color:#fff!important}
+body :is(.actions a,.actions button){border-color:rgba(255,255,255,.55)!important}
+body :is(.actions a:hover,.actions button:hover){background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important}
+body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--contrast-orange)!important;outline-offset:3px}
+
 </style>
 <p class="eyebrow">Interactive building systems explorer</p><h2 id="automation-title">Four layers of a maintainable smart building</h2><p class="automation-intro">A useful automation system connects devices, communications, control logic and the people operating the building. Select a layer to see what should be considered.</p>
 <div class="auto-map" role="group" aria-label="Select an automation architecture layer"><button type="button" data-auto="field" aria-pressed="true">01 · Field devices<span>Sensors and actuators</span></button><button type="button" data-auto="network" aria-pressed="false">02 · Connectivity<span>Wired and wireless links</span></button><button type="button" data-auto="control" aria-pressed="false">03 · Control logic<span>Rules and schedules</span></button><button type="button" data-auto="people" aria-pressed="false">04 · User operation<span>Interfaces and permissions</span></button></div>
