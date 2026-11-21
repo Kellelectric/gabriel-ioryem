@@ -17,6 +17,8 @@ on:
       - "engineering-tools/**"
       - "projects/**"
       - "index.html"
+      - "sitemap.xml"
+      - "robots.txt"
       - "cv/**"
       - "assets/**"
       - "tests/*.test.mjs"
