@@ -200,7 +200,19 @@ footer{border-color:#dfe5e1!important}.footer-inner{color:#68736d!important}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 
 </style>
-</head>
+<style id="contrast-correction">
+/* Case-study directory contrast correction */
+body{color:#202824!important}
+.hero-copy,.aside-copy,.section-note,.card-copy,.disclosure p,.results-line,.results-line span{color:#59665f!important}
+h1,h2.section-title,.card-title{color:#13322c!important}
+.eyebrow,.section-kicker,.category,.aside-label{color:#405b4e!important}
+.filter-button{background:#fff!important;color:#405149!important;border-color:#d5ded8!important}
+.filter-button:hover,.filter-button[aria-pressed=true]{background:#e87532!important;color:#fff!important;border-color:#e87532!important}
+.project-search{background:#fff!important;color:#202824!important;border-color:#cbd6cf!important}
+.project-search::placeholder{color:#68736d!important;opacity:1}
+.results-line strong{color:#13322c!important}
+.image-wrap:after{content:"ILLUSTRATIVE IMAGE";position:absolute;right:12px;bottom:12px;padding:6px 8px;background:rgba(19,50,44,.92);color:#fff;font:700 8px/1.2 Inter,Arial,sans-serif;letter-spacing:.1em}
+</style></head>
 <body>
   <header class="shell site-header">
     <a class="brand" href="/">Gabriel Ioryem</a>
