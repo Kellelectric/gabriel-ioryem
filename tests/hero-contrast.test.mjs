@@ -6,15 +6,11 @@ test("homepage hero contrast correction is in the document head", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
   const headEnd = html.indexOf("</head>");
   const bodyStart = html.indexOf("<body");
-  const styleStart = html.indexOf('<style id="hero-contrast-correction">');
-  const styleEnd = html.indexOf("</style>", styleStart);
+  const css = await readFile(new URL("../assets/portfolio.css", import.meta.url), "utf8");
 
   assert.ok(headEnd > 0 && bodyStart > headEnd, "document head and body are correctly ordered");
-  assert.ok(styleStart >= 0 && styleStart < headEnd, "hero correction stylesheet is inside the head");
-  assert.ok(styleEnd > styleStart && styleEnd < headEnd, "hero correction stylesheet closes inside the head");
-  assert.equal((html.match(/id="hero-contrast-correction"/g) ?? []).length, 1, "one authoritative hero correction exists");
-
-  const css = html.slice(styleStart, styleEnd);
+  assert.match(html, /<link rel="stylesheet" href="\\/assets\\/portfolio\\.css">/, "homepage loads the shared stylesheet");
+  assert.match(css, /#home\\.hero/, "hero correction rules are retained in the external stylesheet");
   for (const selector of [
     "#home.hero .eyebrow",
     "#home.hero h1",
