@@ -159,6 +159,7 @@
     import { estimateLoadCurrent, estimateVoltageDrop, estimatePvArrayKwp, estimateBatteryCapacityKwh } from "./calculations.mjs";
     (() => {
       const byId = id => document.getElementById(id);
+      const inputs = Array.from(document.querySelectorAll(".fields input, .fields select"));
       const read = id => Number(byId(id).value);
       const valid = (ids, predicate) => {
         let allValid = true;
