@@ -1,45 +1,48 @@
 # Gabriel Ioryem — Personal Executive Website
 
-## Overview
-World-class personal executive website for Gabriel Ioryem, Founder & CEO of Kell Electricals Ltd.
+Personal digital identity for **Gabriel Ioryem**, Electrical Engineer, Entrepreneur, and Founder & CEO of Kell Electricals Ltd (Abuja, Nigeria).
 
-## Design System
-See `DESIGN.md` — full visual identity, tokens, rationale, components, do’s and don’ts following the Google DESIGN.md framework.
+This is **not** the company website. The corporate site is [kellelectricals.com](https://kellelectricals.com).
 
-## Implementation
-Single-page responsive site using:
-- Semantic HTML5
-- Tailwind CSS (CDN)
-- Cormorant Garamond + Inter typography
-- Vanilla JS for navigation, form validation, reduced-motion, intersection animations
-- SEO metadata + Person structured data
+## Design system
 
-## Structure
-- Hero (editorial opening)
-- About Gabriel
-- Leadership / Kell Electricals
-- Expertise
-- Ventures
-- Leadership Philosophy
-- Insights (expandable)
-- Contact (validated form + honeypot)
-- Footer
+See `DESIGN.md` for the full visual system (colours, typography, spacing, rationale).
 
-## Outstanding Assets Required
-1. Professional art-directed portrait of Gabriel Ioryem (replace placeholder in hero).
-2. Optional: authentic engineering / site photography.
-3. Confirmed personal domain for canonical URL.
-4. Backend endpoint for production form handling.
+**Core tokens**
+- Forest `#13322C`
+- Ivory `#F7F4EF`
+- Gold `#C4A574`
+- Typography: Cormorant Garamond (display) + Inter (UI/body)
 
-## Deployment
-Open `index.html` directly or serve with any static host (Vercel, Netlify, GitHub Pages).
+## Features
+
+- Editorial single-page layout (Hero → About → Leadership → Expertise → Ventures → Philosophy → Insights → Contact)
+- Professional studio portrait
+- Multi-step low-friction contact flow (one question at a time)
+- Advanced but restrained motion
+- Accessibility: skip link, ARIA, focus styles, reduced-motion
+- SEO: meta tags, Open Graph, Person structured data
+- Responsive
+
+## Local preview
+
+Open `index.html` in a modern browser. Place portrait at `images/gabriel-ioryem.jpg`.
+
+## Contact form backend (Formspree)
+
+1. Create a form at https://formspree.io
+2. Point it to your preferred email (e.g. info@kellelectricals.com)
+3. Copy the endpoint `https://formspree.io/f/xxxxxxxx`
+4. In `index.html` set `const FORMSPREE = 'https://formspree.io/f/xxxxxxxx';`
+
+## Deploy
+
+Static site. Deploy the folder to Vercel, Netlify, or any static host.
 
 ```bash
-npx serve .
-# or
-python3 -m http.server 8080
+vercel --prod
 ```
 
-## Notes
-No invented achievements, personal emails, phone numbers or social profiles were included.
-This is Gabriel’s personal website, not the corporate site of Kell Electricals Ltd.
+## License
+
+All content © Gabriel Ioryem / Kell Electricals Ltd. All rights reserved.
