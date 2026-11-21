@@ -9,8 +9,8 @@ test("homepage hero contrast correction is in the document head", async () => {
   const css = await readFile(new URL("../assets/portfolio.css", import.meta.url), "utf8");
 
   assert.ok(headEnd > 0 && bodyStart > headEnd, "document head and body are correctly ordered");
-  assert.match(html, /<link rel="stylesheet" href="\\/assets\\/portfolio\\.css">/, "homepage loads the shared stylesheet");
-  assert.match(css, /#home\\.hero/, "hero correction rules are retained in the external stylesheet");
+  assert.match(html, /<link rel="stylesheet" href="\/assets\/portfolio\.css">/, "homepage loads the shared stylesheet");
+  assert.match(css, /#home\.hero/, "hero correction rules are retained in the external stylesheet");
   for (const selector of [
     "#home.hero .eyebrow",
     "#home.hero h1",
