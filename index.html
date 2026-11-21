@@ -1036,6 +1036,45 @@ body .project-search::placeholder{color:#fff!important;-webkit-text-fill-color:#
 /* Corrective pass: every explicitly forest-green surface keeps white text, including nested and animated content. */
 body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-section,.diagram-explanation,.knowledge-tab,.mode-button,.form-submit,.ats-lab,.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.explorer,.lab,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel),body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-section,.diagram-explanation,.knowledge-tab,.mode-button,.form-submit,.ats-lab,.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.explorer,.lab,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-section,.diagram-explanation,.knowledge-tab,.mode-button,.form-submit,.ats-lab,.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.explorer,.lab,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel) :is(svg text,svg tspan){fill:#fff!important}
+
+/* Section-by-section contrast correction based on the actual surface colours */
+body #leadership .leadership-panel{
+  background:#0d2923!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important;
+}
+body #leadership .leadership-panel .leadership-item,
+body #leadership .leadership-panel .leadership-item *{
+  background:transparent!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+body #leadership .leadership-panel .leadership-item :is(small,h3,p){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+body :is(#about,#engineering-lens,#engineering-notes,#sectors) :is(.section-label,.section-title,.signature-line,h1,h2,h3,h4,h5,p,li,small,label,figcaption,.section-copy,.section-copy p,.section-copy .lead,.lead,.sector-list h3,.sector-list p){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+body #engineering-lens .engineering-plate,
+body #engineering-lens .engineering-plate *{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+body #engineering-lens .engineering-plate :is(svg text,svg tspan){fill:#fff!important}
+body #engineering-notes .knowledge-detail,
+body #engineering-notes .knowledge-detail *{
+  color:#202824!important;-webkit-text-fill-color:#202824!important;
+}
+body #engineering-notes .knowledge-detail :is(h3,.knowledge-detail-top,.knowledge-symbol){color:#13322c!important;-webkit-text-fill-color:#13322c!important}
+body #engineering-notes .knowledge-points span{color:#344a3d!important;-webkit-text-fill-color:#344a3d!important}
+body #engineering-notes .knowledge-tab:not(.active):not(:hover),
+body #engineering-notes .knowledge-tab:not(.active):not(:hover) *{
+  color:#13322c!important;-webkit-text-fill-color:#13322c!important;
+}
+body #engineering-notes .knowledge-tab:is(.active,:hover),
+body #engineering-notes .knowledge-tab:is(.active,:hover) *{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+/* This note sits on a white card, so its text must remain dark. */
+body .milestone-note,body .milestone-note *{
+  color:#202824!important;-webkit-text-fill-color:#202824!important;
+}
+body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#13322c!important}
 </style>
 </head>
 <body>
