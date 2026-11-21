@@ -805,6 +805,76 @@ body footer a{color:var(--page-forest)!important}
 body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--page-orange)!important;outline-offset:3px}
 ::selection{background:var(--page-forest);color:#fff}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+
+/* Final forest-section contrast system: dark canvas, light editorial typography */
+:root{--forest-canvas:#13322c;--forest-heading:#ffffff;--forest-copy:#e5ece7;--forest-muted:#c3d0c8;--forest-line:rgba(229,236,231,.22)}
+body :is(#engineering-lens,#about,#expertise,#engineering-notes,#sectors){
+  background:var(--forest-canvas)!important;
+  color:var(--forest-copy)!important;
+  border-color:var(--forest-line)!important;
+}
+body :is(#engineering-lens,#about,#expertise,#engineering-notes,#sectors) :is(h1,h2,h3,h4,h5,.section-title,.section-label,.eyebrow,.signature-line,.signature-line strong){
+  color:var(--forest-heading)!important;
+}
+body :is(#engineering-lens,#about,#expertise,#engineering-notes,#sectors) :is(p,li,small,label,figcaption,.section-copy,.section-copy p,.section-copy .lead,.knowledge-footnote,.method-intro,.sector-list p){
+  color:var(--forest-copy)!important;
+}
+body :is(#engineering-lens,#about,#expertise,#engineering-notes,#sectors) :is(.section-label,.expertise-no,.sector-list article>span,.knowledge-detail-top){
+  color:var(--forest-muted)!important;
+}
+body :is(#engineering-lens,#about,#expertise,#engineering-notes,#sectors) :is(.signature-line:before,.sector-list,.sector-list article,.expertise-grid){
+  border-color:var(--forest-line)!important;
+}
+body #expertise .expertise-grid{background:var(--forest-line)!important}
+body #expertise .expertise-card{
+  background:#f4f5f2!important;
+  color:#202824!important;
+  border-color:var(--forest-line)!important;
+}
+body #expertise .expertise-card :is(h3,strong){color:#13322c!important}
+body #expertise .expertise-card :is(p,.expertise-no){color:#56645d!important}
+body #expertise .expertise-card:hover{background:#fff!important}
+body #engineering-notes .knowledge-layout,
+body #engineering-notes .knowledge-tabs{background:var(--forest-line)!important;border-color:var(--forest-line)!important}
+body #engineering-notes .knowledge-tab{
+  background:#f4f5f2!important;color:#13322c!important;
+}
+body #engineering-notes .knowledge-tab :is(span,b){color:#56645d!important}
+body #engineering-notes .knowledge-tab:hover,
+body #engineering-notes .knowledge-tab.active{
+  background:#24483f!important;color:#fff!important;
+}
+body #engineering-notes .knowledge-tab.active :is(span,b),
+body #engineering-notes .knowledge-tab:hover :is(span,b){color:#fff!important}
+body #engineering-notes .knowledge-detail{
+  background:#f4f5f2!important;color:#202824!important;
+}
+body #engineering-notes .knowledge-detail :is(h3,.knowledge-detail-top,.knowledge-symbol){color:#13322c!important}
+body #engineering-notes .knowledge-detail>p{color:#435149!important}
+body #engineering-notes .knowledge-points span{
+  background:#e8ece9!important;color:#344a3d!important;
+}
+body #engineering-lens .engineering-plate{
+  background:#0d2923!important;color:#e5ece7!important;
+}
+body #engineering-lens .engineering-plate :is(.plate-head h3,.system-node strong,.diagram-explanation strong){color:#fff!important}
+body #engineering-lens .engineering-plate :is(.plate-head small,.plate-head p,.plate-foot,.system-node b,.system-node span,.diagram-explanation){color:#e5ece7!important}
+body #engineering-lens .engineering-plate .system-node:after{background:rgba(229,236,231,.5)!important}
+body #engineering-lens .engineering-plate .system-node[aria-pressed=true]{
+  border-color:#e87532!important;background:rgba(232,117,50,.14)!important;
+}
+body #engineering-lens .engineering-plate .diagram-tabs button[aria-pressed=true]{
+  background:#e87532!important;color:#fff!important;border-color:#e87532!important;
+}
+body #sectors .sector-list h3{color:#fff!important}
+body #sectors .sector-list p{color:#e5ece7!important}
+body #sectors .sector-list article>span{color:#f2a477!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) :is(.section-label,.section-copy,.section-copy p,.lead,.portfolio-copy,.portfolio-foot,.timeline-intro,.timeline-foot,.principle span,.command-disclaimer){
+  color:#e5ece7!important;
+}
+body #principles .principle strong{color:#fff!important}
+body #principles .principle{border-color:var(--forest-line)!important}
+
 </style>
 </head>
 <body>
