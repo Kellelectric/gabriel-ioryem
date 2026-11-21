@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "engineering-tools/**"
+      - "projects/**"
+      - "index.html"
       - "tests/engineering-calculations.test.mjs"
       - ".github/workflows/engineering-calculator-tests.yml"
   pull_request:
@@ -24,4 +26,4 @@ jobs:
         with:
           node-version: 22
       - name: Run engineering calculator tests
-        run: node --test tests/engineering-calculations.test.mjs
+        run: node --test tests/*.test.mjs
