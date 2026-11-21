@@ -728,6 +728,51 @@ section#command-centre :is(h1,h2,h3,h4),section#principles :is(h1,h2,h3,h4),sect
 .verified-card{background:#fff;color:#202824}.verified-card :is(h3,p){color:#13322c!important}.verified-card p{color:#59665f!important}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 </style>
+<style id="final-surface-contrast-fix">
+/* Consistent portfolio palette: forest, off-white, grey and orange actions */
+:root{--forest:#13322c;--paper:#f4f5f2;--surface:#e8ece9;--ink:#202824;--muted:#59665f;--action:#e87532;--action-hover:#cf5f24}
+html,body{background:var(--paper)!important;color:var(--ink)!important}
+body :is(p,li,dd,dt,label,small,figcaption,.journey-tag,.method-intro,.milestone-intro,.gallery-note,.portfolio-copy){color:var(--muted)!important}
+body :is(h1,h2,h3,h4,h5,.section-title){color:var(--forest)!important}
+.header,.header.scrolled{background:rgba(244,245,242,.97)!important}
+.header :is(.brand,.brand-name,.brand-name small,.header-contact){color:var(--forest)!important}
+.header-contact{background:var(--action)!important;color:#fff!important}
+.hero{background-color:var(--paper)!important}
+.hero :is(.eyebrow,h1,h1 em,.portrait-index){color:var(--forest)!important}
+.hero .hero-copy{color:var(--muted)!important}
+.page-index{background:var(--surface)!important}
+.page-index :is(a,span){color:var(--forest)!important}
+.journey,.faq,.gallery-section{background:var(--paper)!important}
+.leadership,.contact,.method,.milestones{background:var(--surface)!important}
+.leadership-item,.method-grid article,.milestone-grid article,.contact-card,.contact-form{background:#fff!important}
+.leadership-item :is(h3,small){color:var(--forest)!important}
+.leadership-item p,.method-grid p,.milestone-grid p{color:var(--muted)!important}
+/* Forest surfaces always use light foregrounds, including nested headings and labels */
+:is(.portfolio,.timeline-section,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.cta,.closing,#command-centre,#principles,#projects,#project-gallery){
+ background-color:var(--forest)!important;color:var(--paper)!important
+}
+:is(.portfolio,.timeline-section,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.cta,.closing,#command-centre,#principles,#projects,#project-gallery) :is(h1,h2,h3,h4,h5,.section-title,.section-label,.eyebrow,strong,b,.year,.project-kicker,.plate-head small,.system-node b,.system-node strong){color:#fff!important}
+:is(.portfolio,.timeline-section,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.cta,.closing,#command-centre,#principles,#projects,#project-gallery) :is(p,li,small,label,span,figcaption,.timeline-intro,.portfolio-copy,.plate-head p,.plate-foot,.system-node span){color:#e5ece7!important}
+:is(.portfolio,.timeline-section,.engineering-plate,.command-panel,.dark-panel,.forest-panel,.cta,.closing,#command-centre,#principles,#projects,#project-gallery) a:not(.button){color:#fff!important}
+.timeline article{background:#0d2923!important}
+.timeline article :is(h3,.year){color:#fff!important}
+.timeline article p,.timeline-foot{color:#d6e0d9!important}
+.engineering-plate :is(.system-node,.diagram-explanation){color:#e5ece7!important}
+.engineering-plate .diagram-tabs button{background:transparent!important;color:#fff!important;border-color:#a9bbb1!important}
+.engineering-plate .diagram-tabs button[aria-pressed=true]{background:var(--action)!important;color:#fff!important;border-color:var(--action)!important}
+.engineering-plate .diagram-explanation strong{color:#fff!important}
+.contact-card :is(p,a),.contact-form :is(h3,p,label){color:var(--forest)!important}
+.contact-form :is(input,textarea,select){background:#fff!important;color:var(--ink)!important}
+.contact-form label,.contact-form>p,.contact-note{color:var(--muted)!important}
+body .button.primary,body .nav-cta,body .header-contact,body .form-submit,body .contact-actions .button.primary{background:var(--action)!important;color:#fff!important;border-color:var(--action)!important}
+body .button.primary:hover,body .nav-cta:hover,body .header-contact:hover,body .form-submit:hover{background:var(--action-hover)!important;border-color:var(--action-hover)!important;color:#fff!important}
+body .button.secondary{background:transparent!important;color:var(--forest)!important;border-color:var(--forest)!important}
+.portfolio .button.secondary,.portfolio .button:not(.primary){color:#fff!important;border-color:#fff!important}
+body button[aria-pressed=true],body button[aria-selected=true]{background:var(--action)!important;color:#fff!important;border-color:var(--action)!important}
+body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--action)!important;outline-offset:3px}
+footer,.footer-inner{background:var(--paper)!important;color:var(--muted)!important}
+footer a{color:var(--forest)!important}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
