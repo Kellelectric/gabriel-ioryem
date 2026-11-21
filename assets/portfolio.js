@@ -1,4 +1,6 @@
 (() => {
+  // Enable animation-only hiding only after this script has successfully started.
+  document.documentElement.classList.add("js-enabled");
   const header = document.getElementById("site-header");
   const progress = document.getElementById("scroll-progress");
   const menuToggle = document.getElementById("menu-toggle");
