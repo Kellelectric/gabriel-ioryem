@@ -159,7 +159,9 @@
     (() => {
       const byId = id => document.getElementById(id);
       const read = id => Number(byId(id).value);
-      const valid = (ids, predicate) => ids.every(id => {
+      const valid = (ids, predicate) => {
+        let allValid = true;
+        ids.forEach(id => {
         const el = byId(id), n = Number(el.value);
         const rangeError = el.validity.rangeUnderflow || el.validity.rangeOverflow || el.validity.badInput;
         const empty = el.value.trim() === "";
@@ -184,8 +186,10 @@
           if (describedBy.length) el.setAttribute("aria-describedby", describedBy.join(" "));
           else el.removeAttribute("aria-describedby");
         }
-        return ok;
-      });
+        if (!ok) allValid = false;
+        });
+        return allValid;
+      };
       const fmt = n => Number.isFinite(n) ? n.toLocaleString("en-NG", {minimumFractionDigits:2, maximumFractionDigits:2}) : "—";
       const inputs = [...document.querySelectorAll("input,select")];
       const updateCurrent = () => {
