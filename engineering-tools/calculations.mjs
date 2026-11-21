@@ -8,14 +8,14 @@ const phaseFactor = phase => {
   throw new RangeError("Phase must be 1 or 3.");
 };
 
-export function estimateLoadCurrent({ phase, powerKw, voltage, powerFactor, efficiencyPercent }) {
-  positive(powerKw, "Power");
+export function estimateLoadCurrent({ phase, outputPowerKw, voltage, powerFactor, efficiencyPercent }) {
+  positive(outputPowerKw, "Useful output power");
   positive(voltage, "Voltage");
   positive(powerFactor, "Power factor");
   positive(efficiencyPercent, "Efficiency");
   if (powerFactor > 1) throw new RangeError("Power factor cannot exceed 1.");
   if (efficiencyPercent > 100) throw new RangeError("Efficiency cannot exceed 100%.");
-  return powerKw * 1000 / (phaseFactor(phase) * voltage * powerFactor * (efficiencyPercent / 100));
+  return outputPowerKw * 1000 / (phaseFactor(phase) * voltage * powerFactor * (efficiencyPercent / 100));
 }
 
 export function estimateVoltageDrop({ phase, currentA, routeLengthM, conductorAreaMm2, material }) {
