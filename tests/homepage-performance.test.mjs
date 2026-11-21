@@ -38,3 +38,14 @@ test("homepage portrait is accessible and reserves its display dimensions", asyn
   assert.match(image[1], /\bheight="\d+"/i, "portrait has intrinsic height");
   assert.match(image[1], /\bfetchpriority="high"/i, "hero portrait retains high loading priority");
 });
+
+
+test("homepage content remains visible without JavaScript and reveals progressively when JavaScript starts", async () => {
+  const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+  const js = await readFile(new URL("../assets/portfolio.js", import.meta.url), "utf8");
+  assert.match(css, /\.fade-up\{opacity:1;transform:none/);
+  assert.match(css, /\.reveal-line span\{display:block;transform:none/);
+  assert.match(css, /\.js-enabled \.fade-up:not\(\.is-visible\)\{opacity:0/);
+  assert.match(css, /\.js-enabled \.reveal-line:not\(\.is-visible\) span\{transform:translateY\(115%\)\}/);
+  assert.match(js, /document\.documentElement\.classList\.add\("js-enabled"\)/);
+});
