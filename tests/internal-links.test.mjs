@@ -34,6 +34,10 @@ for (const pagePath of pages) {
     const html = await readFile(new URL(`../${pagePath}`, import.meta.url), "utf8");
     const basePath = pagePath.replace(/(^|\/)index\.html$/, "$1");
     const pageUrl = new URL(basePath, origin + "/");
+    const ids = [...html.matchAll(/<[a-z][^>]*\bid=["']([^"']+)["'][^>]*>/gi)].map(match => match[1]);
+    const duplicates = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
+    assert.deepEqual(duplicates, [], "duplicate HTML id attributes in " + pagePath);
+
     const hrefs = [...html.matchAll(/\bhref=["']([^"']+)["']/g)].map(match => match[1]);
 
     for (const href of hrefs) {
