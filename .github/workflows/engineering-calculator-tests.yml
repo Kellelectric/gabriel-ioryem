@@ -6,11 +6,13 @@ on:
       - "engineering-tools/**"
       - "projects/**"
       - "index.html"
-      - "tests/engineering-calculations.test.mjs"
       - ".github/workflows/engineering-calculator-tests.yml"
   pull_request:
     paths:
       - "engineering-tools/**"
+      - "projects/**"
+      - "index.html"
+      - "tests/*.test.mjs"
       - "tests/engineering-calculations.test.mjs"
       - ".github/workflows/engineering-calculator-tests.yml"
   workflow_dispatch:
