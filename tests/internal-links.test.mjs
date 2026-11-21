@@ -57,3 +57,17 @@ for (const pagePath of pages) {
     }
   });
 }
+
+test("sitemap and robots.txt cover every canonical portfolio page", async () => {
+  const sitemap = await readFile(new URL("../sitemap.xml", import.meta.url), "utf8");
+  const robots = await readFile(new URL("../robots.txt", import.meta.url), "utf8");
+  const listed = [...sitemap.matchAll(/<loc>([^<]+)<\\/loc>/g)].map(match => match[1]);
+  const expected = pages.map(pagePath => {
+    const route = pagePath.replace(/(^|\\/)index\\.html$/, "$1");
+    return new URL(route, origin + "/").href;
+  });
+
+  assert.deepEqual([...listed].sort(), [...expected].sort(), "sitemap should list every canonical page exactly once");
+  assert.match(robots, /^User-agent:\\s*\\*/m);
+  assert.match(robots, new RegExp(`Sitemap:\\s*${origin}/sitemap\\.xml`));
+});
