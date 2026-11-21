@@ -476,7 +476,7 @@ body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-se
 <script>
 (() => {
   const cards = Array.from(document.querySelectorAll('.project-card'));
-  const filters = Array.from(document.querySelectorAll('.filter-button'));
+  const filters = Array.from(document.querySelectorAll('.filter-list .filter-button'));
   const search = document.getElementById('project-search');
   const count = document.getElementById('results-count');
   const empty = document.getElementById('no-results');
@@ -493,7 +493,7 @@ body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-se
       card.hidden = !show;
       if (show) visible++;
     });
-    count.innerHTML = '<strong>' + visible + '</strong> of <strong>' + cards.length + '</strong> technical notes';
+    count.innerHTML = '<strong>' + visible + '</strong> of <strong>' + cards.length + '</strong> engineering studies';
     empty.classList.toggle('is-visible', visible === 0);
   };
   filters.forEach(button => button.addEventListener('click', () => {
