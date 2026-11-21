@@ -59,19 +59,105 @@
   if (exploreTrack) {
     const arrows = document.querySelectorAll("[data-scroll]");
     const links = [...exploreTrack.querySelectorAll("a[href^='#']")];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let loopWidth = 0;
+    let animationFrame = 0;
+    let previousFrame = 0;
+    let hoverPaused = false;
+    let focusPaused = false;
+    let pauseUntil = 0;
+
+    // Duplicate the links once so the strip can glide continuously without
+    // removing the original, keyboard-accessible navigation links.
+    if (!reducedMotion.matches && exploreTrack.scrollWidth > exploreTrack.clientWidth + 4) {
+      const copies = links.map(link => {
+        const copy = link.cloneNode(true);
+        copy.removeAttribute("id");
+        copy.removeAttribute("aria-current");
+        copy.classList.remove("is-current");
+        copy.setAttribute("aria-hidden", "true");
+        copy.tabIndex = -1;
+        copy.dataset.autoCopy = "true";
+        return copy;
+      });
+      copies.forEach(copy => exploreTrack.appendChild(copy));
+      exploreTrack.dataset.autoSliding = "true";
+      exploreTrack.style.scrollSnapType = "none";
+      exploreTrack.style.scrollBehavior = "auto";
+      loopWidth = copies[0].getBoundingClientRect().left - links[0].getBoundingClientRect().left;
+    }
+
+    const pauseAuto = (duration = 2600) => {
+      pauseUntil = Math.max(pauseUntil, performance.now() + duration);
+    };
     const updateArrows = () => {
       const max = exploreTrack.scrollWidth - exploreTrack.clientWidth;
+      const looping = exploreTrack.dataset.autoSliding === "true";
       const prev = document.querySelector('[data-scroll="prev"]');
       const next = document.querySelector('[data-scroll="next"]');
-      if (prev) prev.disabled = exploreTrack.scrollLeft <= 2;
-      if (next) next.disabled = exploreTrack.scrollLeft >= max - 2;
+      if (prev) prev.disabled = !looping && exploreTrack.scrollLeft <= 2;
+      if (next) next.disabled = !looping && exploreTrack.scrollLeft >= max - 2;
     };
+
     arrows.forEach(button => button.addEventListener("click", () => {
-      exploreTrack.scrollBy({ left: (button.dataset.scroll === "next" ? 1 : -1) * Math.max(180, exploreTrack.clientWidth * 0.65), behavior: "smooth" });
+      pauseAuto(3200);
+      exploreTrack.scrollBy({
+        left: (button.dataset.scroll === "next" ? 1 : -1) * Math.max(180, exploreTrack.clientWidth * 0.65),
+        behavior: "smooth"
+      });
     }));
     exploreTrack.addEventListener("scroll", updateArrows, { passive: true });
+    exploreTrack.addEventListener("pointerenter", () => { hoverPaused = true; });
+    exploreTrack.addEventListener("pointerleave", () => { hoverPaused = false; pauseAuto(900); });
+    exploreTrack.addEventListener("focusin", () => { focusPaused = true; });
+    exploreTrack.addEventListener("focusout", event => {
+      if (!exploreTrack.contains(event.relatedTarget)) {
+        focusPaused = false;
+        pauseAuto(1400);
+      }
+    });
+    exploreTrack.addEventListener("pointerdown", () => pauseAuto(3200));
+    exploreTrack.addEventListener("touchstart", () => pauseAuto(3200), { passive: true });
+    exploreTrack.addEventListener("wheel", () => pauseAuto(2400), { passive: true });
     window.addEventListener("resize", updateArrows);
+    document.addEventListener("visibilitychange", () => {
+      previousFrame = 0;
+    });
     updateArrows();
+
+    const animateExplore = timestamp => {
+      if (!previousFrame) previousFrame = timestamp;
+      const elapsed = Math.min(40, timestamp - previousFrame);
+      previousFrame = timestamp;
+      if (
+        loopWidth > 0 &&
+        !document.hidden &&
+        !hoverPaused &&
+        !focusPaused &&
+        timestamp >= pauseUntil &&
+        !reducedMotion.matches
+      ) {
+        exploreTrack.scrollLeft += elapsed * 0.022;
+        if (exploreTrack.scrollLeft >= loopWidth) exploreTrack.scrollLeft -= loopWidth;
+      }
+      animationFrame = window.requestAnimationFrame(animateExplore);
+    };
+    if (loopWidth > 0) animationFrame = window.requestAnimationFrame(animateExplore);
+
+    if (reducedMotion.addEventListener) {
+      reducedMotion.addEventListener("change", event => {
+        if (event.matches && animationFrame) {
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = 0;
+          exploreTrack.querySelectorAll("[data-auto-copy='true']").forEach(copy => copy.remove());
+          exploreTrack.removeAttribute("data-auto-sliding");
+          exploreTrack.style.scrollSnapType = "";
+          exploreTrack.style.scrollBehavior = "";
+          loopWidth = 0;
+          updateArrows();
+        }
+      });
+    }
 
     if ("IntersectionObserver" in window) {
       const sectionObserver = new IntersectionObserver(entries => {
@@ -84,8 +170,7 @@
             if (active) link.setAttribute("aria-current", "location");
             else link.removeAttribute("aria-current");
           });
-          const activeLink = links.find(link => link.getAttribute("href") === id);
-          if (activeLink) activeLink.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+          // Keep section observation passive; it must not change document scroll position.
         });
       }, { rootMargin: "-25% 0px -60% 0px" });
       links.forEach(link => {
