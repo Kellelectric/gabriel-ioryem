@@ -39,7 +39,7 @@ test("project references use the approved copy and white-on-dark presentation", 
 test("mobile layout keeps normal document scrolling independent of Explore navigation", async () => {
   const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
   const js = await readFile(new URL("../assets/portfolio.js", import.meta.url), "utf8");
-  assert.match(css, /html,body\{min-height:100%\}/);
+  assert.ok(css.includes('html,body{min-height:100%;}'));
   assert.match(css, /@media\(max-width:767px\)\{\.explore-nav\{position:relative;top:auto/);
   assert.doesNotMatch(css, /(?:html|body)\s*\{[^}]*overflow\s*:\s*hidden/i);
   assert.doesNotMatch(js, /document\.body\.style\.overflow\s*=\s*["']hidden["']/);
