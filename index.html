@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#13322c">
   <link rel="icon" type="image/svg+xml" href="/assets/gi-monogram.svg">
   <title>Gabriel Ioryem | Electrical Engineer &amp; Engineering Leader</title>
@@ -988,6 +988,33 @@ html,body{overscroll-behavior-y:auto;-webkit-overflow-scrolling:touch}
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto!important}
  .reveal{transition:none!important;transform:none!important;filter:none!important;opacity:1!important}
+}
+
+
+/* High-density display and responsive rendering refinements */
+html{scroll-padding-top:clamp(72px,8vw,90px);text-size-adjust:100%;-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
+body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;font-kerning:normal;font-optical-sizing:auto}
+img,svg,video,canvas{max-width:100%}
+img{height:auto}
+.portrait-frame{isolation:isolate;backface-visibility:hidden;transform:translateZ(0) rotateY(-5deg) rotateX(2deg)}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;image-rendering:auto;backface-visibility:hidden;transform:translateZ(0)}
+.hero-art,.hero-grid,.portrait-frame{contain:layout paint}
+@media(min-resolution:2dppx),(-webkit-min-device-pixel-ratio:2){
+  .portrait-frame:before{border-width:.5px}
+  .section-grid,.audience-grid,.engagement-grid{transform:translateZ(0)}
+}
+@media(min-width:1440px){
+  .shell{width:min(1240px,calc(100% - 96px))}
+}
+@media(max-width:680px){
+  html{scroll-padding-top:76px}
+  .hero{padding-top:112px}
+  .hero-grid{gap:30px}
+  .portrait-frame{width:min(100%,320px);margin-inline:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .portrait-frame,.portrait-frame img{transform:none!important}
 }
 
 </style>
