@@ -8,6 +8,8 @@ on:
       - "index.html"
       - "cv/**"
       - "assets/**"
+      - "sitemap.xml"
+      - "robots.txt"
       - "tests/*.test.mjs"
       - ".github/workflows/engineering-calculator-tests.yml"
   pull_request:
@@ -15,6 +17,8 @@ on:
       - "engineering-tools/**"
       - "projects/**"
       - "index.html"
+      - "sitemap.xml"
+      - "robots.txt"
       - "cv/**"
       - "assets/**"
       - "tests/*.test.mjs"
