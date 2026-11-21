@@ -807,7 +807,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .portrait-frame,.portrait-frame img{transition:none!important;transform:none!important}
 }
 
-</style>
+
+/* Sliding Explore navigation */
+.page-index{position:relative;z-index:8;background:var(--surface,#f5f5f2);border-bottom:1px solid var(--line)}
+.page-index-inner{min-height:62px;display:flex;align-items:center;gap:13px}
+.page-index .index-kicker{flex:0 0 auto;color:#967c51;font-size:8px;font-weight:800;letter-spacing:.18em}
+.index-track{position:relative;display:flex;align-items:center;gap:clamp(18px,2.4vw,32px);min-width:0;flex:1;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x}
+.index-track::-webkit-scrollbar{display:none}
+.index-track a{position:relative;flex:0 0 auto;padding:10px 0;color:var(--forest);font-size:10px;font-weight:650;scroll-snap-align:center;transition:color .2s}
+.index-track a:hover,.index-track a.is-current,.index-track a[aria-current="location"]{color:#92764b}
+.index-track a:after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.index-track a.is-current:after,.index-track a[aria-current="location"]:after{transform:scaleX(1)}
+.index-arrow{flex:0 0 30px;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--forest);font:400 20px/1 var(--serif);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.index-arrow:hover:not(:disabled){background:var(--forest);border-color:var(--forest);color:#fff}
+.index-arrow:disabled{opacity:.28;cursor:default}
+.page-index .index-note{flex:0 0 auto;margin-left:4px;color:#747c75;font:italic 12px var(--serif)}
+@media(max-width:850px){.page-index-inner{gap:9px}.page-index .index-note{display:none}.index-track{gap:22px}}
+@media(max-width:680px){.page-index-inner{min-height:56px;gap:8px}.index-track{gap:20px}.index-track a{font-size:10px}.index-arrow{width:28px;height:28px;flex-basis:28px}.page-index .index-kicker{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.index-track{scroll-behavior:auto}.index-track a,.index-track a:after,.index-arrow{transition:none}}
+
+  </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Gabriel Ioryem","jobTitle":"Electrical Engineer and Founder & CEO","url":"https://gabriel-ioryem.vercel.app/","email":"mailto:info@kellelectricals.com","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Madonna University Nigeria"},"worksFor":{"@type":"Organization","name":"Kell Electricals Ltd","url":"https://kellelectricals.com"}}</script>\n
   <style id="editorial-motion-layer">
     /* Decorative motion layer: quiet, precise and intentionally non-distracting */
@@ -1402,7 +1421,22 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
     </section>
 
     <div class="intro-band"><div class="shell intro-inner"><p><strong>15+ years</strong> of engineering experience</p><p>Based in Abuja, Nigeria</p><p>Founder &amp; CEO, Kell Electricals Ltd</p></div></div>
-    <nav class="page-index" aria-label="Explore portfolio sections"><div class="shell page-index-inner"><span>EXPLORE</span><a href="#about">Profile</a><a href="#expertise">Expertise</a><a href="#command-centre">Engineering systems</a><a href="/projects/">Projects & technical notes ↗</a><a href="#projects">Technical notes</a><a href="#contact">Contact</a><span class="index-note">A considered view of the work</span></div></nav>
+    <nav class="page-index" aria-label="Explore portfolio sections">
+  <div class="shell page-index-inner">
+    <span class="index-kicker">EXPLORE</span>
+    <button class="index-arrow index-prev" type="button" aria-label="Scroll navigation left" disabled>‹</button>
+    <div class="index-track" id="explore-track" tabindex="0" aria-label="Sliding section navigation">
+      <a href="#about">Profile</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#command-centre">Engineering systems</a>
+      <a href="/projects/">Projects &amp; technical notes ↗</a>
+      <a href="#projects">Technical notes</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="index-arrow index-next" type="button" aria-label="Scroll navigation right">›</button>
+    <span class="index-note">A considered view of the work</span>
+  </div>
+</nav>
 
 
     
@@ -1623,6 +1657,34 @@ menuButton.addEventListener('click',()=>{const isOpen=menuButton.getAttribute('a
 primaryNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){closeMenu();menuButton.focus();}});
 window.addEventListener('resize',()=>{if(window.innerWidth>680)closeMenu();});const top=document.createElement('a');top.className='back-top';top.href='#home';top.setAttribute('aria-label','Back to top');top.textContent='↑';document.body.appendChild(top);const progress=()=>{const max=document.documentElement.scrollHeight-innerHeight;document.documentElement.style.setProperty('--scroll-progress',(max>0?scrollY/max*100:0)+'%');};const onScroll=()=>{header.classList.toggle('scrolled',scrollY>20);top.classList.toggle('visible',scrollY>650);progress();};addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* Accessible sliding Explore navigation */
+(()=> {
+ const track=document.getElementById('explore-track');
+ if(!track)return;
+ const prev=document.querySelector('.index-prev'),next=document.querySelector('.index-next');
+ const update=()=>{
+  const max=track.scrollWidth-track.clientWidth;
+  prev.disabled=track.scrollLeft<=2;
+  next.disabled=track.scrollLeft>=max-2;
+ };
+ const move=direction=>track.scrollBy({left:direction*Math.max(180,track.clientWidth*.62),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+ prev.addEventListener('click',()=>move(-1));
+ next.addEventListener('click',()=>move(1));
+ track.addEventListener('scroll',update,{passive:true});
+ addEventListener('resize',update);
+ update();
+ const observer=new MutationObserver(()=>{
+  const active=track.querySelector('[aria-current="location"],.is-current');
+  if(!active)return;
+  const left=active.offsetLeft-track.scrollLeft,right=left+active.offsetWidth;
+  if(left<0||right>track.clientWidth)active.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest',inline:'center'});
+  update();
+ });
+ track.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{track.querySelectorAll('a').forEach(x=>x.classList.remove('is-current'));a.classList.add('is-current');}));
+ observer.observe(track,{subtree:true,attributes:true,attributeFilter:['aria-current','class']});
+})();
+
 const indexLinks=[...document.querySelectorAll('.page-index a[href^="#"]')];
 const indexedSections=indexLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
 const setCurrent=sectionId=>indexLinks.forEach(link=>{
