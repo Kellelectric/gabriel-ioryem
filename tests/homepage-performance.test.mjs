@@ -2,22 +2,28 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 
-test("homepage uses independently cacheable local assets", async () => {
+test("homepage uses independently cacheable local assets without a runtime CSS compiler", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
   const cssPath = new URL("../assets/executive.css", import.meta.url);
+  const utilityPath = new URL("../assets/utilities.css", import.meta.url);
   const jsPath = new URL("../assets/portfolio.js", import.meta.url);
   const css = await readFile(cssPath, "utf8");
+  const utility = await readFile(utilityPath, "utf8");
   const js = await readFile(jsPath, "utf8");
-  const [cssStats, jsStats] = await Promise.all([stat(cssPath), stat(jsPath)]);
+  const [cssStats, utilityStats, jsStats] = await Promise.all([stat(cssPath), stat(utilityPath), stat(jsPath)]);
 
+  assert.match(html, /<link rel="stylesheet" href="\/assets\/utilities\.css">/);
   assert.match(html, /<link rel="stylesheet" href="\/assets\/executive\.css">/);
   assert.match(html, /<script src="\/assets\/portfolio\.js" defer><\/script>/);
-  assert.doesNotMatch(html, /<style\b/i, "homepage styles should be stored in a cacheable asset");
+  assert.doesNotMatch(html, /<style\b/i, "homepage styles should be stored in cacheable assets");
+  assert.doesNotMatch(html, /cdn\.tailwindcss\.com|tailwind\.config/, "homepage should not compile utility CSS in the visitor's browser");
   assert.ok(html.length < 40000, "homepage HTML should remain below the source-size guardrail");
   assert.ok(cssStats.size < 20000, "homepage stylesheet should remain below 20 KB");
+  assert.ok(utilityStats.size < 4000, "static utility stylesheet should remain below 4 KB");
   assert.ok(jsStats.size < 10000, "homepage interaction script should remain below 10 KB");
   assert.match(css, /\.explore-track/, "sliding section navigation styles are retained");
   assert.match(css, /\.mobile-navigation/, "mobile navigation styles are retained");
+  assert.match(utility, /\.lg\\:grid-cols-12/, "responsive grid utility is included");
   assert.match(css, /prefers-reduced-motion/, "reduced-motion support is retained");
   assert.match(js, /aria-expanded/, "mobile menu exposes its expanded state");
   assert.match(js, /mailto:info@kellelectricals\.com/, "contact flow prepares a direct email draft");
