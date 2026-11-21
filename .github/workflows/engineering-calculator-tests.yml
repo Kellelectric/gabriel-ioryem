@@ -6,6 +6,8 @@ on:
       - "engineering-tools/**"
       - "projects/**"
       - "index.html"
+      - "cv/**"
+      - "assets/**"
       - "tests/*.test.mjs"
       - ".github/workflows/engineering-calculator-tests.yml"
   pull_request:
