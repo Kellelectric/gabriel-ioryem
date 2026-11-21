@@ -27,9 +27,9 @@ const contentOf = (html, attribute, key) => {
 for (const pagePath of pages) {
   test(`social metadata is complete and canonical: ${pagePath}`, async () => {
     const html = await readFile(new URL(pagePath, import.meta.url), "utf8");
-    const title = html.match(/<title>([\\s\\S]*?)<\\/title>/i)?.[1]?.trim();
+    const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
     const description = contentOf(html, "name", "description");
-    const canonical = html.match(/<link\\s+rel="canonical"\\s+href="([^"]+)"/i)?.[1];
+    const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1];
 
     assert.ok(title, "document title is present");
     assert.ok(description, "meta description is present");
