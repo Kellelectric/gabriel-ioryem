@@ -11,6 +11,17 @@
 :root{--forest:#13322c;--paper:#f4f5f2;--ink:#202824;--muted:#68736d;--line:#dfe5e1;--orange:#e87532;--serif:"Cormorant Garamond",Georgia,serif;--sans:Inter,Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.75 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid var(--orange);outline-offset:4px;border-radius:2px}.wrap{width:min(1120px,calc(100% - 48px));margin:auto}.top{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{font:600 25px var(--serif);color:var(--forest)}nav{display:flex;gap:24px;font-size:12px;color:#46564e}nav a:hover,.back:hover{color:var(--orange)}.hero{padding:76px 0 42px}.eyebrow,.tag{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#65766c}.back{display:inline-block;margin-bottom:28px;font-size:12px;font-weight:700;color:var(--forest)}h1,h2,h3{font-weight:500;line-height:1.1;color:var(--forest)}h1{font:500 clamp(42px,7vw,72px)/1.02 var(--serif);max-width:900px;margin:18px 0}.lead{font-size:18px;color:#59665f;max-width:820px}.image-slot{height:clamp(220px,38vw,430px);display:grid;place-items:center;background:linear-gradient(135deg,#e7ece8,#d7e0da 55%,#cbd7cf);border:1px solid var(--line);color:#53645a;text-align:center}.image-slot strong{display:block;font:500 28px var(--serif);color:var(--forest)}.image-slot span{font-size:10px;letter-spacing:.12em;text-transform:uppercase}.disclosure{margin:18px 0 0;padding:18px 20px;background:#e8ece9;border-left:3px solid var(--forest);font-size:12px;color:#59665f}.layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(230px,.8fr);gap:64px;padding:54px 0 88px}.main h2{font:500 36px var(--serif);margin:40px 0 12px}.main p,.main li{color:#59665f}.main li{padding:6px 0}.side{height:max-content;border-top:2px solid var(--forest);padding-top:18px}.side h3{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase}.side p,.side li{font-size:12px;color:#68736d}.side ul{padding-left:17px}.cta{background:var(--forest);color:white;padding:30px;margin-top:36px}.cta h2{color:white;font:500 30px var(--serif);margin:0 0 10px}.cta p{color:#e0e8e3;font-size:13px}.cta a{display:inline-block;background:var(--orange);color:white;padding:12px 16px;font-size:12px;font-weight:700}.foot{border-top:1px solid var(--line);padding:24px 0;color:#68736d;font-size:11px;display:flex;justify-content:space-between;gap:16px}
 @media(max-width:700px){.wrap{width:calc(100% - 36px)}.top{height:66px}.top nav{gap:12px;font-size:10px}.hero{padding:52px 0 32px}.layout{grid-template-columns:1fr;gap:30px;padding-top:30px}.main h2{font-size:31px}.foot{flex-direction:column}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.system-diagram{margin:28px 0;padding:22px;background:#fff;border:1px solid var(--line)}
+.system-diagram svg{display:block;width:100%;height:auto;overflow:visible}
+.system-diagram figcaption{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.7}
+.system-diagram .diagram-node{fill:#f4f5f2;stroke:#13322c;stroke-width:2}
+.system-diagram .diagram-node.accent{fill:#e8ece9;stroke:#e87532}
+.system-diagram .diagram-label{fill:#13322c;font:600 16px Inter,Arial,sans-serif;text-anchor:middle}
+.system-diagram .diagram-small{fill:#59665f;font:12px Inter,Arial,sans-serif;text-anchor:middle}
+.system-diagram .diagram-line{stroke:#13322c;stroke-width:2.5;fill:none}
+.system-diagram .diagram-data{stroke:#e87532;stroke-width:2.5;stroke-dasharray:7 6;fill:none}
+@media(max-width:600px){.system-diagram{padding:12px;margin:22px 0}.system-diagram .diagram-label{font-size:15px}.system-diagram .diagram-small{font-size:11px}}
 </style>
 </head>
 <body>
@@ -23,6 +34,32 @@
 <h2>The engineering challenge</h2><p>EV charging introduces a sustained, high-demand load that may operate for several hours. In buildings with existing residential, commercial or mixed-use demand, adding chargers without checking available capacity can increase maximum demand, cause nuisance tripping or require expensive upstream upgrades. Cable routes, outdoor exposure, user access and future expansion also influence the design.</p>
 <h2>Engineering approach</h2><p>The sequence below is a practical framework. Site-specific design must be based on inspection, verified equipment information, calculations and the requirements applicable to the actual installation.</p><ol><li>Confirm the vehicle and charger requirements, charging mode, rated input current, connector standard and intended charging duration.</li><li>Review the existing supply capacity, transformer or service limitations, main switchgear, distribution board schedules and measured demand where available.</li><li>Calculate the additional demand and assess diversity or managed charging only where the control strategy is defined and reliable.</li><li>Check cable sizing, voltage drop, installation method, thermal conditions, fault protection, residual-current protection and manufacturer requirements.</li><li>Plan physical protection, impact resistance, weather exposure, earthing, isolation, emergency access and clear user instructions.</li><li>Where multiple chargers are planned, assess dynamic load management, communications reliability, fail-safe behaviour and a practical route for future expansion.</li><li>Commission the installation in accordance with the charger manufacturer’s instructions and applicable electrical installation requirements, then document settings and handover information.</li></ol>
 <h2>Key engineering decision</h2><p>The central decision is whether charging is unmanaged or actively load-managed. A load-management system must have a defined measurement point, operating limits, communications behaviour and a safe response if control or communications fail.</p>
+<figure class="system-diagram">
+<svg viewBox="0 0 900 340" role="img" aria-labelledby="ev-diagram-title ev-diagram-desc">
+<title id="ev-diagram-title">Conceptual EV charging and dynamic load management architecture</title>
+<desc id="ev-diagram-desc">Electrical power flows from the incoming service through main distribution and protection to EV charging equipment. A meter or current transformer provides demand data to a load controller, which sends control signals to the chargers.</desc>
+<defs><marker id="ev-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6" fill="none" stroke="#13322c" stroke-width="1.4"/></marker><marker id="ev-data-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6" fill="none" stroke="#e87532" stroke-width="1.4"/></marker></defs>
+<rect class="diagram-node" x="18" y="42" width="180" height="82" rx="5"/>
+<text class="diagram-label" x="108" y="76"><tspan x="108">Incoming service</tspan><tspan x="108" dy="21">and metering</tspan></text>
+<rect class="diagram-node" x="250" y="42" width="190" height="82" rx="5"/>
+<text class="diagram-label" x="345" y="76"><tspan x="345">Main distribution</tspan><tspan x="345" dy="21">and protection</tspan></text>
+<rect class="diagram-node" x="492" y="42" width="180" height="82" rx="5"/>
+<text class="diagram-label" x="582" y="76"><tspan x="582">EV supply</tspan><tspan x="582" dy="21">equipment</tspan></text>
+<rect class="diagram-node accent" x="716" y="42" width="166" height="82" rx="5"/>
+<text class="diagram-label" x="799" y="76"><tspan x="799">EV charging</tspan><tspan x="799" dy="21">points</tspan></text>
+<path class="diagram-line" d="M198 83 H244 M440 83 H486 M672 83 H710" marker-end="url(#ev-arrow)"/>
+<rect class="diagram-node" x="250" y="218" width="190" height="82" rx="5"/>
+<text class="diagram-label" x="345" y="250"><tspan x="345">Meter / CT</tspan><tspan x="345" dy="20">demand measurement</tspan></text>
+<rect class="diagram-node accent" x="492" y="218" width="180" height="82" rx="5"/>
+<text class="diagram-label" x="582" y="250"><tspan x="582">Load controller</tspan><tspan x="582" dy="20">operating limits</tspan></text>
+<path class="diagram-data" d="M345 218 V166 H582 V130" marker-end="url(#ev-data-arrow)"/>
+<path class="diagram-data" d="M672 259 H799 V130" marker-end="url(#ev-data-arrow)"/>
+<text class="diagram-small" x="470" y="155">Demand feedback</text>
+<text class="diagram-small" x="735" y="246">Control signal</text>
+<text class="diagram-small" x="450" y="326">Power path: solid line  ·  Measurement / control: dashed line</text>
+</svg>
+<figcaption>Conceptual arrangement for a managed charging installation. The measurement point, load limit, controller logic, communications path and safe fallback behaviour must be defined for the actual charger and site. This is not a single-line diagram or a substitute for equipment-specific design.</figcaption>
+</figure>
 <h2>Verification and handover</h2><p>A credible handover should make the design intent and the installed condition traceable. Records should identify the equipment and settings actually installed, the tests completed, any limitations, and the maintenance actions required. Results must be recorded from the real installation rather than inferred from a design example.</p>
 <div class="cta"><h2>Engineering starts with the actual site conditions.</h2><p>For electrical assessments, system design or project discussions, contact Kell Electricals Ltd.</p><a href="https://kellelectricals.com/book-appointment">Discuss an engineering requirement ↗</a></div>
 </article>
