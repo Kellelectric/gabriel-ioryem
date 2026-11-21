@@ -22,9 +22,9 @@ const pages = [
 for (const pagePath of pages) {
   test(`heading hierarchy is accessible: ${pagePath}`, async () => {
     const html = await readFile(new URL(`../${pagePath}`, import.meta.url), "utf8");
-    const headings = [...html.matchAll(/<h([1-6])\\b[^>]*>([\\s\\S]*?)<\\/h\\1>/gi)].map(match => ({
+    const headings = [...html.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)].map(match => ({
       level: Number(match[1]),
-      text: match[2].replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim()
+      text: match[2].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim()
     }));
 
     assert.equal(headings.filter(heading => heading.level === 1).length, 1, "page should have exactly one H1");
