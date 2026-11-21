@@ -26,3 +26,7 @@
 .reference-section .section-lead{color:#fff}
 .reference-section .reference-note{color:#fff}
 .reference-section .reference-grid{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.22)}
+
+/* Keep the mobile document scroll independent from the horizontally moving Explore strip. */
+html,body{min-height:100%;}
+@media(max-width:767px){.explore-nav{position:relative;top:auto;backdrop-filter:none;-webkit-backdrop-filter:none}}
