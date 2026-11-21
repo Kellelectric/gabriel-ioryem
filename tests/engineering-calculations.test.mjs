@@ -12,7 +12,7 @@ const closeTo = (actual, expected, tolerance = 1e-9) => {
 };
 
 test("single-phase load current uses real input power, PF and efficiency", () => {
-  closeTo(estimateLoadCurrent({phase:"1",powerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100}), 5000/(230*0.9));
+  closeTo(estimateLoadCurrent({phase:"1",outputPowerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100}), 5000/(230*0.9));
 });
 
 test("three-phase load current includes the square-root-of-three factor", () => {
