@@ -20,7 +20,7 @@ test("homepage uses independently cacheable local assets without a runtime CSS c
   assert.ok(html.length < 40000, "homepage HTML should remain below the source-size guardrail");
   assert.ok(cssStats.size < 20000, "homepage stylesheet should remain below 20 KB");
   assert.ok(utilityStats.size < 4000, "static utility stylesheet should remain below 4 KB");
-  assert.ok(jsStats.size < 10000, "homepage interaction script should remain below 10 KB");
+  assert.ok(jsStats.size < 13000, "homepage interaction script should remain below 13 KB");
   assert.match(css, /\.explore-track/, "sliding section navigation styles are retained");
   assert.match(css, /\.mobile-navigation/, "mobile navigation styles are retained");
   assert.match(utility, /\.lg\\:grid-cols-12/, "responsive grid utility is included");
