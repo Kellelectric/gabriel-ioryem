@@ -155,7 +155,8 @@
     </aside>
   </main>
   <footer class="footer"><div class="shell footer-inner"><span>© Gabriel Ioryem · Electrical Engineering</span><span><a href="/">Return to portfolio</a> · <a href="/projects/">Engineering studies</a></span></div></footer>
-  <script>
+  <script type="module">
+    import { estimateLoadCurrent, estimateVoltageDrop, estimatePvArrayKwp, estimateBatteryCapacityKwh } from "./calculations.mjs";
     (() => {
       const byId = id => document.getElementById(id);
       const read = id => Number(byId(id).value);
@@ -191,32 +192,44 @@
         return allValid;
       };
       const fmt = n => Number.isFinite(n) ? n.toLocaleString("en-NG", {minimumFractionDigits:2, maximumFractionDigits:2}) : "—";
-      const inputs = [...document.querySelectorAll("input,select")];
       const updateCurrent = () => {
         const ids=["current-power","current-voltage","current-pf","current-eff"];
         if(!valid(ids,(id,n)=>id==="current-pf"?n>0&&n<=1:id==="current-eff"?n>0&&n<=100:n>0)){byId("current-result").textContent="Check inputs";return;}
-        const phase=read("current-phase"), p=read("current-power")*1000, v=read("current-voltage"), pf=read("current-pf"), eta=read("current-eff")/100;
-        const amps=p/((phase==="3"?Math.sqrt(3):1)*v*pf*eta);
+        const amps=estimateLoadCurrent({
+          phase:byId("current-phase").value,
+          powerKw:read("current-power"),
+          voltage:read("current-voltage"),
+          powerFactor:read("current-pf"),
+          efficiencyPercent:read("current-eff")
+        });
         byId("current-result").textContent=fmt(amps);
       };
       const updateDrop = () => {
         const ids=["drop-current","drop-length","drop-area","drop-voltage"];
         if(!valid(ids,(_,n)=>n>0)){byId("drop-result").textContent="Check inputs";byId("drop-percent").textContent="";return;}
-        const rho=byId("drop-metal").value==="cu"?0.01724:0.0282;
-        const phase=read("drop-phase"), i=read("drop-current"), l=read("drop-length"), s=read("drop-area"), v=read("drop-voltage");
-        const drop=(phase==="3"?Math.sqrt(3):2)*i*l*rho/s;
+        const phase=byId("drop-phase").value, i=read("drop-current"), l=read("drop-length"), area=read("drop-area"), voltage=read("drop-voltage");
+        const drop=estimateVoltageDrop({phase,currentA:i,routeLengthM:l,conductorAreaMm2:area,material:byId("drop-metal").value});
         byId("drop-result").textContent=fmt(drop);
-        byId("drop-percent").textContent="V · "+fmt(drop/v*100)+"%";
+        byId("drop-percent").textContent="V · "+fmt(drop/voltage*100)+"%";
       };
       const updatePv = () => {
         const ids=["pv-energy","pv-hours","pv-pr"];
         if(!valid(ids,(id,n)=>id==="pv-pr"?n>0&&n<=100:n>0)){byId("pv-result").textContent="Check inputs";return;}
-        byId("pv-result").textContent=fmt(read("pv-energy")/(read("pv-hours")*read("pv-pr")/100));
+        byId("pv-result").textContent=fmt(estimatePvArrayKwp({
+          dailyEnergyKwh:read("pv-energy"),
+          peakSunHours:read("pv-hours"),
+          performanceRatioPercent:read("pv-pr")
+        }));
       };
       const updateBattery = () => {
         const ids=["battery-energy","battery-days","battery-dod","battery-eff"];
         if(!valid(ids,(id,n)=>(id==="battery-dod"||id==="battery-eff")?n>0&&n<=100:n>0)){byId("battery-result").textContent="Check inputs";return;}
-        byId("battery-result").textContent=fmt(read("battery-energy")*read("battery-days")/((read("battery-dod")/100)*(read("battery-eff")/100)));
+        byId("battery-result").textContent=fmt(estimateBatteryCapacityKwh({
+          dailyCriticalLoadKwh:read("battery-energy"),
+          autonomyDays:read("battery-days"),
+          depthOfDischargePercent:read("battery-dod"),
+          dischargeEfficiencyPercent:read("battery-eff")
+        }));
       };
       const update = () => {updateCurrent();updateDrop();updatePv();updateBattery();};
       inputs.forEach(el=>el.addEventListener("input",update));
