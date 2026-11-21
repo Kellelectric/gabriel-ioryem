@@ -706,6 +706,103 @@ footer .footer-inner a{color:var(--forest)}
   color:#171d1a !important;
 }
 
+
+/* Accessibility and portrait refinement: final, intentional overrides */
+:root{
+  --action:#a83f0b;
+  --action-hover:#873308;
+  --gold:#8a642d;
+  --focus:#8a642d;
+}
+.header-contact,.nav-cta,.button.primary,.form-submit,.back-top{
+  background:var(--action)!important;
+  border-color:var(--action)!important;
+  color:#fff!important;
+}
+.header-contact:hover,.nav-cta:hover,.button.primary:hover,.form-submit:hover,.back-top:hover{
+  background:var(--action-hover)!important;
+  border-color:var(--action-hover)!important;
+  color:#fff!important;
+}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--focus)!important;
+  outline-offset:4px;
+}
+:where(.hero-copy,.section-copy,.method-intro,.milestone-intro,.journey-entry p,
+.method-grid p,.sector-list p,.milestone-grid p,.principle span,.contact-note,
+.faq-list details p,.expertise-card p,.leadership-item p){
+  color:#4f5b54;
+}
+:where(.portfolio,.timeline-section,.dark-panel,.forest-panel,.engineering-plate,.command-panel){
+  color:#f4f5f2;
+}
+:where(.portfolio,.timeline-section,.dark-panel,.forest-panel,.engineering-plate,.command-panel)
+:where(p,li,small,.section-copy,.section-note,.portfolio-copy,.method-intro){
+  color:#e0e7e2!important;
+}
+:where(.portfolio,.timeline-section,.dark-panel,.forest-panel,.engineering-plate,.command-panel)
+:where(h1,h2,h3,h4,.section-title,.section-label,.section-kicker,.eyebrow){
+  color:#fff!important;
+}
+:where(.portfolio,.timeline-section,.dark-panel,.forest-panel,.engineering-plate,.command-panel)
+:where(a:not(.button),.project-kicker,.section-label,.eyebrow){
+  color:#f2d7ae;
+}
+.portrait-frame{
+  width:min(100%,390px)!important;
+  padding:9px!important;
+  border:1px solid rgba(138,100,45,.48)!important;
+  border-radius:46% 46% 3px 3px!important;
+  background:linear-gradient(155deg,#fff 0%,#e8ece9 100%)!important;
+  box-shadow:16px 18px 0 rgba(19,50,44,.12),0 22px 48px rgba(19,50,44,.10)!important;
+  overflow:hidden!important;
+  transform:none!important;
+}
+.portrait-image{
+  aspect-ratio:4/5!important;
+  overflow:hidden!important;
+  background:#dce5df!important;
+  border-radius:42% 42% 1px 1px!important;
+}
+.portrait-frame img{
+  width:100%!important;height:100%!important;
+  aspect-ratio:4/5!important;
+  object-fit:cover!important;
+  object-position:center 23%!important;
+  filter:saturate(.98) contrast(1.02)!important;
+  transform:scale(1.015)!important;
+}
+.portrait-frame figcaption{
+  padding:18px 12px 12px!important;
+  background:transparent!important;
+}
+.portrait-frame figcaption span{
+  color:var(--forest)!important;
+  font:500 29px/1.05 var(--serif)!important;
+}
+.portrait-frame figcaption small{
+  color:#4f5b54!important;
+  font-size:9px!important;
+  font-weight:700!important;
+  letter-spacing:.11em!important;
+}
+.hero-art:hover .portrait-frame{
+  transform:translateY(-4px)!important;
+  box-shadow:18px 22px 0 rgba(19,50,44,.14),0 28px 54px rgba(19,50,44,.13)!important;
+}
+.hero-art:hover .portrait-frame img{transform:scale(1.035)!important}
+@media(max-width:850px){
+  .portrait-frame{width:min(100%,390px)!important}
+}
+@media(max-width:680px){
+  .portrait-frame{width:min(88%,340px)!important;margin-inline:auto!important}
+  .portrait-image{aspect-ratio:4/5!important}
+  .portrait-frame figcaption{padding:15px 8px 9px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .portrait-frame,.portrait-frame img{transition:none!important;transform:none!important}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Gabriel Ioryem","jobTitle":"Electrical Engineer and Founder & CEO","url":"https://gabriel-ioryem.vercel.app/","email":"mailto:info@kellelectricals.com","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Madonna University Nigeria"},"worksFor":{"@type":"Organization","name":"Kell Electricals Ltd","url":"https://kellelectricals.com"}}</script>\n
   <style id="editorial-motion-layer">
