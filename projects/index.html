@@ -158,6 +158,15 @@ footer{border-color:var(--line)}
 .footer-inner{color:#96a39a}
 .footer-inner a{color:#dfc99e}
 ::selection{background:#c6a972;color:#0b1210}
+
+.verified-projects{margin:0 0 62px;padding:30px 0 0;border-top:1px solid #d5ded8}
+.verified-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.verified-card{padding:22px;background:#fff;border:1px solid #d5ded8;border-top:3px solid #13322c}
+.verified-type{display:block;margin-bottom:12px;color:#405b4e;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.verified-card h3{margin:0 0 8px;color:#13322c;font:500 27px/1.05 "Cormorant Garamond",Georgia,serif}
+.verified-card p,.verified-note{margin:0;color:#59665f;font-size:12px;line-height:1.7}
+.verified-note{margin-top:15px}
+@media(max-width:760px){.verified-grid{grid-template-columns:1fr}.verified-card{padding:18px}}
 </style>
 <style id="identity-refresh">
 
@@ -247,7 +256,24 @@ h1,h2.section-title,.card-title{color:#13322c!important}
       <p><strong>About this portfolio.</strong> The pages below are representative engineering scenarios prepared to explain relevant capabilities and methods. They are illustrative, not verified records of specific completed client engagements. Client details, project dates, equipment selections and measured results will be published only where they can be substantiated.</p>
     </aside>
 
-    <section aria-labelledby="projects-heading">
+    
+    <section class="verified-projects" aria-labelledby="verified-projects-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Confirmed project references</p>
+          <h2 class="section-title" id="verified-projects-title">Selected project environments</h2>
+        </div>
+        <p class="section-note">These are named project references identified for this portfolio. Detailed scope, dates, photographs and measured outcomes will be added only after the supporting project records are checked.</p>
+      </div>
+      <div class="verified-grid">
+        <article class="verified-card"><span class="verified-type">Residential development</span><h3>Paradise Phase 1</h3><p>Life Camp, Abuja, Nigeria</p></article>
+        <article class="verified-card"><span class="verified-type">Residential development</span><h3>Drol Apartments</h3><p>Jahi, Abuja, Nigeria</p></article>
+        <article class="verified-card"><span class="verified-type">Institutional facility</span><h3>CBN Multipurpose Cooperative</h3><p>Garki II, Abuja, Nigeria</p></article>
+      </div>
+      <p class="verified-note">Project names and locations are listed as references only. This page does not yet attribute a specific work package, completion date, equipment schedule or performance result to any of these sites.</p>
+    </section>
+
+      <section aria-labelledby="projects-heading">
       <div class="section-head">
         <div>
           <p class="section-kicker">Areas of practice</p>
