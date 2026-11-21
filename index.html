@@ -462,6 +462,139 @@ footer{background:#080f0c;border-top:1px solid var(--line)}
 ::selection{background:#c6a972;color:#0b1210}
 @media(prefers-reduced-motion:reduce){.page-index-inner a:after{transition:none}}
 
+
+/* Refined brand system: forest green, soft neutral surfaces and orange actions */
+:root{
+  --forest:#13322c;
+  --deep:#0b1713;
+  --gold:#13322c;
+  --lime:#f4f5f2;
+  --paper:#f4f5f2;
+  --warm:#e8ece9;
+  --sage:#e8ece9;
+  --ink:#171d1a;
+  --muted:#626d66;
+  --line:#d9dfda;
+  --white:#ffffff;
+  --action:#e87532;
+  --action-hover:#cf5f24;
+  color-scheme:light;
+}
+html,body{background:var(--paper);color:var(--ink)}
+body:before{background:var(--forest)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--forest);outline-offset:3px}
+.skip-link{background:var(--forest);color:#fff}
+.header,.header.scrolled{background:rgba(244,245,242,.94);border-bottom-color:var(--line)}
+.brand,.nav a:not(.nav-cta):hover{color:var(--forest)}
+.nav{color:#4d5852}
+.header-contact,.nav-cta,.button.primary,.form-submit,.back-top{
+  background:var(--action)!important;color:#fff!important;border-color:var(--action)!important;
+}
+.header-contact:hover,.nav-cta:hover,.button.primary:hover,.form-submit:hover,.back-top:hover{
+  background:var(--action-hover)!important;border-color:var(--action-hover)!important;color:#fff!important;
+}
+.header-contact span{color:#fff}
+.button{border-color:var(--forest)}
+.button.secondary{color:var(--forest);background:transparent}
+.button.secondary:hover{background:var(--warm);color:var(--forest)}
+.eyebrow,.section-label,.contact-card p,.project-kicker{color:var(--forest)}
+.eyebrow:before{background:var(--forest)}
+h1,h1 em,.section-title,.expertise-card h3,.leadership-item h3,.principle strong,
+.journey-entry h3,.method-grid h3,.sector-list h3,.milestone-grid h3,
+.engagement-grid h3,.faq-list summary,.contact-card a,.cv-inline{color:var(--forest)}
+.hero{background:var(--paper)}
+.hero:after{display:none}
+.hero-copy,.section-copy,.section-copy .lead,.journey-entry p,.method-intro,
+.method-grid p,.sector-list p,.milestone-intro,.milestone-grid p,
+.principle span,.contact-note,.faq-list details p{color:#59645d}
+.hero-art{min-height:0;perspective:none;display:flex;justify-content:flex-end;align-items:center}
+.portrait-frame{
+  width:min(100%,430px);aspect-ratio:auto;margin:0;padding:10px;
+  overflow:visible;background:#fff;border:1px solid var(--line);
+  border-radius:2px;box-shadow:0 18px 42px rgba(19,50,44,.08);
+  transform:none;animation:none;transition:box-shadow .35s ease;
+}
+.portrait-frame:before,.portrait-frame:after{display:none}
+.portrait-image{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--warm)}
+.portrait-frame img{
+  display:block;width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;
+  object-position:center 24%;filter:none;transform:none;transition:transform .6s ease;
+}
+.portrait-frame figcaption{
+  position:static;padding:17px 7px 8px;background:transparent;color:var(--ink);
+  display:flex;flex-direction:column;gap:4px;
+}
+.portrait-frame figcaption span{font:500 27px/1.05 var(--serif);color:var(--forest)}
+.portrait-frame figcaption small{font:600 9px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#68736c}
+.hero-art:hover .portrait-frame{transform:none;box-shadow:0 22px 48px rgba(19,50,44,.12)}
+.hero-art:hover .portrait-frame img{transform:scale(1.015);filter:none}
+.portrait-orbit,.portrait-index{display:none!important}
+.hero-proof strong{color:var(--forest)}
+.hero-proof span{color:#68736c}
+.intro-band,.page-index{background:var(--paper);border-color:var(--line)}
+.intro-inner p,.index-note{color:#667169}
+.intro-inner strong,.page-index-inner a{color:var(--forest)}
+.page-index-inner a:after{background:var(--forest)}
+.leadership,.journey,.method,.milestones,.faq,.contact{background:var(--warm)}
+.leadership-panel,.method-grid,.milestone-grid{background:var(--line);border-color:var(--line)}
+.leadership-item,.method-grid article,.milestone-grid article{background:var(--warm)}
+.expertise-grid{background:var(--line);border-color:var(--line)}
+.expertise-card{background:var(--paper)}
+.expertise-card:hover{background:#fff;box-shadow:0 16px 34px rgba(19,50,44,.08)}
+.leadership-item:hover{background:#f4f5f2}
+.expertise-no,.leadership-item small,.journey-entry small,.journey-marker,
+.method-grid article>span,.sector-list article>span,.milestone-grid article>span{color:var(--forest)}
+.journey-track,.journey-entry,.faq-list,.faq-list details{border-color:var(--line)}
+.journey-marker{border-color:var(--forest)}
+.method-grid,.milestone-grid{gap:1px}
+.principle,.signature-line:before{border-color:var(--forest);background-color:var(--forest)}
+.milestone-note{background:#fff;border-color:var(--forest)}
+.milestone-note strong{color:var(--forest)}
+.contact-card{background:var(--paper);border-color:var(--line)}
+.contact-card:before{background:var(--forest)}
+.cv-download a{border-color:var(--forest);color:var(--forest)}
+.portfolio,.standards-section,.command-panel{
+  background:var(--forest)!important;color:#f4f5f2!important;
+}
+.portfolio .section-label,.standards-section .section-label{color:#f4f5f2}
+.portfolio .section-title,.portfolio .section-copy,.portfolio .section-copy .lead,
+.portfolio .portfolio-copy,.project-feature h3,.project-feature p,
+.project-link,.portfolio-foot span,.standards-section .section-title,
+.standards-section .section-copy{color:#f4f5f2}
+.portfolio .button.secondary,.portfolio .button{
+  color:#fff;border-color:rgba(255,255,255,.75);background:transparent;
+}
+.portfolio .button.secondary:hover,.portfolio .button:hover{background:#fff;color:var(--forest)}
+.project-feature-grid{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.16)}
+.project-feature{background:rgba(255,255,255,.045)}
+.project-feature:hover{background:rgba(255,255,255,.1)}
+.project-kicker{color:#f4f5f2}
+.knowledge-tab{background:var(--paper);color:var(--forest)}
+.knowledge-tab:hover,.knowledge-tab.active{background:var(--forest);color:#fff}
+.knowledge-tab.active span,.knowledge-tab:hover span{color:#fff}
+.knowledge-symbol{border-color:var(--line);color:var(--forest)}
+.knowledge-detail h3{color:var(--forest)}
+.mode-button:hover,.mode-button.active{background:#fff!important;border-color:#fff!important;color:var(--forest)!important}
+.simulation-status i{background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.14)}
+.flow-icon,.flow-node>span,.readout-facts small{color:#f4f5f2}
+.flow-link i{background:#fff}
+.milestone-note span,.footer-inner{color:#657168}
+footer{background:var(--paper)}
+footer .footer-inner a{color:var(--forest)}
+.contact-actions .button.primary,.contact-form .form-submit{background:var(--action)!important}
+::selection{background:var(--forest);color:#fff}
+@media(max-width:850px){.hero-art{min-height:0;justify-content:center}.portrait-frame{width:min(100%,410px)}}
+@media(max-width:680px){
+  .hero-art{min-height:0;margin-top:0}
+  .portrait-frame{width:min(100%,350px);padding:8px}
+  .portrait-image{aspect-ratio:1/1}
+  .portrait-frame figcaption{padding:14px 6px 7px}
+  .portrait-frame figcaption span{font-size:25px}
+}
+@media(prefers-reduced-motion:reduce){
+  .portrait-frame,.portrait-frame img{transition:none!important;animation:none!important;transform:none!important}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Gabriel Ioryem","jobTitle":"Electrical Engineer and Founder & CEO","url":"https://gabriel-ioryem.vercel.app/","email":"mailto:info@kellelectricals.com","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Madonna University Nigeria"},"worksFor":{"@type":"Organization","name":"Kell Electricals Ltd","url":"https://kellelectricals.com"}}</script>\n
   <style id="editorial-motion-layer">
@@ -548,7 +681,7 @@ footer{background:#080f0c;border-top:1px solid var(--line)}
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="header" id="site-header">
     <div class="shell nav-wrap">
-      <a class="brand" href="#home" aria-label="Gabriel Ioryem home"><svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="GI engineering monogram"><rect x="1" y="1" width="62" height="62" rx="4" fill="#13322c"/><path d="M43 15H25L13 27v10l12 12h18V31H31v8h5v2h-8l-7-7v-6l7-7h15z" fill="#f7f4ef"/><path d="M47 14v36M44 14h6M44 50h6" stroke="#c4a574" stroke-width="2" fill="none"/></svg><span class="brand-name">Gabriel Ioryem<small>Electrical Engineer · Founder</small></span></a>
+      <a class="brand" href="#home" aria-label="Gabriel Ioryem home"><svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="GI engineering monogram"><rect x="1" y="1" width="62" height="62" rx="4" fill="#13322c"/><path d="M43 15H25L13 27v10l12 12h18V31H31v8h5v2h-8l-7-7v-6l7-7h15z" fill="#f7f4ef"/><path d="M47 14v36M44 14h6M44 50h6" stroke="#f5f5f2" stroke-width="2" fill="none"/></svg><span class="brand-name">Gabriel Ioryem<small>Electrical Engineer · Founder</small></span></a>
       <a class="header-contact" href="#contact">Let’s connect <span>↗</span></a>
     </div>
   </header>
@@ -562,7 +695,12 @@ footer{background:#080f0c;border-top:1px solid var(--line)}
           <p class="hero-copy">I’m Gabriel Ioryem, an electrical engineer and entrepreneur focused on practical engineering, dependable infrastructure and building organisations that solve real problems.</p>
           <div class="actions"><a class="button primary" href="#about">Explore my journey <span>↗</span></a><a class="button secondary" href="#contact">Start a conversation <span>↗</span></a></div><div class="hero-proof"><div><strong>15+</strong><span>YEARS IN PRACTICE</span></div><div><strong>2010</strong><span>BUSINESS ESTABLISHED</span></div><div><strong>ABUJA</strong><span>NIGERIA</span></div></div>
         </div>
-        <div class="hero-art"><div class="portrait-orbit orbit-one"></div><div class="portrait-orbit orbit-two"></div><figure class="portrait-frame"><img src="data:image/webp;base64,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" alt="Professional portrait of Gabriel Ioryem" width="480" height="480" fetchpriority="high"><figcaption><span>Gabriel Ioryem</span><small>Electrical Engineer · Founder</small></figcaption></figure><span class="portrait-index">GI / 01</span></div>
+        <div class="hero-art">
+          <figure class="portrait-frame">
+            <div class="portrait-image"><img src="data:image/webp;base64,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" alt="Professional portrait of Gabriel Ioryem" width="480" height="480" fetchpriority="high"></div>
+            <figcaption><span>Gabriel Ioryem</span><small>Electrical Engineer · Founder &amp; CEO</small></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
