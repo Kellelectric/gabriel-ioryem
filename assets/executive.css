@@ -18,3 +18,11 @@
 @media(max-width:380px){.hero-proof{grid-template-columns:1fr}.hero-proof>div{display:flex;align-items:center;justify-content:space-between;gap:10px}.hero-proof span{margin:0;text-align:right}.explore-inner{gap:5px}.explore-track{gap:16px}.method-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade-up,.reveal-line span,.explore-track,.explore-track a:after,.explore-arrow,.btn-primary,.btn-secondary,.menu-toggle span,.lead-progress>div{transition:none!important}.fade-up,.reveal-line span{opacity:1!important;transform:none!important}.hero-section:after{animation:none!important}}
 @media(min-width:1024px){.menu-toggle,.mobile-navigation{display:none!important}}
+
+/* Reference section: high-contrast editorial treatment requested for project context. */
+.reference-section .section-label{color:#fff}
+.reference-section .heading-1{color:#fff}
+.reference-section .section-body{color:#fff}
+.reference-section .section-lead{color:#fff}
+.reference-section .reference-note{color:#fff}
+.reference-section .reference-grid{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.22)}
