@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 
 const pages = [
   "../index.html",
+  "../cv/index.html",
   "../projects/index.html",
   "../engineering-tools/index.html",
   "../projects/residential-electrical-installation/index.html",
