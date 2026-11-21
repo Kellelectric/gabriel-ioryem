@@ -1812,5 +1812,47 @@ body .button.secondary{border-color:var(--forest)!important;color:var(--forest)!
 </style>
 </style>
 
+
+<style id="hero-contrast-correction">
+/* Correct the hero foreground: the green hero must never inherit dark text. */
+:root{--action:#a83f0b;--action-hover:#873308}
+.hero#home{
+  background-color:#173c33!important;
+  background-image:
+    radial-gradient(ellipse at 76% 34%,rgba(255,255,255,.12),transparent 38%),
+    linear-gradient(115deg,#12352d 0%,#194238 58%,#245247 100%)!important;
+  color:#fff!important;
+}
+.hero#home :is(h1,h1 em,.eyebrow,.hero-copy,.portrait-index,.hero-proof strong,.hero-proof span){
+  color:#fff!important;
+}
+.hero#home .eyebrow{color:#e5eee8!important}
+.hero#home .hero-copy{color:#e0e9e3!important}
+.hero#home .hero-proof{background:rgba(255,255,255,.22)!important;border-color:rgba(255,255,255,.24)!important}
+.hero#home .hero-proof>div{background:rgba(5,25,20,.22)!important;border-color:rgba(255,255,255,.18)!important}
+.hero#home .hero-proof strong{color:#fff!important}
+.hero#home .hero-proof span{color:#e5eee8!important}
+.hero#home .button.primary,.button.primary,.nav-cta,.header-contact,.form-submit{
+  background:var(--action)!important;border-color:var(--action)!important;color:#fff!important;
+}
+.hero#home .button.primary:hover,.button.primary:hover,.nav-cta:hover,.header-contact:hover,.form-submit:hover{
+  background:var(--action-hover)!important;border-color:var(--action-hover)!important;color:#fff!important;
+}
+.hero#home .button.secondary{color:#fff!important;border-color:rgba(255,255,255,.8)!important}
+.hero#home .button.secondary:hover{background:rgba(255,255,255,.12)!important}
+.hero#home .portrait-frame{
+  background:#f4f5f2!important;border:1px solid rgba(255,255,255,.5)!important;
+  box-shadow:14px 16px 0 rgba(0,0,0,.18),0 22px 48px rgba(0,0,0,.2)!important;
+}
+.hero#home .portrait-frame figcaption span{color:#13322c!important}
+.hero#home .portrait-frame figcaption small{color:#4f5b54!important}
+.hero#home .portrait-frame img{filter:saturate(1.02) contrast(1.02)!important}
+@media(max-width:680px){
+ .hero#home{padding-top:116px}
+ .hero#home h1{font-size:clamp(50px,13vw,70px);line-height:.98}
+ .hero#home .hero-copy{font-size:14px;line-height:1.8}
+}
+</style>
+
 </body>
 </html>
