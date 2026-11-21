@@ -956,6 +956,40 @@ body #engineering-notes #knowledge-panel #topic-points span{
   background:#e8ece9!important;
 }
 
+
+/* Readability and scroll refinement: audience, engagement and page movement */
+body #who-i-work-with,
+body #engagement{
+  background:#f4f5f2!important;
+  color:#202824!important;
+}
+body #who-i-work-with :is(.section-label,.section-title,.section-copy,.section-copy p,.section-copy .lead),
+body #engagement :is(.section-label,.section-title,.section-copy,.section-copy p,.section-copy .lead){
+  color:#263b32!important;
+  -webkit-text-fill-color:#263b32!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body #who-i-work-with .section-title,
+body #engagement .section-title{color:#13322c!important;-webkit-text-fill-color:#13322c!important}
+body #who-i-work-with .section-copy p,
+body #engagement .section-copy p{font-size:15px!important;line-height:1.9!important}
+body #who-i-work-with .section-copy .lead,
+body #engagement .section-copy .lead{color:#263b32!important;font-weight:500!important}
+body #who-i-work-with .audience-card,
+body #engagement .engagement-grid article{background:#fff!important}
+body #who-i-work-with .audience-card :is(h3,p,span,i),
+body #engagement .engagement-grid article :is(h3,p,span,a){
+  opacity:1!important;visibility:visible!important;
+}
+html{scroll-behavior:smooth!important;scroll-padding-top:90px}
+html,body{overscroll-behavior-y:auto;-webkit-overflow-scrolling:touch}
+.reveal{transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1),filter .8s cubic-bezier(.22,.61,.36,1)}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ .reveal{transition:none!important;transform:none!important;filter:none!important;opacity:1!important}
+}
+
 </style>
 </head>
 <body>
