@@ -198,6 +198,21 @@ body :is(.actions a,.actions button){border-color:rgba(255,255,255,.55)!importan
 body :is(.actions a:hover,.actions button:hover){background:var(--contrast-orange)!important;color:#fff!important;border-color:var(--contrast-orange)!important}
 body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--contrast-orange)!important;outline-offset:3px}
 
+
+/* Global text-contrast rule: dark surfaces use white; light surfaces use black. */
+:root{--text-on-light:#000;--text-on-dark:#fff}
+body,:where(body *){color:var(--text-on-light)!important;-webkit-text-fill-color:var(--text-on-light)!important}
+body :where(*::before,*::after){color:inherit!important;-webkit-text-fill-color:inherit!important}
+body :where(svg text,svg tspan){fill:currentColor!important}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel),body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel) *{color:var(--text-on-dark)!important;-webkit-text-fill-color:var(--text-on-dark)!important}
+body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel) :is(svg text,svg tspan),body :is(.closing,.cta,.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab,.command-panel,.engineering-plate,.dark-panel,.forest-panel,.portfolio,#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles,.leadership-panel) svg :is(text,tspan){fill:#fff!important}
+body :is(.knowledge-detail,.expertise-card,.audience-card,.engagement-grid article,.gallery-card,.verified-card,.side,.detail-hero,.detail-main,.sheet,.note:not(.dark-panel),.dist-info:not(.interactive-lab),.footer),body :is(.knowledge-detail,.expertise-card,.audience-card,.engagement-grid article,.gallery-card,.verified-card,.side,.detail-hero,.detail-main,.sheet,.note:not(.dark-panel),.dist-info:not(.interactive-lab),.footer) *{color:var(--text-on-light)!important;-webkit-text-fill-color:var(--text-on-light)!important}
+body :is(.knowledge-detail,.expertise-card,.audience-card,.engagement-grid article,.gallery-card,.verified-card,.side,.detail-hero,.detail-main,.sheet,.note:not(.dark-panel),.dist-info:not(.interactive-lab),.footer) :is(svg text,svg tspan){fill:#000!important}
+body :is(.actions,.actions *){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body :is(.button.primary,.nav-cta,.header-contact,.download-bio){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body :is(button[aria-pressed="true"],button[aria-selected="true"],button.active){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body :is(input,textarea,select)::placeholder{color:#000!important;-webkit-text-fill-color:#000!important;opacity:1!important}
+
 </style>
 <p class="lab-kicker">Interactive engineering visual</p>
 <h2 id="solar-lab-title">See how the power system responds.</h2>
