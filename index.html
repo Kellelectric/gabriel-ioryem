@@ -773,6 +773,39 @@ body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--a
 footer,.footer-inner{background:var(--paper)!important;color:var(--muted)!important}
 footer a{color:var(--forest)!important}
 </style>
+<style id="landing-page-readable-type-final">
+/* Explicit text/background pairing for every homepage section */
+:root{--page-ink:#202824;--page-muted:#56645d;--page-forest:#13322c;--page-paper:#f4f5f2;--page-soft:#e8ece9;--page-orange:#e87532}
+body{background:var(--page-paper)!important;color:var(--page-ink)!important}
+body :is(#home,#engineering-lens,#about,#leadership,#journey,#expertise,#engineering-notes,#method,#sectors,#who-i-work-with,#milestones,#engagement,#contact,#questions){color:var(--page-ink)!important}
+body :is(#home,#engineering-lens,#about,#leadership,#journey,#expertise,#engineering-notes,#method,#sectors,#who-i-work-with,#milestones,#engagement,#contact,#questions) :is(h1,h2,h3,h4,h5,strong,b,.section-title,.section-label,.eyebrow,.leadership-item h3,.faq-list summary){color:var(--page-forest)!important}
+body :is(#home,#engineering-lens,#about,#leadership,#journey,#expertise,#engineering-notes,#method,#sectors,#who-i-work-with,#milestones,#engagement,#contact,#questions) :is(p,li,small,label,figcaption,.section-copy,.lead,.muted,.description,.meta,.journey-entry small,.milestone-note span){color:var(--page-muted)!important}
+body :is(#home,#engineering-lens,#about,#leadership,#journey,#expertise,#engineering-notes,#method,#sectors,#who-i-work-with,#milestones,#engagement,#contact,#questions) a:not(.button):not(.brand){color:#245344}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles){background:var(--page-forest)!important;color:var(--page-paper)!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) :is(h1,h2,h3,h4,h5,strong,b,.section-title,.section-label,.eyebrow,.year,.project-kicker,.project-link,.timeline-year,.plate-head small,.system-node strong){color:#fff!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) :is(p,li,small,label,span,figcaption,.section-copy,.lead,.description,.meta,.timeline-intro,.timeline-foot,.portfolio-copy,.portfolio-foot,.plate-head p,.plate-foot,.system-node span){color:#e5ece7!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) a:not(.button){color:#fff!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) :is(.card,.project-feature,.timeline article,.knowledge-detail,.diagram-explanation){color:#e5ece7}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) :is(.card,.project-feature,.timeline article) :is(h3,h4,strong){color:#fff!important}
+body .hero h1,body .hero h1 em{color:var(--page-forest)!important}
+body .hero .eyebrow,body .hero .hero-copy{color:var(--page-muted)!important}
+body .hero-proof strong{color:var(--page-forest)!important}
+body .header .brand-name,body .header .brand-name small{color:var(--page-forest)!important}
+body .button.primary,body .nav-cta,body .header-contact,body .form-submit,body .contact-actions .button.primary{background:var(--page-orange)!important;color:#fff!important;border-color:var(--page-orange)!important}
+body .button.primary:hover,body .nav-cta:hover,body .header-contact:hover,body .form-submit:hover{background:#cf5f24!important;color:#fff!important;border-color:#cf5f24!important}
+body .button.secondary{background:transparent!important;color:var(--page-forest)!important;border-color:var(--page-forest)!important}
+body .portfolio .button.secondary,body .portfolio .button:not(.primary),body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) .button.secondary{color:#fff!important;border-color:#fff!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) .button.primary{background:var(--page-orange)!important;color:#fff!important;border-color:var(--page-orange)!important}
+body :is(#professional-timeline,#command-centre,#why-work-with-me,#projects,#project-gallery,#principles) .button.secondary:hover{background:#fff!important;color:var(--page-forest)!important}
+body .contact-form :is(h3,p,label){color:var(--page-forest)!important}
+body .contact-form :is(input,textarea,select){background:#fff!important;color:var(--page-ink)!important}
+body .contact-form :is(input,textarea)::placeholder{color:#68736d!important;opacity:1}
+body footer,body footer :is(p,small,span){background:var(--page-paper)!important;color:var(--page-muted)!important}
+body footer a{color:var(--page-forest)!important}
+body :is(a,button,input,textarea,select):focus-visible{outline:3px solid var(--page-orange)!important;outline-offset:3px}
+::selection{background:var(--page-forest);color:#fff}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
