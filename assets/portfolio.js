@@ -170,8 +170,7 @@
             if (active) link.setAttribute("aria-current", "location");
             else link.removeAttribute("aria-current");
           });
-          // Do not call scrollIntoView() here. The observer must never move
-          // the document while the visitor is scrolling toward the footer.
+          // Keep section observation passive; it must not change document scroll position.
         });
       }, { rootMargin: "-25% 0px -60% 0px" });
       links.forEach(link => {
