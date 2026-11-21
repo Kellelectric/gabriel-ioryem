@@ -1171,13 +1171,48 @@ body .milestone-note,body .milestone-note *{
 }
 body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#13322c!important}
 </style>
+<style id="functional-primary-navigation">
+.primary-nav{display:flex;align-items:center;gap:clamp(14px,2vw,27px);margin-left:auto;margin-right:clamp(14px,2vw,28px);font-size:10px;font-weight:700;letter-spacing:.035em;color:#46524b}
+.primary-nav a{position:relative;padding:12px 0;transition:color .2s ease}
+.primary-nav a:hover,.primary-nav a:focus-visible{color:#967c51}
+.primary-nav a:after{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:#c6a972;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.primary-nav a:hover:after,.primary-nav a:focus-visible:after{transform:scaleX(1)}
+.site-menu-toggle{display:none;width:44px;height:44px;padding:11px;border:1px solid var(--line);border-radius:2px;background:transparent;cursor:pointer}
+.site-menu-toggle span{display:block;width:19px;height:1.5px;margin:4px auto;background:var(--forest);transition:transform .2s ease,opacity .2s ease}
+.site-menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(5.5px) rotate(45deg)}
+.site-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.site-menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:850px){.primary-nav{gap:13px;margin-right:15px;font-size:9px}}
+@media(max-width:680px){
+ .header,.header.scrolled{height:66px}
+ .nav-wrap{position:relative}
+ .header-contact{display:none}
+ .site-menu-toggle{display:block;flex:0 0 44px}
+ .primary-nav{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;z-index:20;margin:0;padding:12px 18px 18px;flex-direction:column;align-items:stretch;gap:0;background:rgba(247,244,239,.99);border:1px solid var(--line);border-top:0;box-shadow:0 18px 34px rgba(10,25,18,.12)}
+ .primary-nav.open{display:flex}
+ .primary-nav a{padding:14px 4px;border-bottom:1px solid rgba(19,50,44,.09);font-size:12px}
+ .primary-nav a:last-child{border-bottom:0}
+ .primary-nav a:after{display:none}
+}
+@media(prefers-reduced-motion:reduce){.primary-nav a,.primary-nav a:after,.site-menu-toggle span{transition:none}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="header" id="site-header">
     <div class="shell nav-wrap">
       <a class="brand" href="#home" aria-label="Gabriel Ioryem home"><svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="GI engineering monogram"><rect x="1" y="1" width="62" height="62" rx="4" fill="#13322c"/><path d="M43 15H25L13 27v10l12 12h18V31H31v8h5v2h-8l-7-7v-6l7-7h15z" fill="#f7f4ef"/><path d="M47 14v36M44 14h6M44 50h6" stroke="#f5f5f2" stroke-width="2" fill="none"/></svg><span class="brand-name">Gabriel Ioryem<small>Electrical Engineer · Founder</small></span></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation">
+        <a href="#about">Profile</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#command-centre">Systems</a>
+        <a href="/projects/">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <a class="header-contact" href="#contact">Let’s connect <span>↗</span></a>
+      <button class="site-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -1397,7 +1432,14 @@ body .milestone-note strong{color:#13322c!important;-webkit-text-fill-color:#133
 
 
   <footer><div class="shell footer-inner"><span>© <span id="year">2026</span> Gabriel Ioryem. All rights reserved.</span><span>Founder, <a href="https://kellelectricals.com">Kell Electricals Ltd</a> · Engineering Trust. Powering Lives.</span></div></footer>
-  <script>(()=>{const header=document.getElementById('site-header');const top=document.createElement('a');top.className='back-top';top.href='#home';top.setAttribute('aria-label','Back to top');top.textContent='↑';document.body.appendChild(top);const progress=()=>{const max=document.documentElement.scrollHeight-innerHeight;document.documentElement.style.setProperty('--scroll-progress',(max>0?scrollY/max*100:0)+'%');};const onScroll=()=>{header.classList.toggle('scrolled',scrollY>20);top.classList.toggle('visible',scrollY>650);progress();};addEventListener('scroll',onScroll,{passive:true});onScroll();
+  <script>(()=>{const header=document.getElementById('site-header');
+const menuButton=header.querySelector('.site-menu-toggle');
+const primaryNav=header.querySelector('#primary-navigation');
+const closeMenu=()=>{primaryNav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation menu');};
+menuButton.addEventListener('click',()=>{const isOpen=menuButton.getAttribute('aria-expanded')==='true';if(isOpen){closeMenu();}else{primaryNav.classList.add('open');menuButton.setAttribute('aria-expanded','true');menuButton.setAttribute('aria-label','Close navigation menu');}});
+primaryNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){closeMenu();menuButton.focus();}});
+window.addEventListener('resize',()=>{if(window.innerWidth>680)closeMenu();});const top=document.createElement('a');top.className='back-top';top.href='#home';top.setAttribute('aria-label','Back to top');top.textContent='↑';document.body.appendChild(top);const progress=()=>{const max=document.documentElement.scrollHeight-innerHeight;document.documentElement.style.setProperty('--scroll-progress',(max>0?scrollY/max*100:0)+'%');};const onScroll=()=>{header.classList.toggle('scrolled',scrollY>20);top.classList.toggle('visible',scrollY>650);progress();};addEventListener('scroll',onScroll,{passive:true});onScroll();
 const indexLinks=[...document.querySelectorAll('.page-index a[href^="#"]')];
 const indexedSections=indexLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
 const setCurrent=sectionId=>indexLinks.forEach(link=>{
