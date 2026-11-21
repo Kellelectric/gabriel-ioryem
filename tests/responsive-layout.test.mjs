@@ -34,7 +34,7 @@ for (const pagePath of pages) {
 
     assert.match(html, /<meta\s+name=["']viewport["']/i, "viewport is configured");
     assert.match(css, /@media\s*\([^)]*max-width/i, "mobile breakpoint is present");
-    assert.doesNotMatch(css, /min-width\s*:\s*(?:[5-9]\d{2}|[1-9]\d{3,})px/i, "no large fixed minimum width blocks narrow screens");
+    assert.doesNotMatch(css, /(?:^|[;{])\s*min-width\s*:\s*(?:[5-9]\d{2}|[1-9]\d{3,})px/i, "no large fixed minimum width blocks narrow screens");
     assert.doesNotMatch(css, /overflow-x\s*:\s*hidden/i, "horizontal overflow is not concealed instead of fixed");
 
     for (const svg of html.matchAll(/<svg\b([^>]*)>/gi)) {
