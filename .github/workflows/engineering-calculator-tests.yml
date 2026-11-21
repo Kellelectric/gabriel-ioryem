@@ -1,4 +1,5 @@
 name: Engineering calculator tests
+# Shared Node regression suite includes calculator, SEO, link and accessibility checks.
 
 on:
   push:
