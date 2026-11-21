@@ -692,7 +692,19 @@ footer .footer-inner a{color:var(--forest)}
 @media(max-width:760px){.circuit-overlay{opacity:.22}.system-map:before{left:12%;right:12%;top:50%}}
 @media(prefers-reduced-motion:reduce){.engineering-plate:before,.circuit-trace,.circuit-node,.system-map:before,.system-node:not(:last-child):after{animation:none!important}.diagram-tabs button,.diagram-explanation{transition:none!important}}
 </style>
-</head>
+<style id="contrast-correction">
+/* Homepage contrast correction for neutral and forest surfaces */
+html,body{background:#f4f5f2!important;color:#202824!important}
+body p,body li,body small,body label{color:#59665f}
+h1,h2,h3,h4{color:#13322c}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #e87532!important;outline-offset:3px}
+button,.button,.btn,[class*="button"],[class*="cta"]{color:#fff}
+section[id="command-centre"],section[id="principles"],section[id="projects"],section[id="project-gallery"]{color:#f4f5f2}
+section[id="command-centre"] p,section[id="command-centre"] li,section[id="principles"] p,section[id="principles"] li,section[id="projects"] p,section[id="project-gallery"] p{color:#e6eee8!important}
+section[id="command-centre"] h2,section[id="command-centre"] h3,section[id="principles"] h2,section[id="principles"] h3,section[id="projects"] h2,section[id="projects"] h3,section[id="project-gallery"] h2,section[id="project-gallery"] h3{color:#fff!important}
+section[id="command-centre"] button,section[id="engineering-notes"] button{color:#fff}
+section[id="command-centre"] button[aria-pressed=true],section[id="engineering-notes"] button[aria-selected=true]{background:#e87532!important;color:#fff!important;border-color:#e87532!important}
+</style></head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="header" id="site-header">
