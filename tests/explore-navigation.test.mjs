@@ -35,3 +35,13 @@ test("project references use the approved copy and white-on-dark presentation", 
   assert.match(css, /\.reference-section \.section-body\{color:#fff\}/);
   assert.match(css, /\.reference-section \.reference-note\{color:#fff\}/);
 });
+
+test("mobile layout keeps normal document scrolling independent of Explore navigation", async () => {
+  const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+  const js = await readFile(new URL("../assets/portfolio.js", import.meta.url), "utf8");
+  assert.ok(css.includes('html,body{min-height:100%;}'));
+  assert.match(css, /@media\(max-width:767px\)\{\.explore-nav\{position:relative;top:auto/);
+  assert.doesNotMatch(css, /(?:html|body)\s*\{[^}]*overflow\s*:\s*hidden/i);
+  assert.doesNotMatch(js, /document\.body\.style\.overflow\s*=\s*["']hidden["']/);
+  assert.match(js, /exploreTrack\.addEventListener\("touchstart"/);
+});
