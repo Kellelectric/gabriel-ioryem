@@ -11,17 +11,17 @@ const closeTo = (actual, expected, tolerance = 1e-9) => {
   assert.ok(Math.abs(actual - expected) <= tolerance, `Expected ${actual} to be within ${tolerance} of ${expected}`);
 };
 
-test("single-phase load current uses real input power, PF and efficiency", () => {
+test("single-phase load current uses useful output power, PF and efficiency", () => {
   closeTo(estimateLoadCurrent({phase:"1",outputPowerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100}), 5000/(230*0.9));
 });
 
 test("three-phase load current includes the square-root-of-three factor", () => {
-  closeTo(estimateLoadCurrent({phase:"3",powerKw:15,voltage:400,powerFactor:0.85,efficiencyPercent:95}), 26.811932005710176);
+  closeTo(estimateLoadCurrent({phase:"3",outputPowerKw:15,voltage:400,powerFactor:0.85,efficiencyPercent:95}), 26.811932005710176);
 });
 
 test("load current responds correctly to efficiency", () => {
-  const fullEfficiency=estimateLoadCurrent({phase:"1",powerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100});
-  const reducedEfficiency=estimateLoadCurrent({phase:"1",powerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:80});
+  const fullEfficiency=estimateLoadCurrent({phase:"1",outputPowerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100});
+  const reducedEfficiency=estimateLoadCurrent({phase:"1",outputPowerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:80});
   closeTo(reducedEfficiency,fullEfficiency/0.8);
 });
 
@@ -50,7 +50,7 @@ test("100 percent battery usable depth and efficiency are accepted", () => {
 });
 
 test("invalid phase, material and non-positive inputs are rejected", () => {
-  assert.throws(() => estimateLoadCurrent({phase:"2",powerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100}), RangeError);
+  assert.throws(() => estimateLoadCurrent({phase:"2",outputPowerKw:5,voltage:230,powerFactor:0.9,efficiencyPercent:100}), RangeError);
   assert.throws(() => estimateVoltageDrop({phase:"1",currentA:32,routeLengthM:30,conductorAreaMm2:6,material:"steel"}), RangeError);
   assert.throws(() => estimatePvArrayKwp({dailyEnergyKwh:15,peakSunHours:0,performanceRatioPercent:75}), RangeError);
   assert.throws(() => estimateBatteryCapacityKwh({dailyCriticalLoadKwh:8,autonomyDays:1,depthOfDischargePercent:110,dischargeEfficiencyPercent:90}), RangeError);
