@@ -62,3 +62,5 @@ for (const pagePath of pages) {
     }
   });
 }
+
+// Static checks complement, but do not replace, assistive-technology testing.
