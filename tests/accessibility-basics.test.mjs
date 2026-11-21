@@ -20,7 +20,7 @@ const pages = [
 ];
 
 const attr = (attributes, name) =>
-  attributes.match(new RegExp("(?:^|\\s)" + name + "=[\\"']([^\\"']*)[\\"']", "i"))?.[1] ?? "";
+  attributes.match(new RegExp("(?:^|\\s)" + name + '="([^"]*)"', "i"))?.[1] ?? "";
 
 const plainText = value =>
   value.replace(/<script[\s\S]*?<\/script>/gi, "")
