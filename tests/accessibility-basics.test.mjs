@@ -39,6 +39,12 @@ for (const pagePath of pages) {
     assert.equal((html.match(/<main\b/gi) ?? []).length, 1, "one main landmark is present");
     assert.equal((html.match(/<h1\b/gi) ?? []).length, 1, "one primary page heading is present");
 
+    const skipLink = html.match(/<a\\b([^>]*)class="[^"]*skip-link[^"]*"[^>]*>/i);
+    assert.ok(skipLink, "skip-to-content link is present");
+    const skipHref = attr(skipLink[1], "href");
+    assert.ok(skipHref?.startsWith("#"), "skip link targets an in-page landmark");
+    assert.ok(html.includes(`id="${skipHref.slice(1)}"`), "skip link target exists");
+
     for (const match of html.matchAll(/<img\b([^>]*)>/gi)) {
       assert.ok(attr(match[1], "alt") !== "", "image has meaningful alt text: " + match[0].slice(0, 100));
     }
