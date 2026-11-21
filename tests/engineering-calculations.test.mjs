@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import {
   estimateLoadCurrent,
   estimateVoltageDrop,
@@ -54,4 +55,11 @@ test("invalid phase, material and non-positive inputs are rejected", () => {
   assert.throws(() => estimateVoltageDrop({phase:"1",currentA:32,routeLengthM:30,conductorAreaMm2:6,material:"steel"}), RangeError);
   assert.throws(() => estimatePvArrayKwp({dailyEnergyKwh:15,peakSunHours:0,performanceRatioPercent:75}), RangeError);
   assert.throws(() => estimateBatteryCapacityKwh({dailyCriticalLoadKwh:8,autonomyDays:1,depthOfDischargePercent:110,dischargeEfficiencyPercent:90}), RangeError);
+});
+
+test("engineering tools page registers live listeners for every calculator control", async () => {
+  const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
+  assert.match(page, /const inputs = Array\.from\(document\.querySelectorAll\("\.fields input, \.fields select"\)\)/);
+  assert.match(page, /inputs\.forEach\(el\s*=>\s*el\.addEventListener\("input",\s*update\)\)/);
+  assert.match(page, /inputs\.forEach\(el\s*=>\s*el\.addEventListener\("change",\s*update\)\)/);
 });
