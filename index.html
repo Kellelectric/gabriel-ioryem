@@ -1,155 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriel Ioryem | Electrical Engineer, Entrepreneur & CEO</title>
-  <meta name="description" content="Gabriel Ioryem is a COREN-registered electrical engineer, entrepreneur and Founder & CEO of Kell Electricals Ltd. Engineering excellence from Abuja, Nigeria." />
-  <meta name="theme-color" content="#13322C" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#13322c">
+  <title>Gabriel Ioryem | Electrical Engineer &amp; Founder</title>
+  <meta name="description" content="Gabriel Ioryem is a COREN-registered electrical engineer and Founder &amp; CEO of Kell Electricals Ltd in Abuja, Nigeria. Explore his engineering practice, project references and technical studies.">
+  <link rel="canonical" href="https://gabriel-ioryem.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gabriel Ioryem">
+  <meta property="og:title" content="Gabriel Ioryem | Electrical Engineer &amp; Founder">
+  <meta property="og:description" content="Engineering judgement, practical systems and accountable leadership from Abuja, Nigeria.">
+  <meta property="og:url" content="https://gabriel-ioryem.vercel.app/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gabriel Ioryem | Electrical Engineer &amp; Founder">
+  <meta name="twitter:description" content="Engineering judgement, practical systems and accountable leadership from Abuja, Nigeria.">
+  <link rel="icon" type="image/svg+xml" href="/assets/gi-monogram.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/executive.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{forest:{DEFAULT:'#13322C',deep:'#0A1F1B'},gold:{DEFAULT:'#C4A574'},ivory:{DEFAULT:'#F7F4EF',warm:'#F0EBE3'},graphite:'#1A1C1E',charcoal:'#2C2F33',slate:'#5A5F66',mist:'#E8E4DC'},fontFamily:{serif:['\"Cormorant Garamond\"','Georgia','serif'],sans:['Inter','system-ui','sans-serif']},maxWidth:{content:'74rem'}}}}</script>
-  <style>
-    :root{--forest:#13322C;--forest-deep:#0A1F1B;--gold:#C4A574;--ivory:#F7F4EF;--graphite:#1A1C1E;--slate:#5A5F66;--mist:#E8E4DC;--ease:cubic-bezier(0.16,1,0.3,1)}
-    html{scroll-behavior:smooth}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade-up,.reveal-line{opacity:1!important;transform:none!important;transition:none!important}.reveal-line span{transform:none!important}}
-    body{font-family:Inter,system-ui,sans-serif;background:#F7F4EF;color:#1A1C1E;-webkit-font-smoothing:antialiased}
-    .font-serif{font-family:"Cormorant Garamond",Georgia,serif}
-    .display{font-size:clamp(2.5rem,5.2vw + 0.9rem,4.25rem);line-height:1.05;letter-spacing:-0.032em;font-weight:500}
-    .heading-1{font-size:clamp(1.85rem,2.8vw + 0.75rem,2.55rem);line-height:1.12;letter-spacing:-0.022em;font-weight:500}
-    .section-label{font-size:0.6875rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#5A5F66}
-    .fade-up{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}.fade-up.is-visible{opacity:1;transform:translateY(0)}
-    .reveal-line{display:block;overflow:hidden}.reveal-line span{display:block;transform:translateY(110%);transition:transform 1.1s var(--ease)}.reveal-line.is-visible span{transform:translateY(0)}
-    .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:0.95rem 1.85rem;background:#13322C;color:#F7F4EF;font-size:0.8125rem;font-weight:500;border-radius:2px;transition:all 0.3s}.btn-primary:hover{background:#0A1F1B}.btn-primary:disabled{opacity:0.6}
-    .btn-secondary{display:inline-flex;align-items:center;justify-content:center;padding:0.9rem 1.8rem;border:1px solid rgba(19,50,44,0.7);color:#13322C;font-size:0.8125rem;font-weight:500;border-radius:2px;transition:all 0.3s}.btn-secondary:hover{background:#13322C;color:#F7F4EF}
-    .form-field{width:100%;padding:1rem 1.15rem;background:#fff;border:1px solid #E8E4DC;border-radius:2px;font-size:0.9375rem}.form-field:focus{border-color:#13322C;box-shadow:0 0 0 3.5px rgba(19,50,44,0.08);outline:none}
-    #site-header.scrolled{background:rgba(247,244,239,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,228,220,0.85)}
-    .nav-link{position:relative}.nav-link::after{content:'';position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:#13322C;transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease)}.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
-    .portrait-wrap{overflow:hidden;border-radius:3px}.portrait-wrap img{transition:transform 1.15s var(--ease)}.portrait-wrap:hover img{transform:scale(1.04)}
-    #scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,#C4A574,#d4bc94);z-index:60}
-  </style>
+  <script>tailwind.config={theme:{extend:{colors:{forest:{DEFAULT:'#13322C',deep:'#0A1F1B'},gold:{DEFAULT:'#C4A574'},ivory:{DEFAULT:'#F7F4EF',warm:'#F0EBE3'},graphite:'#1A1C1E',charcoal:'#2C2F33',slate:'#5A5F66',mist:'#E8E4DC'},fontFamily:{serif:['"Cormorant Garamond"','Georgia','serif'],sans:['Inter','system-ui','sans-serif']},maxWidth:{content:'74rem'}}}}</script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Gabriel Ioryem",
+    "jobTitle":"Electrical Engineer and Founder & CEO",
+    "url":"https://gabriel-ioryem.vercel.app/",
+    "email":"mailto:info@kellelectricals.com",
+    "address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},
+    "alumniOf":{"@type":"CollegeOrUniversity","name":"Madonna University Nigeria"},
+    "worksFor":{"@type":"Organization","name":"Kell Electricals Ltd","url":"https://kellelectricals.com"}
+  }
+  </script>
+  <script src="/assets/portfolio.js" defer></script>
 </head>
 <body class="bg-ivory text-graphite">
-  <div id="scroll-progress"></div>
-  <header id="site-header" class="fixed top-0 inset-x-0 z-50">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <header id="site-header" class="site-header fixed top-0 inset-x-0 z-50">
     <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
-      <nav class="flex items-center justify-between h-16 md:h-[4.5rem]">
-        <a href="#home" class="font-serif text-[1.3rem] font-medium tracking-tight text-forest">Gabriel Ioryem</a>
-        <ul class="hidden lg:flex items-center gap-9">
-          <li><a href="#about" class="nav-link text-[0.8rem] font-medium text-charcoal/85 hover:text-forest">About</a></li>
-          <li><a href="#contact" class="btn-primary !py-2 !px-5 !text-[0.8rem]">Connect</a></li>
-        </ul>
+      <div class="header-row">
+        <a href="#home" class="brand font-serif">Gabriel Ioryem<span>Electrical Engineer · Founder</span></a>
+        <nav class="desktop-nav hidden lg:flex" aria-label="Main navigation">
+          <a href="#about">Profile</a><a href="#expertise">Expertise</a><a href="#approach">Approach</a><a href="#references">Projects</a><a href="#studies">Technical notes</a><a href="#contact" class="nav-contact">Connect ↗</a>
+        </nav>
+        <button id="menu-toggle" class="menu-toggle lg:hidden" type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav id="mobile-navigation" class="mobile-navigation hidden lg:hidden" aria-label="Mobile navigation">
+        <a href="#about">Profile</a><a href="#expertise">Expertise</a><a href="#approach">Approach</a><a href="#references">Projects</a><a href="#studies">Technical notes</a><a href="#contact">Contact</a><a href="/cv/">Professional profile ↗</a>
       </nav>
     </div>
   </header>
-  <main>
-    <section id="home" class="min-h-[100svh] flex items-center pt-28 pb-24">
+
+  <main id="main-content" tabindex="-1">
+    <section id="home" class="hero-section min-h-[100svh] flex items-center pt-28 pb-24">
       <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14 w-full">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-7 order-2 lg:order-1">
             <p class="section-label mb-6 fade-up">Founder · Electrical Engineer · Entrepreneur</p>
             <h1 class="font-serif display text-graphite mb-8">
               <span class="reveal-line"><span>Engineering Ideas.</span></span>
-              <span class="reveal-line hidden sm:block"><span>Building Systems.</span></span>
+              <span class="reveal-line"><span>Building Systems.</span></span>
               <span class="reveal-line"><span>Creating Lasting Impact.</span></span>
             </h1>
-            <p class="text-[1.05rem] text-charcoal/90 max-w-[28rem] mb-10 fade-up">I am Gabriel Ioryem, an electrical engineer and entrepreneur focused on engineering excellence, business development and building solutions that make a meaningful difference.</p>
+            <p class="hero-intro text-[1.05rem] max-w-[34rem] mb-10 fade-up">I am Gabriel Ioryem, an electrical engineer and entrepreneur focused on dependable power, integrated building systems and engineering-led solutions that solve practical problems.</p>
             <div class="flex flex-wrap gap-3.5 fade-up">
-              <a href="#about" class="btn-primary">Explore My Journey</a>
-              <a href="#contact" class="btn-secondary">Connect With Me</a>
+              <a href="#expertise" class="btn-primary">Explore my practice <span>↗</span></a>
+              <a href="#contact" class="btn-secondary">Start a conversation <span>↗</span></a>
+            </div>
+            <div class="hero-proof fade-up">
+              <div><strong>15+</strong><span>YEARS IN ENGINEERING</span></div>
+              <div><strong>2010</strong><span>KELL ELECTRICALS ESTABLISHED</span></div>
+              <div><strong>ABUJA</strong><span>NIGERIA</span></div>
             </div>
           </div>
-          <div class="lg:col-span-5 order-1 lg:order-2 fade-up">
-            <div class="portrait-wrap aspect-square max-w-[360px] mx-auto lg:ml-auto" style="box-shadow:0 28px 56px -18px rgba(19,50,44,0.28)">
-              <img src="images/gabriel-ioryem.jpg" alt="Gabriel Ioryem, Founder and CEO of Kell Electricals Ltd" class="w-full h-full object-cover object-top" loading="eager" onerror="this.src='https://kellelectricals.com/images/team/gabriel-ioryem.jpg'"/>
-            </div>
+          <div class="lg:col-span-5 order-1 lg:order-2 portrait-column">
+            <figure class="portrait-wrap">
+              <img src="data:image/webp;base64,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" alt="Professional portrait of Gabriel Ioryem, electrical engineer and Founder of Kell Electricals Ltd" width="480" height="480" fetchpriority="high" loading="eager" class="w-full h-full object-cover object-top">
+              <figcaption><span>Gabriel Ioryem</span><small>Electrical Engineer · Founder &amp; CEO</small></figcaption>
+            </figure>
+            <p class="portrait-caption">Engineering judgement. Practical execution. Accountable leadership.</p>
           </div>
         </div>
       </div>
     </section>
-    <section id="about" class="py-28 border-t border-mist">
+
+    <nav class="explore-nav" aria-label="Explore portfolio sections">
+      <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14 explore-inner">
+        <span class="explore-label">EXPLORE</span>
+        <button class="explore-arrow" type="button" data-scroll="prev" aria-label="Scroll section navigation left" disabled>‹</button>
+        <div class="explore-track" id="explore-track" tabindex="0" aria-label="Scrollable section navigation">
+          <a href="#about">Profile</a><a href="#expertise">Expertise</a><a href="#approach">Engineering approach</a><a href="#references">Project references</a><a href="#studies">Technical studies</a><a href="#tools">Calculation tools</a><a href="#contact">Contact</a>
+        </div>
+        <button class="explore-arrow" type="button" data-scroll="next" aria-label="Scroll section navigation right">›</button>
+      </div>
+    </nav>
+
+    <section id="about" class="content-section section-light">
       <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
-        <div class="grid lg:grid-cols-12 gap-12">
-          <div class="lg:col-span-4"><p class="section-label mb-4">About Gabriel</p><h2 class="font-serif heading-1 text-graphite mb-6">Engineer.<br/>Builder.<br/>Leader.</h2></div>
-          <div class="lg:col-span-8 space-y-6 text-charcoal leading-[1.72]">
-            <p class="text-[1.1rem] text-graphite">Gabriel Ioryem is a COREN-registered electrical engineer and the Founder & CEO of Kell Electricals Ltd, based in Abuja, Nigeria.</p>
-            <p>His work sits at the intersection of technical depth and practical execution. Over more than fifteen years he has led the design, installation and delivery of electrical systems across residential, commercial and industrial facilities.</p>
+        <div class="section-heading-grid">
+          <div><p class="section-label mb-4">01 / About Gabriel</p><h2 class="font-serif heading-1">Engineer.<br>Builder.<br>Leader.</h2></div>
+          <div class="section-body">
+            <p class="section-lead">Gabriel Ioryem is a COREN-registered electrical engineer and the Founder &amp; CEO of Kell Electricals Ltd, an Abuja-based electrical engineering and technical services company.</p>
+            <p>His work brings technical judgement and practical execution together across electrical installations, power systems, renewable energy, building technologies and engineering service delivery. He is interested in how systems are assessed, designed, integrated, tested and maintained, not simply how individual components are installed.</p>
+            <p>Since establishing Kell Electricals in 2010, his professional focus has included building a dependable engineering organisation, developing technical capability and delivering work with clear attention to safety, workmanship and accountability.</p>
+            <div class="about-links"><a href="/cv/">View professional profile ↗</a><a href="https://kellelectricals.com" target="_blank" rel="noopener">Kell Electricals Ltd ↗</a></div>
           </div>
+        </div>
+        <div class="stat-grid">
+          <div><strong>15+</strong><span>Years of professional experience</span></div>
+          <div><strong>B.Eng.</strong><span>Electrical &amp; Electronics Engineering</span></div>
+          <div><strong>2010</strong><span>Year Kell Electricals was established</span></div>
+          <div><strong>Abuja</strong><span>Based in the Federal Capital Territory</span></div>
         </div>
       </div>
     </section>
-    <section id="contact" class="py-28">
+
+    <section id="expertise" class="content-section section-forest">
       <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
-        <div class="max-w-2xl mx-auto">
-          <p class="section-label mb-4 text-center">Contact</p>
-          <h2 class="font-serif heading-1 text-graphite mb-4 text-center">Professional Engagement</h2>
-          <p class="text-charcoal/90 mb-12 text-center max-w-lg mx-auto">One or two short questions. No long forms.</p>
-          <div id="lead-flow" class="bg-white border border-mist rounded-[4px] overflow-hidden" style="box-shadow:0 12px 40px -16px rgba(19,50,44,0.12)">
-            <div class="h-1 bg-mist"><div id="lead-progress" class="h-full bg-forest transition-all duration-500" style="width:25%"></div></div>
-            <div class="p-8 md:p-10">
+        <div class="section-heading-grid">
+          <div><p class="section-label mb-4">02 / Engineering practice</p><h2 class="font-serif heading-1">Connected disciplines.<br>One engineering view.</h2></div>
+          <div class="section-body"><p class="section-lead">Electrical infrastructure works best when generation, distribution, protection, control and end-use requirements are considered as one system.</p><p>The practice spans core electrical services and connected building technologies, with scope and design decisions determined by site conditions, applicable requirements and the needs of each project.</p></div>
+        </div>
+        <div class="expertise-grid">
+          <article class="expertise-card"><span>01 / POWER</span><h3>Electrical installations &amp; distribution</h3><p>Residential, commercial and industrial wiring, distribution systems, circuit protection, inspection and fault diagnosis.</p></article>
+          <article class="expertise-card"><span>02 / ENERGY</span><h3>Solar, inverters &amp; storage</h3><p>Solar PV, inverter systems, battery storage and the integration of power sources around actual demand.</p></article>
+          <article class="expertise-card"><span>03 / CONTINUITY</span><h3>Generator &amp; transfer systems</h3><p>Generator integration, automatic transfer arrangements and practical power-continuity considerations.</p></article>
+          <article class="expertise-card"><span>04 / BUILDINGS</span><h3>Automation &amp; controls</h3><p>Smart building functions, control systems and coordinated electrical services.</p></article>
+          <article class="expertise-card"><span>05 / SECURITY</span><h3>Security &amp; access systems</h3><p>CCTV, access control and supporting infrastructure for managed buildings and facilities.</p></article>
+          <article class="expertise-card"><span>06 / ENGINEERING</span><h3>Assessment &amp; technical planning</h3><p>Load assessment, system review, fault investigation and engineering-led recommendations.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="content-section section-warm">
+      <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
+        <div class="section-heading-grid">
+          <div><p class="section-label mb-4">03 / How I work</p><h2 class="font-serif heading-1">A disciplined route from requirement to handover.</h2></div>
+          <div class="section-body"><p class="section-lead">Good engineering is not defined by installation alone. It is defined by how well the requirement is understood, the system is selected, the work is executed and the result is verified.</p><p>Every project has its own scope, constraints and approval requirements. The sequence below describes the working principles, not a promise that every engagement follows an identical programme.</p></div>
+        </div>
+        <div class="method-grid">
+          <article><b>01</b><h3>Understand</h3><p>Clarify the operational need, users, critical loads and intended outcome.</p></article>
+          <article><b>02</b><h3>Assess</h3><p>Review site conditions, existing infrastructure, constraints and available information.</p></article>
+          <article><b>03</b><h3>Design</h3><p>Develop a suitable technical approach, equipment basis and installation scope.</p></article>
+          <article><b>04</b><h3>Execute</h3><p>Coordinate installation and workmanship against the agreed scope and safe-work requirements.</p></article>
+          <article><b>05</b><h3>Test</h3><p>Carry out appropriate inspection, verification and functional checks before handover.</p></article>
+          <article><b>06</b><h3>Handover</h3><p>Explain the installed system, relevant documentation and operating considerations.</p></article>
+          <article><b>07</b><h3>Support</h3><p>Provide follow-up and maintenance support where included in the engagement.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="references" class="content-section section-light">
+      <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
+        <div class="section-heading-grid">
+          <div><p class="section-label mb-4">04 / Selected references</p><h2 class="font-serif heading-1">A selection of project references.</h2></div>
+          <div class="section-body"><p class="section-lead">A small number of named project references are presented here. Detailed scopes, dates, performance figures and outcomes are not published where supporting information or publication approval has not been established.</p><p>For broader technical context, the engineering studies below explain typical system considerations. They are illustrative studies, not claims that each scenario represents a completed client installation.</p></div>
+        </div>
+        <div class="reference-grid">
+          <article class="reference-card"><span>PROJECT REFERENCE / ABUJA</span><h3>Paradise Phase 1</h3><p>Life Camp, Abuja, Nigeria</p></article>
+          <article class="reference-card"><span>PROJECT REFERENCE / ABUJA</span><h3>Drol Apartments</h3><p>Jahi, Abuja, Nigeria</p></article>
+          <article class="reference-card"><span>PROJECT REFERENCE / ABUJA</span><h3>CBN Multipurpose Cooperative</h3><p>Garki II, Abuja, Nigeria</p></article>
+        </div>
+        <p class="reference-note">Project names are shown as references only. No unverified scope, completion date, measured result or client endorsement is implied.</p>
+      </div>
+    </section>
+
+    <section id="studies" class="content-section section-forest">
+      <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
+        <div class="section-heading-grid">
+          <div><p class="section-label mb-4">05 / Engineering studies</p><h2 class="font-serif heading-1">Technical thinking, made visible.</h2></div>
+          <div class="section-body"><p class="section-lead">Explore ten technical studies covering common electrical and building-system challenges, from distribution and storage to protection, automation and EV charging.</p><p>Each study is an educational, conceptual reference. Final engineering design requires verified site data, equipment specifications, applicable standards and competent review.</p></div>
+        </div>
+        <div class="study-grid">
+          <a class="study-card" href="/projects/residential-electrical-installation/"><span>01 / INSTALLATIONS</span><strong>Residential electrical installation</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/hybrid-solar-battery-storage/"><span>02 / ENERGY</span><strong>Hybrid solar &amp; battery storage</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/commercial-electrical-upgrade/"><span>03 / DISTRIBUTION</span><strong>Commercial electrical upgrade</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/industrial-machinery-power/"><span>04 / INDUSTRIAL</span><strong>Industrial machinery power</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/cctv-access-control/"><span>05 / SECURITY</span><strong>CCTV &amp; access control</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/electrical-fault-power-quality/"><span>06 / DIAGNOSTICS</span><strong>Electrical fault &amp; power quality</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/smart-building-automation/"><span>07 / AUTOMATION</span><strong>Smart building automation</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/generator-automatic-transfer/"><span>08 / CONTINUITY</span><strong>Generator &amp; automatic transfer</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/earthing-surge-protection/"><span>09 / PROTECTION</span><strong>Earthing &amp; surge protection</strong><i>Explore study ↗</i></a>
+          <a class="study-card" href="/projects/ev-charging-infrastructure/"><span>10 / EV SYSTEMS</span><strong>EV charging &amp; load management</strong><i>Explore study ↗</i></a>
+        </div>
+        <div class="section-action"><a href="/projects/" class="btn-light">View all engineering studies ↗</a></div>
+      </div>
+    </section>
+
+    <section id="tools" class="content-section section-warm">
+      <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
+        <div class="tools-panel">
+          <div><p class="section-label mb-4">06 / Practical resources</p><h2 class="font-serif heading-1">Engineering tools &amp; professional profile.</h2><p class="section-body mt-5">Use the preliminary calculation tools to explore load current, resistive voltage drop, solar PV array sizing and battery energy estimates. Review the assumptions and limitations shown with each calculation.</p></div>
+          <div class="tools-actions"><a href="/engineering-tools/" class="btn-primary">Open calculation tools ↗</a><a href="/cv/" class="btn-secondary">View professional profile ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="content-section section-light">
+      <div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14">
+        <div class="section-heading-grid contact-heading">
+          <div><p class="section-label mb-4">07 / Contact</p><h2 class="font-serif heading-1">Professional engagement.</h2></div>
+          <div class="section-body"><p class="section-lead">For engineering, professional, speaking or business conversations, share a little context and choose how you would like to proceed.</p><p>Project enquiries for electrical works can also be directed to Kell Electricals Ltd through its official appointment and quote-request channels.</p></div>
+        </div>
+        <div class="contact-layout">
+          <div id="lead-flow" class="lead-flow" aria-live="polite">
+            <div class="lead-progress"><div id="lead-progress"></div></div>
+            <div class="lead-content">
               <div class="lead-step" data-step="1">
-                <p class="text-[0.7rem] tracking-[0.14em] uppercase text-slate mb-3">1 of 4</p>
-                <h3 class="font-serif text-[1.45rem] text-graphite mb-6">What would you like to discuss?</h3>
-                <div class="space-y-3">
-                  <button type="button" class="lead-option w-full text-left px-5 py-4 border border-mist rounded-[3px] hover:border-forest/40 hover:bg-ivory-warm transition-all text-[0.95rem]" data-value="Engineering consultation">Engineering consultation</button>
-                  <button type="button" class="lead-option w-full text-left px-5 py-4 border border-mist rounded-[3px] hover:border-forest/40 hover:bg-ivory-warm transition-all text-[0.95rem]" data-value="Business / partnership discussion">Business or partnership discussion</button>
-                  <button type="button" class="lead-option w-full text-left px-5 py-4 border border-mist rounded-[3px] hover:border-forest/40 hover:bg-ivory-warm transition-all text-[0.95rem]" data-value="Project enquiry (via Kell Electricals)">Project enquiry (via Kell Electricals)</button>
-                  <button type="button" class="lead-option w-full text-left px-5 py-4 border border-mist rounded-[3px] hover:border-forest/40 hover:bg-ivory-warm transition-all text-[0.95rem]" data-value="Speaking or media">Speaking or media</button>
-                  <button type="button" class="lead-option w-full text-left px-5 py-4 border border-mist rounded-[3px] hover:border-forest/40 hover:bg-ivory-warm transition-all text-[0.95rem]" data-value="Other">Something else</button>
+                <p class="step-count">1 of 4</p><h3>What would you like to discuss?</h3>
+                <div class="lead-options">
+                  <button type="button" class="lead-option" data-value="Engineering consultation" aria-pressed="false">Engineering consultation</button>
+                  <button type="button" class="lead-option" data-value="Business / partnership discussion" aria-pressed="false">Business or partnership discussion</button>
+                  <button type="button" class="lead-option" data-value="Project enquiry (via Kell Electricals)" aria-pressed="false">Project enquiry (via Kell Electricals)</button>
+                  <button type="button" class="lead-option" data-value="Speaking or media" aria-pressed="false">Speaking or media</button>
+                  <button type="button" class="lead-option" data-value="Other" aria-pressed="false">Something else</button>
                 </div>
               </div>
               <div class="lead-step hidden" data-step="2">
-                <p class="text-[0.7rem] tracking-[0.14em] uppercase text-slate mb-3">2 of 4</p>
-                <h3 class="font-serif text-[1.45rem] text-graphite mb-2">Anything we should know first?</h3>
-                <p class="text-[0.875rem] text-slate mb-6">Optional. A sentence or two is enough.</p>
-                <textarea id="lead-context" rows="3" class="form-field resize-none" placeholder="Brief context (optional)"></textarea>
-                <div class="mt-8 flex gap-3"><button type="button" class="lead-back btn-secondary !py-2.5 !px-5">Back</button><button type="button" class="lead-next btn-primary !py-2.5 !px-6">Continue</button></div>
+                <p class="step-count">2 of 4</p><h3>Anything we should know first?</h3>
+                <p class="field-hint">Optional. A sentence or two is enough.</p>
+                <label for="lead-context">Brief context (optional)</label><textarea id="lead-context" rows="4" class="form-field" placeholder="A short outline of your enquiry"></textarea>
+                <div class="step-actions"><button type="button" class="lead-back btn-secondary">Back</button><button type="button" class="lead-next btn-primary">Continue</button></div>
               </div>
               <div class="lead-step hidden" data-step="3">
-                <p class="text-[0.7rem] tracking-[0.14em] uppercase text-slate mb-3">3 of 4</p>
-                <h3 class="font-serif text-[1.45rem] text-graphite mb-6">What’s your name?</h3>
-                <input type="text" id="lead-name" class="form-field" placeholder="Your full name" autocomplete="name"/>
-                <div class="mt-8 flex gap-3"><button type="button" class="lead-back btn-secondary !py-2.5 !px-5">Back</button><button type="button" class="lead-next btn-primary !py-2.5 !px-6">Continue</button></div>
+                <p class="step-count">3 of 4</p><h3>What is your name?</h3>
+                <label for="lead-name">Full name</label><input type="text" id="lead-name" class="form-field" placeholder="Your full name" autocomplete="name" required>
+                <div class="step-actions"><button type="button" class="lead-back btn-secondary">Back</button><button type="button" class="lead-next btn-primary">Continue</button></div>
               </div>
               <div class="lead-step hidden" data-step="4">
-                <p class="text-[0.7rem] tracking-[0.14em] uppercase text-slate mb-3">4 of 4</p>
-                <h3 class="font-serif text-[1.45rem] text-graphite mb-2">Where can we reach you?</h3>
-                <p class="text-[0.875rem] text-slate mb-6">We’ll reply personally. Email is preferred; WhatsApp is optional.</p>
-                <div class="space-y-4">
-                  <div><label for="lead-email" class="block text-[0.8rem] font-medium mb-1.5">Email</label><input type="email" id="lead-email" class="form-field" placeholder="you@company.com" autocomplete="email"/></div>
-                  <div><label for="lead-phone" class="block text-[0.8rem] font-medium mb-1.5">WhatsApp / Phone <span class="text-slate font-normal">(optional)</span></label><input type="tel" id="lead-phone" class="form-field" placeholder="+234 …" autocomplete="tel"/></div>
-                </div>
-                <div class="mt-8 flex gap-3"><button type="button" class="lead-back btn-secondary !py-2.5 !px-5">Back</button><button type="button" id="lead-submit" class="btn-primary !py-2.5 !px-6">Send message</button></div>
+                <p class="step-count">4 of 4</p><h3>Where can we reach you?</h3>
+                <p class="field-hint">Your email is required. Phone or WhatsApp is optional.</p>
+                <div class="field-stack"><div><label for="lead-email">Email address</label><input type="email" id="lead-email" class="form-field" placeholder="you@company.com" autocomplete="email" required></div>
+                <div><label for="lead-phone">WhatsApp / phone (optional)</label><input type="tel" id="lead-phone" class="form-field" placeholder="+234 ..." autocomplete="tel"></div></div>
+                <div class="step-actions"><button type="button" class="lead-back btn-secondary">Back</button><button type="button" id="lead-submit" class="btn-primary">Prepare email</button></div>
               </div>
               <div class="lead-step hidden" data-step="done">
-                <div class="text-center py-6">
-                  <p class="font-serif text-[1.5rem] text-graphite mb-3">Thank you.</p>
-                  <p class="text-charcoal/90 max-w-sm mx-auto leading-relaxed mb-8">Your message has been received. Gabriel or the team will respond as soon as possible.</p>
-                  <a href="mailto:info@kellelectricals.com" class="btn-secondary !py-2.5 !px-5">Email directly</a>
-                </div>
+                <div class="done-state"><p class="done-title">Your email draft is ready.</p><p>Choose the button below to open your email app, review the details and send the message. This website does not transmit your enquiry.</p><a id="lead-mailto" href="mailto:info@kellelectricals.com" class="btn-primary">Open email to send ↗</a><a id="lead-quote-link" href="https://kellelectricals.com/client-quote-request" class="text-link hidden" target="_blank" rel="noopener">Open Kell Electricals quote request ↗</a></div>
               </div>
             </div>
           </div>
-          <div class="mt-12 pt-10 border-t border-mist grid sm:grid-cols-3 gap-8 text-center sm:text-left">
-            <div><p class="text-[0.62rem] tracking-[0.16em] uppercase text-slate mb-1.5">Email</p><a href="mailto:info@kellelectricals.com" class="text-forest font-medium">info@kellelectricals.com</a></div>
-            <div><p class="text-[0.62rem] tracking-[0.16em] uppercase text-slate mb-1.5">Company</p><a href="https://kellelectricals.com" class="text-forest font-medium" target="_blank" rel="noopener">kellelectricals.com</a></div>
-            <div><p class="text-[0.62rem] tracking-[0.16em] uppercase text-slate mb-1.5">Location</p><p class="text-charcoal">Abuja, Nigeria</p></div>
-          </div>
+          <aside class="contact-aside"><p class="aside-label">Direct contact</p><a href="mailto:info@kellelectricals.com">info@kellelectricals.com</a><p>Abuja, Nigeria</p><div class="aside-divider"></div><p class="aside-label">Kell Electricals Ltd</p><a href="https://kellelectricals.com" target="_blank" rel="noopener">kellelectricals.com ↗</a><a href="https://kellelectricals.com/book-appointment" target="_blank" rel="noopener">Book an appointment ↗</a><a href="https://kellelectricals.com/client-quote-request" target="_blank" rel="noopener">Request a project quote ↗</a></aside>
         </div>
       </div>
     </section>
   </main>
-  <footer class="border-t border-mist py-12"><div class="max-w-content mx-auto px-5 text-sm text-slate flex flex-col sm:flex-row sm:justify-between gap-3"><p>© 2026 Gabriel Ioryem</p><p>Personal executive website</p></div></footer>
-  <script>
-    const header=document.getElementById('site-header'),progress=document.getElementById('scroll-progress');
-    window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>24);const h=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(h>0?window.scrollY/h*100:0)+'%'},{passive:true});
-    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-visible')}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.fade-up,.reveal-line').forEach(el=>obs.observe(el));
-    const lines=document.querySelectorAll('.reveal-line');lines.forEach((l,i)=>l.style.transitionDelay=(120+i*110)+'ms');
-    requestAnimationFrame(()=>setTimeout(()=>lines.forEach(l=>l.classList.add('is-visible')),160));
-    (function(){const flow=document.getElementById('lead-flow');if(!flow)return;let step=1;const data={purpose:'',context:'',name:'',email:'',phone:''};const prog=document.getElementById('lead-progress');const widths={1:'25%',2:'50%',3:'75%',4:'100%',done:'100%'};function showStep(n){flow.querySelectorAll('.lead-step').forEach(s=>s.classList.add('hidden'));const el=flow.querySelector('.lead-step[data-step="'+n+'"]');if(el)el.classList.remove('hidden');prog.style.width=widths[n]||'100%';step=n}flow.querySelectorAll('.lead-option').forEach(btn=>{btn.addEventListener('click',()=>{data.purpose=btn.dataset.value;flow.querySelectorAll('.lead-option').forEach(b=>{b.classList.remove('border-forest','bg-ivory-warm');b.classList.add('border-mist')});btn.classList.add('border-forest','bg-ivory-warm');setTimeout(()=>showStep(2),220)})});flow.querySelectorAll('.lead-next').forEach(btn=>{btn.addEventListener('click',()=>{if(step===2){data.context=document.getElementById('lead-context').value.trim();showStep(3)}else if(step===3){const name=document.getElementById('lead-name').value.trim();if(!name){document.getElementById('lead-name').focus();return}data.name=name;showStep(4)}})});flow.querySelectorAll('.lead-back').forEach(btn=>{btn.addEventListener('click',()=>{if(step>1)showStep(step-1)})});document.getElementById('lead-submit').addEventListener('click',async()=>{const email=document.getElementById('lead-email').value.trim();const phone=document.getElementById('lead-phone').value.trim();if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById('lead-email').focus();return}data.email=email;data.phone=phone;const btn=document.getElementById('lead-submit');btn.disabled=true;btn.textContent='Sending…';try{const FORMSPREE=null;if(FORMSPREE){await fetch(FORMSPREE,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({purpose:data.purpose,context:data.context,name:data.name,email:data.email,phone:data.phone,_subject:'Gabriel Ioryem site — '+data.purpose})})}else{await new Promise(r=>setTimeout(r,700))}showStep('done')}catch(e){btn.disabled=false;btn.textContent='Send message';alert('Please email info@kellelectricals.com directly.')}})})();
-  </script>
+
+  <footer class="site-footer"><div class="max-w-content mx-auto px-5 sm:px-8 lg:px-14 footer-inner"><span>© 2026 Gabriel Ioryem · Abuja, Nigeria</span><div><a href="/cv/">Professional profile</a><a href="/projects/">Engineering studies</a><a href="/engineering-tools/">Calculation tools</a><a href="https://kellelectricals.com" target="_blank" rel="noopener">Kell Electricals Ltd ↗</a></div></div><p class="footer-tagline">Engineering Trust. Powering Lives.</p></footer>
 </body>
 </html>
