@@ -22,7 +22,7 @@ const pages = [
 for (const pagePath of pages) {
   test("responsive layout guardrails: " + pagePath, async () => {
     const html = await readFile(new URL("../" + pagePath, import.meta.url), "utf8");
-    const inlineCss = [...html.matchAll(/<style\\b[^>]*>([\\s\\S]*?)<\\/style>/gi)].map(match => match[1]).join("\\n");
+    const inlineCss = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map(match => match[1]).join("\n");
     let linkedCss = "";
     if (pagePath === "index.html") {
       linkedCss = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
@@ -30,14 +30,14 @@ for (const pagePath of pages) {
       !pagePath.includes("earthing-surge-protection") && !pagePath.includes("ev-charging-infrastructure")) {
       linkedCss = await readFile(new URL("../assets/study-checks.css", import.meta.url), "utf8");
     }
-    const css = inlineCss + "\\n" + linkedCss;
+    const css = inlineCss + "\n" + linkedCss;
 
-    assert.match(html, /<meta\\s+name=["']viewport["']/i, "viewport is configured");
-    assert.match(css, /@media\\s*\\([^)]*max-width/i, "mobile breakpoint is present");
-    assert.doesNotMatch(css, /min-width\\s*:\\s*(?:[5-9]\\d{2}|[1-9]\\d{3,})px/i, "no large fixed minimum width blocks narrow screens");
-    assert.doesNotMatch(css, /overflow-x\\s*:\\s*hidden/i, "horizontal overflow is not concealed instead of fixed");
+    assert.match(html, /<meta\s+name=["']viewport["']/i, "viewport is configured");
+    assert.match(css, /@media\s*\([^)]*max-width/i, "mobile breakpoint is present");
+    assert.doesNotMatch(css, /min-width\s*:\s*(?:[5-9]\d{2}|[1-9]\d{3,})px/i, "no large fixed minimum width blocks narrow screens");
+    assert.doesNotMatch(css, /overflow-x\s*:\s*hidden/i, "horizontal overflow is not concealed instead of fixed");
 
-    for (const svg of html.matchAll(/<svg\\b([^>]*)>/gi)) {
+    for (const svg of html.matchAll(/<svg\b([^>]*)>/gi)) {
       assert.match(svg[1], /viewBox=/i, "inline diagrams use a scalable viewBox");
     }
   });
