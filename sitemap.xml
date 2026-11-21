@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://gabriel-ioryem.vercel.app/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/cv/</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/engineering-tools/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/residential-electrical-installation/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/hybrid-solar-battery-storage/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/commercial-electrical-upgrade/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/industrial-machinery-power/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/cctv-access-control/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/electrical-fault-power-quality/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/smart-building-automation/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/generator-automatic-transfer/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/earthing-surge-protection/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gabriel-ioryem.vercel.app/projects/ev-charging-infrastructure/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+</urlset>
