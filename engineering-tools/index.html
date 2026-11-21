@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#13322c">
+  <title>Electrical Engineering Calculation Tools | Gabriel Ioryem</title>
+  <meta name="description" content="Explore practical preliminary electrical engineering calculators for load current, resistive voltage drop, solar PV array estimates and battery energy capacity.">
+  <link rel="canonical" href="https://gabriel-ioryem.vercel.app/engineering-tools/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Engineering Calculation Tools | Gabriel Ioryem">
+  <meta property="og:description" content="Four transparent, preliminary engineering calculators with stated assumptions and limitations.">
+  <meta property="og:url" content="https://gabriel-ioryem.vercel.app/engineering-tools/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--forest:#13322c;--deep:#0b1713;--paper:#f4f5f2;--surface:#fff;--warm:#e8ece9;--ink:#171d1a;--muted:#59665e;--line:#d9dfda;--action:#a83f0b;--serif:"Cormorant Garamond",Georgia,serif;--sans:Inter,Arial,sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #a83f0b;outline-offset:3px}
+    .shell{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+    .topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{text-decoration:none;color:var(--forest);font:600 26px/1 var(--serif)}
+    .top-links{display:flex;gap:24px;align-items:center;font-size:12px;font-weight:700}
+    .top-links a{text-decoration:none;color:var(--forest)}
+    .top-links .contact{padding:10px 15px;background:var(--forest);color:#fff}
+    .hero{padding:76px 0 54px;background:linear-gradient(118deg,#102f28,#1b4439 65%,#285649);color:#fff}
+    .eyebrow{margin:0 0 16px;color:#d6e4dc;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:780px;margin-bottom:18px;font:500 clamp(46px,6vw,76px)/.98 var(--serif);letter-spacing:-.035em}
+    .hero-copy{max-width:700px;margin:0;color:#e1eae4;font-size:16px;line-height:1.85}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .hero-meta span{padding:8px 11px;border:1px solid rgba(255,255,255,.28);color:#edf3ef;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+    main{padding:52px 0 80px}
+    .intro{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:24px}
+    .kicker{margin-bottom:7px;color:#8a603f;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    h2{margin-bottom:0;color:var(--forest);font:500 clamp(30px,4vw,44px)/1.05 var(--serif)}
+    .intro-note{max-width:430px;margin:0;color:var(--muted);font-size:12px}
+    .tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .tool{display:flex;flex-direction:column;min-width:0;padding:26px;background:var(--surface);border:1px solid var(--line);box-shadow:0 12px 36px rgba(16,42,31,.045)}
+    .tool-head{display:flex;justify-content:space-between;gap:18px;align-items:start;margin-bottom:20px}
+    .tool-number{color:#9a7950;font:500 34px/1 var(--serif)}
+    .tool h3{margin:0 0 6px;color:var(--forest);font:600 23px/1.15 var(--serif)}
+    .tool-sub{margin:0;color:var(--muted);font-size:11px}
+    .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}
+    .field{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .field label{color:#38463e;font-size:10px;font-weight:700;letter-spacing:.035em}
+    .field input,.field select{width:100%;min-height:44px;padding:10px 11px;border:1px solid #cbd4cc;border-radius:0;background:#fff;color:var(--ink);font:500 13px var(--sans)}
+    .field small{color:#6b756e;font-size:10px;line-height:1.45}
+    .result{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:20px;padding:17px 18px;background:var(--forest);color:#fff}
+    .result-label{display:block;color:#d5e1d9;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .result-value{display:block;margin-top:3px;font:500 36px/1.05 var(--serif);font-variant-numeric:tabular-nums}
+    .result-unit{color:#e2ebe5;font-size:11px}
+    .formula{margin:15px 0 0;color:#58655d;font-size:11px;line-height:1.7}
+    .formula strong{color:var(--forest)}
+    .assumption{margin-top:10px;padding:11px 13px;background:#f2f4f1;border-left:2px solid #a98a5e;color:#5c675f;font-size:10px;line-height:1.65}
+    .disclaimer{margin-top:26px;padding:20px 22px;border:1px solid #d7d9ce;background:#ecefe9}
+    .disclaimer strong{display:block;margin-bottom:5px;color:var(--forest);font-size:12px}
+    .disclaimer p{margin:0;color:#59655e;font-size:11px;line-height:1.8}
+    .footer{padding:25px 0;border-top:1px solid var(--line);color:#657068;font-size:11px}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media(max-width:760px){.tool-grid{grid-template-columns:1fr}.intro{display:block}.intro-note{margin-top:12px}.hero{padding:58px 0 42px}}
+    @media(max-width:520px){.shell{width:min(100% - 32px,1160px)}.topbar{height:66px}.top-links{gap:12px;font-size:10px}.top-links .contact{padding:9px}.tool{padding:20px}.fields{grid-template-columns:1fr 1fr}.result-value{font-size:31px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">Gabriel Ioryem</a>
+      <nav class="top-links" aria-label="Page navigation">
+        <a href="/">Portfolio</a>
+        <a href="/projects/">Technical notes</a>
+        <a class="contact" href="https://kellelectricals.com/book-appointment">Enquire ↗</a>
+      </nav>
+    </header>
+  </div>
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Engineering desk / preliminary design tools</p>
+      <h1>Numbers first.<br>Decisions with context.</h1>
+      <p class="hero-copy">A small set of transparent calculators for early-stage electrical assessment. Change the inputs, see the calculation and understand the assumptions before moving to a proper site-specific design.</p>
+      <div class="hero-meta"><span>Four calculators</span><span>Live results</span><span>No data submitted</span></div>
+    </div>
+  </section>
+  <main class="shell">
+    <div class="intro">
+      <div><p class="kicker">Interactive engineering notes</p><h2>Explore the numbers.</h2></div>
+      <p class="intro-note">These tools are intentionally preliminary. They explain basic relationships; they do not select cable sizes, protective devices, inverter models or final system configurations.</p>
+    </div>
+    <div class="tool-grid">
+      <section class="tool" aria-labelledby="current-title">
+        <div class="tool-head"><div><h3 id="current-title">Load current estimate</h3><p class="tool-sub">Estimate steady-state current from electrical input power.</p></div><span class="tool-number">01</span></div>
+        <div class="fields">
+          <div class="field"><label for="current-phase">Supply type</label><select id="current-phase"><option value="1">Single-phase</option><option value="3">Three-phase</option></select></div>
+          <div class="field"><label for="current-power">Input power (kW)</label><input id="current-power" type="number" min="0.01" max="100000" step="0.1" value="5"></div>
+          <div class="field"><label for="current-voltage">Voltage (V)</label><input id="current-voltage" type="number" min="1" max="100000" step="1" value="230"></div>
+          <div class="field"><label for="current-pf">Power factor</label><input id="current-pf" type="number" min="0.1" max="1" step="0.01" value="0.9"></div>
+          <div class="field"><label for="current-eff">Efficiency (%)</label><input id="current-eff" type="number" min="1" max="100" step="1" value="100"></div>
+        </div>
+        <div class="result" aria-live="polite"><div><span class="result-label">Estimated line current</span><strong class="result-value" id="current-result">24.15</strong></div><span class="result-unit">A</span></div>
+        <p class="formula"><strong>Formula:</strong> 1φ: I = P ÷ (V × PF × η). 3φ: I = P ÷ (√3 × V × PF × η). Power is treated as real input power.</p>
+        <p class="assumption">Excludes motor starting current, harmonics, demand/diversity, unbalance and transient loading. Confirm whether the entered power is input or output power before using the result.</p>
+      </section>
+
+      <section class="tool" aria-labelledby="drop-title">
+        <div class="tool-head"><div><h3 id="drop-title">Resistive voltage drop</h3><p class="tool-sub">A simplified conductor-resistance estimate.</p></div><span class="tool-number">02</span></div>
+        <div class="fields">
+          <div class="field"><label for="drop-phase">Circuit type</label><select id="drop-phase"><option value="1">Single-phase / DC loop</option><option value="3">Balanced three-phase</option></select></div>
+          <div class="field"><label for="drop-metal">Conductor material</label><select id="drop-metal"><option value="cu">Copper</option><option value="al">Aluminium</option></select></div>
+          <div class="field"><label for="drop-current">Design current (A)</label><input id="drop-current" type="number" min="0.01" max="100000" step="0.1" value="32"></div>
+          <div class="field"><label for="drop-length">One-way route length (m)</label><input id="drop-length" type="number" min="0.1" max="100000" step="0.5" value="30"></div>
+          <div class="field"><label for="drop-area">Conductor area (mm²)</label><input id="drop-area" type="number" min="0.1" max="10000" step="0.5" value="6"></div>
+          <div class="field"><label for="drop-voltage">System voltage (V)</label><input id="drop-voltage" type="number" min="1" max="100000" step="1" value="230"></div>
+        </div>
+        <div class="result" aria-live="polite"><div><span class="result-label">Estimated voltage drop</span><strong class="result-value" id="drop-result">5.51</strong></div><span class="result-unit" id="drop-percent">V · 2.40%</span></div>
+        <p class="formula"><strong>Approximation:</strong> 1φ / DC: ΔV = 2 × I × L × ρ ÷ S. Balanced 3φ: ΔV = √3 × I × L × ρ ÷ S. Resistivity values are nominal at 20°C.</p>
+        <p class="assumption">This is a resistance-only estimate. It excludes conductor operating-temperature correction, AC reactance, power factor, harmonics, joints and installation conditions. It is not a cable-sizing approval.</p>
+      </section>
+
+      <section class="tool" aria-labelledby="pv-title">
+        <div class="tool-head"><div><h3 id="pv-title">Solar PV array estimate</h3><p class="tool-sub">Estimate array capacity from daily energy and solar resource.</p></div><span class="tool-number">03</span></div>
+        <div class="fields">
+          <div class="field"><label for="pv-energy">Daily energy demand (kWh)</label><input id="pv-energy" type="number" min="0.1" max="1000000" step="0.1" value="15"></div>
+          <div class="field"><label for="pv-hours">Peak sun hours (h/day)</label><input id="pv-hours" type="number" min="0.1" max="12" step="0.1" value="5"></div>
+          <div class="field"><label for="pv-pr">Performance ratio (%)</label><input id="pv-pr" type="number" min="1" max="100" step="1" value="75"></div>
+        </div>
+        <div class="result" aria-live="polite"><div><span class="result-label">Indicative PV array rating</span><strong class="result-value" id="pv-result">4.00</strong></div><span class="result-unit">kWp</span></div>
+        <p class="formula"><strong>Formula:</strong> PV array (kWp) ≈ daily energy (kWh) ÷ [peak sun hours × performance ratio].</p>
+        <p class="assumption">A first-pass energy estimate only. Actual yield depends on location and season, shading, orientation, temperature, soiling, system losses, clipping and load timing. Use site-specific solar data for design.</p>
+      </section>
+
+      <section class="tool" aria-labelledby="battery-title">
+        <div class="tool-head"><div><h3 id="battery-title">Battery energy capacity</h3><p class="tool-sub">Estimate nominal storage for a defined critical-load autonomy.</p></div><span class="tool-number">04</span></div>
+        <div class="fields">
+          <div class="field"><label for="battery-energy">Critical-load energy (kWh/day)</label><input id="battery-energy" type="number" min="0.1" max="1000000" step="0.1" value="8"></div>
+          <div class="field"><label for="battery-days">Autonomy (days)</label><input id="battery-days" type="number" min="0.1" max="30" step="0.1" value="1"></div>
+          <div class="field"><label for="battery-dod">Usable depth of discharge (%)</label><input id="battery-dod" type="number" min="1" max="100" step="1" value="80"></div>
+          <div class="field"><label for="battery-eff">Discharge path efficiency (%)</label><input id="battery-eff" type="number" min="1" max="100" step="1" value="90"></div>
+        </div>
+        <div class="result" aria-live="polite"><div><span class="result-label">Indicative nominal capacity</span><strong class="result-value" id="battery-result">11.11</strong></div><span class="result-unit">kWh</span></div>
+        <p class="formula"><strong>Formula:</strong> nominal capacity ≈ daily critical-load energy × autonomy ÷ (usable DoD × discharge-path efficiency).</p>
+        <p class="assumption">Does not check battery power rating, surge capability, temperature derating, ageing reserve, BMS limits, charge rate or inverter compatibility. Confirm manufacturer limits and required end-of-life autonomy.</p>
+      </section>
+    </div>
+    <aside class="disclaimer">
+      <strong>Engineering responsibility and limitations</strong>
+      <p>All outputs are indicative calculations based only on the values entered. They are not a quotation, electrical design, installation instruction, compliance certificate or substitute for inspection and verification. Final engineering must consider applicable Nigerian requirements, relevant IEC/BS standards, equipment manufacturer data, site conditions, protection coordination, earthing, environmental factors and competent professional review. No values entered here are transmitted or stored by this page.</p>
+    </aside>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>© Gabriel Ioryem · Electrical Engineering</span><span><a href="/">Return to portfolio</a> · <a href="/projects/">Engineering studies</a></span></div></footer>
+  <script>
+    (() => {
+      const byId = id => document.getElementById(id);
+      const read = id => Number(byId(id).value);
+      const valid = (ids, predicate) => ids.every(id => {
+        const el = byId(id), n = Number(el.value), ok = el.value.trim() !== "" && Number.isFinite(n) && predicate(id, n);
+        el.setAttribute("aria-invalid", String(!ok));
+        return ok;
+      });
+      const fmt = n => Number.isFinite(n) ? n.toLocaleString("en-NG", {minimumFractionDigits:2, maximumFractionDigits:2}) : "—";
+      const inputs = [...document.querySelectorAll("input,select")];
+      const updateCurrent = () => {
+        const ids=["current-power","current-voltage","current-pf","current-eff"];
+        if(!valid(ids,(id,n)=>id==="current-pf"?n>0&&n<=1:id==="current-eff"?n>0&&n<=100:n>0)){byId("current-result").textContent="Check inputs";return;}
+        const phase=read("current-phase"), p=read("current-power")*1000, v=read("current-voltage"), pf=read("current-pf"), eta=read("current-eff")/100;
+        const amps=p/((phase==="3"?Math.sqrt(3):1)*v*pf*eta);
+        byId("current-result").textContent=fmt(amps);
+      };
+      const updateDrop = () => {
+        const ids=["drop-current","drop-length","drop-area","drop-voltage"];
+        if(!valid(ids,(_,n)=>n>0)){byId("drop-result").textContent="Check inputs";byId("drop-percent").textContent="";return;}
+        const rho=byId("drop-metal").value==="cu"?0.01724:0.0282;
+        const phase=read("drop-phase"), i=read("drop-current"), l=read("drop-length"), s=read("drop-area"), v=read("drop-voltage");
+        const drop=(phase==="3"?Math.sqrt(3):2)*i*l*rho/s;
+        byId("drop-result").textContent=fmt(drop);
+        byId("drop-percent").textContent="V · "+fmt(drop/v*100)+"%";
+      };
+      const updatePv = () => {
+        const ids=["pv-energy","pv-hours","pv-pr"];
+        if(!valid(ids,(id,n)=>id==="pv-pr"?n>0&&n<=100:n>0)){byId("pv-result").textContent="Check inputs";return;}
+        byId("pv-result").textContent=fmt(read("pv-energy")/(read("pv-hours")*read("pv-pr")/100));
+      };
+      const updateBattery = () => {
+        const ids=["battery-energy","battery-days","battery-dod","battery-eff"];
+        if(!valid(ids,(id,n)=>(id==="battery-dod"||id==="battery-eff")?n>0&&n<=100:n>0)){byId("battery-result").textContent="Check inputs";return;}
+        byId("battery-result").textContent=fmt(read("battery-energy")*read("battery-days")/((read("battery-dod")/100)*(read("battery-eff")/100)));
+      };
+      const update = () => {updateCurrent();updateDrop();updatePv();updateBattery();};
+      inputs.forEach(el=>el.addEventListener("input",update));
+      inputs.forEach(el=>el.addEventListener("change",update));
+      update();
+    })();
+  </script>
+</body>
+</html>
