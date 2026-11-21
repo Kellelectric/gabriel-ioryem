@@ -35,7 +35,7 @@ for (const page of pages) {
   test(`structured data is valid for ${page.path}`, async () => {
     const html = await readFile(new URL(page.path, import.meta.url), "utf8");
     const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
-    const blocks = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/gi)];
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
     assert.ok(canonical, "canonical URL is present");
     assert.ok(blocks.length > 0, "JSON-LD block is present");
 
