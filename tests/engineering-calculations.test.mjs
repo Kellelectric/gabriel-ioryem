@@ -63,3 +63,26 @@ test("engineering tools page registers live listeners for every calculator contr
   assert.match(page, /inputs\.forEach\(el\s*=>\s*el\.addEventListener\("input",\s*update\)\)/);
   assert.match(page, /inputs\.forEach\(el\s*=>\s*el\.addEventListener\("change",\s*update\)\)/);
 });
+
+test("calculator validation rejects values that violate declared input increments", async () => {
+  const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
+
+  assert.match(page, /el\.validity\.stepMismatch/);
+  assert.match(page, /Use the permitted increment for this value\./);
+  assert.match(page, /aria-invalid/);
+  assert.match(page, /aria-describedby/);
+});
+
+test("static voltage-drop fallback matches the displayed default inputs", async () => {
+  const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
+  const result = page.match(/id="drop-result">([0-9.]+)<\/strong>/)?.[1];
+  const expected = estimateVoltageDrop({
+    phase: "1",
+    currentA: 32,
+    routeLengthM: 30,
+    conductorAreaMm2: 6,
+    material: "cu"
+  }).toFixed(2);
+
+  assert.equal(result, expected);
+});

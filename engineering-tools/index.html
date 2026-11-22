@@ -144,7 +144,7 @@
           <div class="field"><label for="drop-area">Conductor area (mm²)</label><input id="drop-area" type="number" min="0.1" max="10000" step="0.5" value="6"></div>
           <div class="field"><label for="drop-voltage">System voltage (V)</label><input id="drop-voltage" type="number" min="1" max="100000" step="1" value="230"></div>
         </div>
-        <div class="result" aria-live="polite" aria-atomic="true"><div><span class="result-label">Estimated voltage drop</span><strong class="result-value" id="drop-result">5.51</strong></div><span class="result-unit" id="drop-percent">V · 2.40%</span></div>
+        <div class="result" aria-live="polite" aria-atomic="true"><div><span class="result-label">Estimated voltage drop</span><strong class="result-value" id="drop-result">5.52</strong></div><span class="result-unit" id="drop-percent">V · 2.40%</span></div>
         <p class="formula"><strong>Approximation:</strong> 1φ / DC: ΔV = 2 × I × L × ρ ÷ S. Balanced 3φ: ΔV = √3 × I × L × ρ ÷ S. Resistivity values are nominal at 20°C.</p>
         <p class="assumption">This is a resistance-only estimate. It excludes conductor operating-temperature correction, AC reactance, power factor, harmonics, joints and installation conditions. It is not a cable-sizing approval.</p>
       </section>
@@ -190,7 +190,7 @@
         let allValid = true;
         ids.forEach(id => {
         const el = byId(id), n = Number(el.value);
-        const rangeError = el.validity.rangeUnderflow || el.validity.rangeOverflow || el.validity.badInput;
+        const rangeError = el.validity.rangeUnderflow || el.validity.rangeOverflow || el.validity.badInput || el.validity.stepMismatch;
         const empty = el.value.trim() === "";
         const ok = !empty && Number.isFinite(n) && !rangeError && predicate(id, n);
         el.setAttribute("aria-invalid", String(!ok));
@@ -203,7 +203,7 @@
             error.setAttribute("role", "status");
             el.insertAdjacentElement("afterend", error);
           }
-          error.textContent = empty ? "Enter a value." : el.validity.badInput ? "Enter a valid number." : "Check the permitted range for this value.";
+          error.textContent = empty ? "Enter a value." : el.validity.badInput ? "Enter a valid number." : el.validity.stepMismatch ? "Use the permitted increment for this value." : "Check the permitted range for this value.";
           const describedBy = (el.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
           if (!describedBy.includes(error.id)) describedBy.push(error.id);
           el.setAttribute("aria-describedby", describedBy.join(" "));
