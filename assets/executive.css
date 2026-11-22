@@ -30,3 +30,105 @@
 /* Keep the mobile document scroll independent from the horizontally moving Explore strip. */
 html,body{min-height:100%;}
 @media(max-width:767px){.explore-nav{position:relative;top:auto;backdrop-filter:none;-webkit-backdrop-filter:none}}
+
+
+/* Kell Electricals brand system: forest green leads, gold is a controlled accent. */
+:root{
+  --forest:#13322c;
+  --forest-deep:#081b17;
+  --forest-mid:#1b4037;
+  --gold:#c6a972;
+  --gold-bright:#ddc391;
+  --ivory:#f7f4ef;
+  --warm:#e9e4da;
+  --graphite:#171d1a;
+  --charcoal:#202a25;
+  --slate:#48564e;
+  --mist:#d8d4ca;
+}
+body{background:var(--ivory);color:var(--graphite)}
+.site-header{background:rgba(8,27,23,.98);border-bottom:1px solid rgba(198,169,114,.35);color:var(--ivory);backdrop-filter:blur(16px)}
+.brand{color:#fff}
+.brand span{color:#d8d0c1}
+.desktop-nav{color:#e8e3d9}
+.desktop-nav a:hover,.desktop-nav a:focus-visible{color:var(--gold-bright)}
+.nav-contact{background:var(--gold);color:var(--forest-deep)!important}
+.menu-toggle{border-color:rgba(198,169,114,.55);background:transparent}
+.menu-toggle span{background:#fff}
+.mobile-navigation{background:var(--forest-deep);border-color:rgba(198,169,114,.25)}
+.mobile-navigation a{color:#f7f4ef;border-color:rgba(198,169,114,.18)}
+.hero-section{background:radial-gradient(ellipse at 78% 38%,rgba(198,169,114,.16),transparent 36%),linear-gradient(135deg,var(--forest-deep),var(--forest) 64%,#1a4036);color:#fff}
+.hero-section .section-label,.hero-section .section-label *{color:var(--gold-bright)}
+.hero-section .display,.hero-section h1{color:#fff}
+.hero-intro{color:#e4eae5}
+.hero-proof{background:rgba(198,169,114,.42);border-color:rgba(198,169,114,.42)}
+.hero-proof>div{background:rgba(8,27,23,.82)}
+.hero-proof strong{color:var(--gold-bright)}
+.hero-proof span{color:#f0eee8}
+.portrait-wrap{box-shadow:16px 16px 0 rgba(198,169,114,.45);border:1px solid rgba(198,169,114,.55)}
+.portrait-caption{color:#e3e9e4}
+#scroll-progress{background:var(--gold)}
+.explore-nav{background:var(--forest-deep);border-color:rgba(198,169,114,.35);color:#fff}
+.explore-label{color:var(--gold-bright)}
+.explore-track a,.explore-track a.is-current{color:#f7f4ef}
+.explore-track a:after{background:var(--gold-bright);height:2px}
+.explore-arrow{border-color:rgba(198,169,114,.55);color:var(--gold-bright)}
+.explore-arrow:disabled{opacity:.48}
+.section-light{background:var(--ivory);color:var(--graphite)}
+.section-warm{background:var(--warm);color:var(--graphite)}
+.section-forest{background:var(--forest);color:#f7f4ef}
+.section-label{color:#805b27}
+.section-forest .section-label{color:var(--gold-bright)}
+.heading-1{color:var(--forest-deep)}
+.section-forest .heading-1{color:#fff}
+.section-body{color:#39463f}
+.section-forest .section-body{color:#e3ebe5}
+.section-lead{color:#202a25}
+.section-forest .section-lead{color:#fff}
+.stat-grid{background:#cfc8b9;border-color:#cfc8b9}
+.stat-grid>div{background:#fff}
+.stat-grid span{color:#46534b}
+.expertise-grid{background:rgba(198,169,114,.5);border-color:rgba(198,169,114,.5)}
+.expertise-card{background:var(--forest-deep);color:#fff;border:1px solid rgba(198,169,114,.16)}
+.expertise-card:hover{background:#1a4036}
+.expertise-card>span{color:var(--gold-bright)}
+.expertise-card h3{color:#fff}
+.expertise-card p{color:#e0e8e2}
+.method-grid{background:#c8bdab;border-color:#c8bdab}
+.method-grid article{background:#fff}
+.method-grid article>b{color:#805b27}
+.method-grid p{color:#46534b}
+.reference-grid{background:rgba(198,169,114,.48);border-color:rgba(198,169,114,.48)}
+.reference-card{background:#fdfcf9}
+.reference-card>span{color:#805b27}
+.reference-card p{color:#46534b}
+.reference-section .reference-note{color:#f7f4ef}
+.study-grid{background:rgba(198,169,114,.5);border-color:rgba(198,169,114,.5)}
+.study-card{background:var(--forest-deep);border:1px solid rgba(198,169,114,.2)}
+.study-card:hover{background:#21483d}
+.study-card>span{color:var(--gold-bright)}
+.study-card i{color:#f0d9aa}
+.btn-light{background:var(--gold);color:var(--forest-deep);font-weight:800}
+.tools-panel{background:#fff;border-color:rgba(19,50,44,.2);box-shadow:0 18px 48px -30px rgba(8,27,23,.5)}
+.btn-primary{background:var(--forest);color:#fff}
+.btn-primary:hover{background:var(--forest-deep)}
+.btn-secondary{border-color:var(--forest);color:var(--forest);background:#fff}
+.btn-secondary:hover{background:var(--forest);color:#fff}
+.lead-flow{border-color:#cfc8b9}
+.lead-option{border-color:#cfc8b9;color:var(--forest-deep)}
+.lead-option:hover,.lead-option[aria-pressed=true]{border-color:var(--forest);background:#e9f0eb}
+.form-field{border-color:#b9c2ba;color:var(--graphite)}
+.form-field:focus{border-color:var(--forest);outline:3px solid rgba(19,50,44,.18)}
+.field-hint,.done-state p:not(.done-title){color:#46534b}
+.contact-aside{background:#e5ded1;border:1px solid #d0c5b3}
+.contact-aside>a{color:var(--forest-deep)}
+.aside-label,.step-count{color:#805b27}
+.site-footer{background:var(--forest-deep);border-top:3px solid var(--gold);color:#f7f4ef}
+.footer-inner>div a{color:var(--gold-bright)}
+.footer-tagline{color:#e3e9e4}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline-color:#d1a65f}
+@media(max-width:767px){
+  .site-header{background:var(--forest-deep)}
+  .hero-section{background:linear-gradient(160deg,var(--forest-deep),var(--forest) 75%,#1b4037)}
+  .explore-nav{background:var(--forest-deep)}
+}
