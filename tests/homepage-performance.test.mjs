@@ -73,3 +73,14 @@ test("homepage uses the Kell forest-green brand system without changing the circ
   assert.doesNotMatch(css.slice(css.indexOf("/* Kell Electricals forest-green visual system")), /\.portrait-wrap\{/);
   assert.doesNotMatch(css.slice(css.indexOf("/* Kell Electricals forest-green visual system")), /\.portrait-caption\{/);
 });
+
+
+test("desktop hero headline stays within its text column and clear of the portrait", async () => {
+  const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+  assert.match(css, /@media\\(min-width:1024px\\)\\{\\.hero-section \\.display\\{max-width:100%;font-size:clamp\\(2\\.65rem,3\\.9vw,4\\.2rem\\)/);
+  assert.match(css, /\\.hero-section \\.lg\\\\:col-span-7\\{min-width:0\\}/);
+  assert.match(css, /\\.hero-section \\.portrait-column\\{width:100%;max-width:440px\\}/);
+  const portrait = css.match(/\\.portrait-wrap\\{[^}]+\\}/)?.[0] || "";
+  assert.match(portrait, /aspect-ratio:1/);
+  assert.match(portrait, /border-radius:50%/);
+});
