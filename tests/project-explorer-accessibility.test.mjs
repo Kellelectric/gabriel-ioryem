@@ -44,7 +44,7 @@ for (const explorer of explorers) {
     }
 
     const scripts = [...html.matchAll(new RegExp("<script\\b[^>]*>([\\s\\S]*?)</script>", "gi"))].map(match => match[1]).join("\\n");
-    assert.match(scripts, /addEventListener\\(["']click["']/, "buttons have click handlers");
+    assert.ok(scripts.includes('addEventListener("click"'), "buttons have click handlers");
 
     for (const key of keys) {
       const mapped = new RegExp("(?:^|[,{])\\s*" + key + "\\s*:");
