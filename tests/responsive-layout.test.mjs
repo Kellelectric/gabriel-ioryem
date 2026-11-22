@@ -26,6 +26,8 @@ for (const pagePath of pages) {
     let linkedCss = "";
     if (pagePath === "index.html") {
       linkedCss = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+    } else if (pagePath === "cv/index.html") {
+      linkedCss = await readFile(new URL("../assets/cv.css", import.meta.url), "utf8");
     } else if (pagePath.startsWith("projects/") && pagePath !== "projects/index.html" &&
       !pagePath.includes("earthing-surge-protection") && !pagePath.includes("ev-charging-infrastructure")) {
       linkedCss = await readFile(new URL("../assets/study-checks.css", import.meta.url), "utf8");
