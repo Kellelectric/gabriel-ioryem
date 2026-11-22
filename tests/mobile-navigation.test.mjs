@@ -29,3 +29,12 @@ test("mobile navigation section links point to existing sections", async () => {
   const targets = [...nav.matchAll(/href="#([^"]+)"/g)].map(match => match[1]);
   for (const target of targets) assert.match(html, new RegExp('id="' + target + '"'), "section #" + target + " exists");
 });
+
+test("in-page navigation moves keyboard focus to the destination after closing the menu", async () => {
+  const js = await readFile(new URL("../assets/portfolio.js", import.meta.url), "utf8");
+
+  assert.match(js, /const target = link\.hash \? document\.querySelector\(link\.hash\) : null/);
+  assert.match(js, /if \(!target\.hasAttribute\("tabindex"\)\) target\.setAttribute\("tabindex", "-1"\)/);
+  assert.match(js, /window\.requestAnimationFrame\(\(\) => target\.focus\(\{ preventScroll: true \}\)\)/);
+  assert.match(js, /mobileNav\.querySelectorAll\("a"\)\.forEach\(link => link\.addEventListener\("click"/);
+});
