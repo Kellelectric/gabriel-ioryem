@@ -43,7 +43,7 @@ for (const explorer of explorers) {
       assert.ok(html.includes('id="' + id + '"'), "dynamic output exists: " + id);
     }
 
-    const scripts = [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/gi)].map(match => match[1]).join("\\n");
+    const scripts = [...html.matchAll(new RegExp("<script\\\\b[^>]*>([\\\\s\\\\S]*?)</script>", "gi"))].map(match => match[1]).join("\\n");
     assert.match(scripts, /addEventListener\\(["']click["']/, "buttons have click handlers");
 
     for (const key of keys) {
