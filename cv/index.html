@@ -225,6 +225,13 @@ body :is(.milestone-note,.system-node,.art-frame,.standards-section,.timeline-se
   }
 }
 </script>
+<style id="cv-mobile-action-toolbar">
+@media(max-width:650px){
+  .actions{flex-direction:column;align-items:stretch;gap:10px;padding:12px 18px}
+  .actions>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important;width:100%}
+  .actions>div>a,.actions>div>button{display:flex;align-items:center;justify-content:center;min-width:0;min-height:44px;padding:9px 8px;text-align:center;white-space:normal;line-height:1.35}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
