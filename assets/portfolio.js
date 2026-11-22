@@ -23,7 +23,14 @@
       mobileNav.classList.toggle("hidden", isOpen);
       if (!isOpen) mobileNav.querySelector("a")?.focus();
     });
-    mobileNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => closeMenu()));
+    mobileNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      const target = link.hash ? document.querySelector(link.hash) : null;
+      closeMenu();
+      if (target) {
+        if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+        window.requestAnimationFrame(() => target.focus({ preventScroll: true }));
+      }
+    }));
     document.addEventListener("pointerdown", event => {
       if (
         menuToggle.getAttribute("aria-expanded") === "true" &&
