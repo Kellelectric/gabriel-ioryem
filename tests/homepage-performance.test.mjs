@@ -49,3 +49,17 @@ test("homepage content remains visible without JavaScript and reveals progressiv
   assert.match(css, /\.js-enabled \.reveal-line:not\(\.is-visible\) span\{transform:translateY\(115%\)\}/);
   assert.match(js, /document\.documentElement\.classList\.add\("js-enabled"\)/);
 });
+
+
+test("homepage uses a high-contrast Kell forest-green and gold brand system", async () => {
+  const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+  assert.match(css, /--forest:#13322c/);
+  assert.match(css, /--forest-deep:#081b17/);
+  assert.match(css, /--gold:#c6a972/);
+  assert.match(css, /\.site-header\{background:rgba\(8,27,23/);
+  assert.match(css, /\.explore-nav\{background:var\(--forest-deep\)/);
+  assert.match(css, /\.hero-section\{background:radial-gradient/);
+  assert.match(css, /\.expertise-card\{background:var\(--forest-deep\)/);
+  assert.match(css, /\.site-footer\{background:var\(--forest-deep\)/);
+  assert.match(css, /\.section-forest \.section-body\{color:#e3ebe5\}/);
+});
