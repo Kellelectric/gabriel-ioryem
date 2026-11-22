@@ -36,6 +36,9 @@ for (const pagePath of pages) {
     assert.match(css, /@media\s*\([^)]*max-width/i, "mobile breakpoint is present");
     assert.doesNotMatch(css, /(?:^|[;{])\s*min-width\s*:\s*(?:[5-9]\d{2}|[1-9]\d{3,})px/i, "no large fixed minimum width blocks narrow screens");
     assert.doesNotMatch(css, /overflow-x\s*:\s*hidden/i, "horizontal overflow is not concealed instead of fixed");
+    if (pagePath === "index.html") {
+      assert.match(css, /\.hero-section:after\{[^}]*right:0(?:;|})/i, "decorative hero artwork stays inside the viewport");
+    }
 
     for (const svg of html.matchAll(/<svg\b([^>]*)>/gi)) {
       assert.match(svg[1], /viewBox=/i, "inline diagrams use a scalable viewBox");
