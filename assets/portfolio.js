@@ -21,11 +21,20 @@
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
       menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
       mobileNav.classList.toggle("hidden", isOpen);
+      if (!isOpen) mobileNav.querySelector("a")?.focus();
     });
     mobileNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => closeMenu()));
+    document.addEventListener("pointerdown", event => {
+      if (
+        menuToggle.getAttribute("aria-expanded") === "true" &&
+        !mobileNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) closeMenu();
+    });
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") closeMenu(true);
     });
+    window.addEventListener("hashchange", () => closeMenu());
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 1024) closeMenu();
     });
