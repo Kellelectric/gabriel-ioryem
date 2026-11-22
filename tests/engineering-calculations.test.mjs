@@ -75,7 +75,7 @@ test("calculator validation rejects values that violate declared input increment
 
 test("static voltage-drop fallback matches the displayed default inputs", async () => {
   const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
-  const result = page.match(/id="drop-result">([0-9.]+)<\\/strong>/)?.[1];
+  const result = page.match(/id="drop-result">([0-9.]+)<\/strong>/)?.[1];
   const expected = estimateVoltageDrop({
     phase: "1",
     currentA: 32,
