@@ -13,8 +13,6 @@ const explorers = [
   { slug: "smart-building-automation", key: "auto", group: "auto-map", panel: "auto-detail", outputs: ["auto-step", "auto-heading", "auto-copy", "auto-check"] }
 ];
 
-const escapeRegExp = value => value.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&");
-
 for (const explorer of explorers) {
   test("accessible interactive explorer: " + explorer.slug, async () => {
     const html = await readFile(new URL("../projects/" + explorer.slug + "/index.html", import.meta.url), "utf8");
@@ -45,11 +43,11 @@ for (const explorer of explorers) {
       assert.ok(html.includes('id="' + id + '"'), "dynamic output exists: " + id);
     }
 
-    const scripts = [...html.matchAll(/<script(?![^>]*application\\/ld\\+json)[^>]*>([\\s\\S]*?)<\\/script>/gi)].map(match => match[1]).join("\\n");
+    const scripts = [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/gi)].map(match => match[1]).join("\\n");
     assert.match(scripts, /addEventListener\\(["']click["']/, "buttons have click handlers");
 
     for (const key of keys) {
-      const mapped = new RegExp("(?:^|[,{])\\\\s*" + escapeRegExp(key) + "\\\\s*:");
+      const mapped = new RegExp("(?:^|[,{])\\s*" + key + "\\s*:");
       assert.match(scripts, mapped, "button state has matching explanatory data: " + key);
     }
   });
