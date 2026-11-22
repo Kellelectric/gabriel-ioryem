@@ -49,3 +49,11 @@ test("homepage content remains visible without JavaScript and reveals progressiv
   assert.match(css, /\.js-enabled \.reveal-line:not\(\.is-visible\) span\{transform:translateY\(115%\)\}/);
   assert.match(js, /document\.documentElement\.classList\.add\("js-enabled"\)/);
 });
+
+
+test("homepage portrait retains the original circular presentation", async () => {
+  const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+  assert.match(css, /\.portrait-wrap\\{position:relative;aspect-ratio:1/);
+  assert.match(css, /\.portrait-wrap\\{[^}]*border-radius:50%/);
+  assert.doesNotMatch(css, /\.portrait-wrap\\{[^}]*border-radius:46% 46% 3px 3px/);
+});
