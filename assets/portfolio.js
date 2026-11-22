@@ -192,7 +192,12 @@
       flow.querySelectorAll(".lead-step").forEach(panel => panel.classList.add("hidden"));
       const panel = flow.querySelector('.lead-step[data-step="' + nextStep + '"]');
       if (panel) panel.classList.remove("hidden");
-      if (progressBar) progressBar.style.width = widths[nextStep] || "100%";
+      if (progressBar) {
+        progressBar.style.width = widths[nextStep] || "100%";
+        const progressValues = { 1: 25, 2: 50, 3: 75, 4: 100, done: 100 };
+        progressBar.setAttribute("aria-valuenow", String(progressValues[nextStep] ?? 100));
+        progressBar.setAttribute("aria-valuetext", nextStep === "done" ? "Enquiry prepared" : "Step " + nextStep + " of 4");
+      }
       step = nextStep;
       const heading = panel?.querySelector("h3");
       if (heading) heading.setAttribute("tabindex", "-1"), heading.focus();
