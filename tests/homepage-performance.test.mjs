@@ -23,7 +23,7 @@ test("homepage uses independently cacheable local assets without a runtime CSS c
   assert.ok(jsStats.size < 13000, "homepage interaction script should remain below 13 KB");
   assert.match(css, /\.explore-track/, "sliding section navigation styles are retained");
   assert.match(css, /\.mobile-navigation/, "mobile navigation styles are retained");
-  assert.match(utility, /\.lg\:grid-cols-12/, "responsive grid utility is included");
+  assert.match(utility, /\.lg\\:grid-cols-12/, "responsive grid utility is included");
   assert.match(css, /prefers-reduced-motion/, "reduced-motion support is retained");
   assert.match(js, /aria-expanded/, "mobile menu exposes its expanded state");
   assert.match(js, /mailto:info@kellelectricals\.com/, "contact flow prepares a direct email draft");
