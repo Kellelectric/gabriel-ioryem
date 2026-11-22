@@ -63,3 +63,12 @@ test("engineering tools page registers live listeners for every calculator contr
   assert.match(page, /inputs\.forEach\(el\s*=>\s*el\.addEventListener\("input",\s*update\)\)/);
   assert.match(page, /inputs\.forEach\(el\s*=>\s*el\.addEventListener\("change",\s*update\)\)/);
 });
+
+test("calculator validation rejects values that violate declared input increments", async () => {
+  const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
+
+  assert.match(page, /el\.validity\.stepMismatch/);
+  assert.match(page, /Use the permitted increment for this value\./);
+  assert.match(page, /aria-invalid/);
+  assert.match(page, /aria-describedby/);
+});
