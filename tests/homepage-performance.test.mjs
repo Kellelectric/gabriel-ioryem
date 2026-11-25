@@ -23,10 +23,12 @@ test("homepage uses cacheable local assets without a runtime CSS compiler", asyn
   assert.doesNotMatch(html, /<style\b/i);
   assert.doesNotMatch(html, /cdn\.tailwindcss\.com|tailwind\.config/);
   assert.ok(html.length < 40000);
-  assert.ok(gzipBytes(css) < 7500, "executive.css stays under 7.5 KB gzipped");
+  // Raised from 7.5 KB when the project-brief builder and its live building preview were added.
+  assert.ok(gzipBytes(css) < 9000, "executive.css stays under 9 KB gzipped");
   assert.ok(css.length < 40000, "executive.css stays under 40 KB uncompressed");
   assert.ok(utilityStats.size < 4000);
-  assert.ok(gzipBytes(js) < 4500, "portfolio.js stays under 4.5 KB gzipped");
+  // Raised from 4.5 KB for the same feature (multi-step brief with WhatsApp and email handoff).
+  assert.ok(gzipBytes(js) < 6000, "portfolio.js stays under 6 KB gzipped");
   assert.ok(js.length < 20000, "portfolio.js stays under 20 KB uncompressed");
   assert.match(css, /\.explore-track/);
   assert.match(css, /\.mobile-navigation/);

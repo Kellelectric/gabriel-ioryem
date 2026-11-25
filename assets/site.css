@@ -41,7 +41,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* Type helpers */
 .eyebrow{display:inline-flex;align-items:center;gap:12px;margin:0;color:var(--gold-ink);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
 .eyebrow:before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
-.back{display:flex;width:max-content;align-items:center;gap:8px;margin-bottom:34px;color:var(--forest);font-size:14px;font-weight:600;transition:gap .25s var(--ease)}
+.back{display:flex;width:max-content;align-items:center;gap:8px;min-height:44px;margin-bottom:24px;color:var(--forest);font-size:14px;font-weight:600;transition:gap .25s var(--ease)}
 .back:hover{gap:12px}
 
 /* Buttons */
@@ -56,8 +56,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .foot-mark{margin:0 0 40px;font:500 clamp(2.8rem,8vw,6.5rem)/.9 var(--serif);letter-spacing:-.05em;color:#f4efe6}
 .foot-mark em{font-style:italic;color:var(--gold)}
 .foot-row{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;border-top:1px solid var(--line-dark);font-size:13px}
-.foot-row nav{display:flex;flex-wrap:wrap;gap:12px 22px}
-.foot-row a{color:#f0d5a8}
+.foot-row nav{display:flex;flex-wrap:wrap;gap:0 22px}
+.foot-row a{display:inline-block;padding:10px 0;color:#f0d5a8}
 .foot-row a:hover{color:#fff}
 
 @media(max-width:900px){
@@ -68,6 +68,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .bar-row{height:66px}
   .brand{font-size:22px}
   .brand span{display:none}
+  .brand{padding:11px 0}
   .bar-nav a[aria-current=page]{display:none}
   .foot-row{flex-direction:column;align-items:flex-start}
 }
