@@ -10,50 +10,24 @@
   <meta name="description" content="The page you are looking for could not be found. Return to Gabriel Ioryem's electrical engineering portfolio or explore the technical studies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{color-scheme:dark;--forest:#13322c;--deep:#0b1713;--paper:#f4f5f2;--ink:#f4f5f2;--muted:#c3d0c8;--gold:#c6a972;--orange:#e87532}
-    *{box-sizing:border-box}
-    html{min-height:100%;background:var(--deep)}
-    body{min-height:100vh;margin:0;background:radial-gradient(ellipse at 78% 18%,rgba(198,169,114,.13),transparent 35%),linear-gradient(135deg,#0b1713,#13322c 68%,#1b4439);color:var(--paper);font:15px/1.7 Inter,Arial,sans-serif;display:grid;grid-template-rows:auto 1fr auto}
-    a{color:inherit}
-    a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
-    .shell{width:min(1120px,calc(100% - 48px));margin:auto}
-    header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.16)}
-    .brand{font:600 27px/1 'Cormorant Garamond',Georgia,serif;text-decoration:none}
-    .brand span{color:var(--gold)}
-    .top-link{font-size:12px;text-decoration:none;color:#e5ece7}
-    main{display:grid;align-content:center;padding:70px 0 90px;max-width:850px}
-    .eyebrow{margin:0 0 16px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-    .code{margin:0;color:rgba(244,245,242,.12);font:500 clamp(100px,22vw,210px)/.78 'Cormorant Garamond',Georgia,serif;letter-spacing:-.06em}
-    h1{max-width:680px;margin:28px 0 14px;font:500 clamp(38px,6vw,64px)/1.02 'Cormorant Garamond',Georgia,serif}
-    .copy{max-width:590px;margin:0;color:#d3ded7;font-size:15px}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;background:var(--orange);color:#fff;text-decoration:none;font-size:11px;font-weight:700}
-    .button.secondary{background:transparent;border:1px solid rgba(255,255,255,.42);color:#fff}
-    footer{padding:22px 0;border-top:1px solid rgba(255,255,255,.16);color:#bdc9c1;font-size:11px}
-    @media(max-width:560px){.shell{width:calc(100% - 36px)}header{height:68px}.top-link{font-size:10px}main{padding:54px 0 70px}.copy{font-size:14px}.actions{display:grid;grid-template-columns:1fr}.button{width:100%}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-  .skip-link{position:fixed;z-index:1000;top:10px;left:10px;padding:12px 16px;background:#13322c;color:#fff!important;border:2px solid #c4a574;transform:translateY(-160%);transition:transform .18s ease;font:700 13px/1.2 Arial,sans-serif}.skip-link:focus{transform:translateY(0);outline:3px solid #a83f0b;outline-offset:3px}#main-content{scroll-margin-top:24px}@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/notfound.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <header class="shell">
-    <a class="brand" href="/">Gabriel <span>Ioryem</span></a>
-    <a class="top-link" href="/projects/">Explore engineering studies ↗</a>
-  </header>
-  <main class="shell" id="main-content">
+  <header class="site-bar"><div class="wrap bar-row"><a class="brand" href="/">Gabriel Ioryem<span>Electrical Engineer · Founder</span></a><nav class="bar-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/projects/">Engineering studies</a><a href="/engineering-tools/">Calculation tools</a><a href="/cv/">Professional profile</a><a class="nav-cta" href="/#contact">Connect ↗</a></nav></div></header>
+  <main class="lost" id="main-content"><div class="wrap">
     <p class="eyebrow">A wrong turn, not a dead end</p>
     <p class="code" aria-hidden="true">404</p>
-    <h1>This page is not where it should be.</h1>
+    <h1>This page is not where it <em>should be.</em></h1>
     <p class="copy">The address may have changed, or the page may no longer be available. You can return to the portfolio or continue exploring the engineering work and technical notes.</p>
     <nav class="actions" aria-label="Suggested destinations">
-      <a class="button" href="/">Return to portfolio</a>
-      <a class="button secondary" href="/projects/">View engineering studies</a>
-      <a class="button secondary" href="https://kellelectricals.com/book-appointment">Contact Kell Electricals Ltd</a>
+      <a class="btn" href="/">Return to portfolio</a>
+      <a class="btn-ghost" href="/projects/">View engineering studies</a>
+      <a class="btn-ghost" href="https://kellelectricals.com/book-appointment" target="_blank" rel="noopener">Contact Kell Electricals Ltd ↗</a>
     </nav>
-  </main>
-  <footer><div class="shell">Gabriel Ioryem · Electrical Engineer &amp; Founder, Kell Electricals Ltd</div></footer>
+  </div></main>
+  <footer class="site-foot"><div class="wrap"><p class="foot-mark" aria-hidden="true">Gabriel <em>Ioryem</em></p><div class="foot-row"><span>© 2026 Gabriel Ioryem · Abuja, Nigeria</span><nav aria-label="Footer navigation"><a href="/">Home</a><a href="/projects/">Engineering studies</a><a href="/engineering-tools/">Calculation tools</a><a href="/cv/">Professional profile</a><a href="https://kellelectricals.com" target="_blank" rel="noopener">Kell Electricals Ltd ↗</a></nav></div></div></footer>
 </body>
 </html>
