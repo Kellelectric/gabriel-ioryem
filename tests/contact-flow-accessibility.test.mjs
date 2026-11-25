@@ -21,7 +21,7 @@ test("enquiry completion is a focusable heading announced within the live region
   assert.ok(completion);
   assert.match(completion[1], /<h3 class="done-title">Your brief is ready\.<\/h3>/);
   assert.match(html, /id="lead-flow" class="lead-flow" aria-live="polite"/);
-  assert.match(html, /id="lead-mailto" href="mailto:info@kellelectricals\.com"/);
+  assert.match(html, /id="lead-mailto" href="mailto:gabrielioryem@kellelectricals\.com"/);
 });
 
 test("project brief can be sent on WhatsApp or by email without the site transmitting it", async () => {

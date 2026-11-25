@@ -344,7 +344,7 @@
       const subject = "Project brief: " + data.needs.join(", ");
       const body = ["Hello, this is " + data.name + ". Here is a short brief from gabriel-ioryem.vercel.app.", ""]
         .concat(rows.map(([label, value]) => label + ": " + value)).join("\n");
-      const mailto = "mailto:info@kellelectricals.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      const mailto = "mailto:gabrielioryem@kellelectricals.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       const mailLink = byId("lead-mailto");
       if (mailLink) mailLink.href = mailto;
       const whatsappLink = byId("lead-whatsapp");

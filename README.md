@@ -34,7 +34,7 @@ Serve the folder with any static server (for example `python3 -m http.server`) a
 
 The homepage contact section is a six-step project brief. When it is complete, the visitor sends it
 themselves on WhatsApp (Kell Electricals, +234 814 020 5895, set as `WHATSAPP` in `assets/portfolio.js`)
-or by email (info@kellelectricals.com). The site has no backend and transmits nothing.
+or by email (gabrielioryem@kellelectricals.com). The site has no backend and transmits nothing.
 
 ## Fonts
 
