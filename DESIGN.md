@@ -1,6 +1,6 @@
 version: alpha
 name: Gabriel Ioryem Executive
-description: Personal executive digital identity for Gabriel Ioryem — Electrical Engineer, Entrepreneur and Founder & CEO of Kell Electricals Ltd. Editorial, architectural, and authoritative visual language for an internationally presentable founder presence.
+description: Personal executive digital identity for Gabriel Ioryem, Electrical Engineer, Entrepreneur and Founder & CEO of Kell Electricals Ltd. Editorial, architectural, and authoritative visual language for an internationally presentable founder presence.
 colors:
   forest: "#13322C"
   forest-deep: "#0A1F1B"
