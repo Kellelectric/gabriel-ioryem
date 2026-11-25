@@ -57,6 +57,15 @@
   window.addEventListener("scroll", updateScroll, { passive: true });
   updateScroll();
 
+  // Soft glow that follows the pointer across engineering cards.
+  if (window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".expertise-card, .study-card").forEach(card => card.addEventListener("pointermove", event => {
+      const box = card.getBoundingClientRect();
+      card.style.setProperty("--mx", event.clientX - box.left + "px");
+      card.style.setProperty("--my", event.clientY - box.top + "px");
+    }));
+  }
+
   const revealItems = document.querySelectorAll(".fade-up, .reveal-line");
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -188,6 +197,10 @@
             if (active) link.setAttribute("aria-current", "location");
             else link.removeAttribute("aria-current");
           });
+          // Mirror the current section in the desktop header navigation.
+          document.querySelectorAll(".desktop-nav a[href^='#']").forEach(navLink => {
+            navLink.classList.toggle("is-current", navLink.getAttribute("href") === id);
+          });
           // Keep section observation passive; it must not change document scroll position.
         });
       }, { rootMargin: "-25% 0px -60% 0px" });
@@ -200,74 +213,157 @@
 
   const flow = document.getElementById("lead-flow");
   if (flow) {
-    let step = 1;
-    const data = { purpose: "", context: "", name: "", email: "", phone: "" };
+    const WHATSAPP = "2348140205895";
+    const data = { needs: [], property: "", timing: "", location: "", context: "", name: "", phone: "", email: "" };
     const progressBar = document.getElementById("lead-progress");
-    const widths = { 1: "25%", 2: "50%", 3: "75%", 4: "100%", done: "100%" };
+    const byId = id => document.getElementById(id);
+    let step = 1;
+
+    // Business, partnership and media conversations skip the site questions.
+    const offsiteOnly = () => {
+      const picked = [...flow.querySelectorAll('[data-field="needs"] [aria-pressed="true"]')];
+      return picked.length > 0 && picked.every(button => button.dataset.offsite === "true");
+    };
+    const route = () => offsiteOnly() ? [1, 4, 5, 6] : [1, 2, 3, 4, 5, 6];
+
+    const paintBrief = () => {
+      const parts = new Set([...flow.querySelectorAll('[data-field="needs"] [aria-pressed="true"]')].map(button => button.dataset.part).filter(Boolean));
+      document.querySelectorAll(".iso-part").forEach(part => part.classList.toggle("on", parts.has(part.dataset.part)));
+      document.querySelector(".brief-visual")?.classList.toggle("has-parts", parts.size > 0);
+      const set = (id, value) => { const el = byId(id); if (el) el.textContent = value || "Not chosen yet"; };
+      set("brief-needs", data.needs.join(", "));
+      set("brief-property", data.property);
+      set("brief-timing", data.timing);
+    };
+
     const showStep = nextStep => {
       flow.querySelectorAll(".lead-step").forEach(panel => panel.classList.add("hidden"));
       const panel = flow.querySelector('.lead-step[data-step="' + nextStep + '"]');
       if (panel) panel.classList.remove("hidden");
+      const steps = route();
+      const position = nextStep === "done" ? steps.length : steps.indexOf(nextStep) + 1;
+      const percent = nextStep === "done" ? 100 : Math.round(position / steps.length * 100);
+      const counter = panel?.querySelector(".step-count");
+      if (counter) counter.textContent = position + " of " + steps.length;
       if (progressBar) {
-        progressBar.style.width = widths[nextStep] || "100%";
-        const progressValues = { 1: 25, 2: 50, 3: 75, 4: 100, done: 100 };
-        progressBar.setAttribute("aria-valuenow", String(progressValues[nextStep] ?? 100));
-        progressBar.setAttribute("aria-valuetext", nextStep === "done" ? "Enquiry prepared" : "Step " + nextStep + " of 4");
+        progressBar.style.width = percent + "%";
+        progressBar.setAttribute("aria-valuenow", String(percent));
+        progressBar.setAttribute("aria-valuetext", nextStep === "done" ? "Enquiry prepared" : "Step " + position + " of " + steps.length);
       }
       step = nextStep;
       const heading = panel?.querySelector("h3");
       if (heading) heading.setAttribute("tabindex", "-1"), heading.focus();
     };
+    const move = direction => {
+      const steps = route();
+      const target = steps[steps.indexOf(step) + direction];
+      if (target) showStep(target);
+    };
 
-    flow.querySelectorAll(".lead-option").forEach(button => {
-      button.addEventListener("click", () => {
-        data.purpose = button.dataset.value || "";
-        flow.querySelectorAll(".lead-option").forEach(option => option.setAttribute("aria-pressed", String(option === button)));
-        window.setTimeout(() => showStep(2), 140);
-      });
-    });
-
-    flow.querySelectorAll(".lead-next").forEach(button => {
-      button.addEventListener("click", () => {
-        if (step === 2) {
-          data.context = document.getElementById("lead-context").value.trim();
-          showStep(3);
-        } else if (step === 3) {
-          const name = document.getElementById("lead-name");
-          if (!name.value.trim()) { name.focus(); name.reportValidity(); return; }
-          data.name = name.value.trim();
-          showStep(4);
+    flow.querySelectorAll(".lead-options").forEach(group => {
+      const field = group.dataset.field;
+      const multi = group.dataset.multi === "true";
+      group.querySelectorAll(".lead-option").forEach(button => button.addEventListener("click", () => {
+        if (multi) {
+          button.setAttribute("aria-pressed", String(button.getAttribute("aria-pressed") !== "true"));
+          data[field] = [...group.querySelectorAll('[aria-pressed="true"]')].map(option => option.dataset.value);
+          paintBrief();
+          const hint = flow.querySelector('[data-step="1"] .field-hint');
+          if (hint && hint.classList.contains("is-error")) { hint.classList.remove("is-error"); hint.textContent = "Choose everything that applies."; }
+          return;
         }
-      });
+        group.querySelectorAll(".lead-option").forEach(option => option.setAttribute("aria-pressed", String(option === button)));
+        data[field] = button.dataset.value || "";
+        paintBrief();
+        window.setTimeout(() => move(1), 160);
+      }));
     });
 
-    flow.querySelectorAll(".lead-back").forEach(button => button.addEventListener("click", () => {
-      if (step > 1 && step <= 4) showStep(step - 1);
+    const needsError = () => {
+      const hint = flow.querySelector('[data-step="1"] .field-hint');
+      if (hint) { hint.textContent = "Choose at least one option to continue."; hint.classList.add("is-error"); }
+    };
+    flow.querySelectorAll(".lead-next").forEach(button => button.addEventListener("click", () => {
+      if (step === 1 && !data.needs.length) { needsError(); return; }
+      if (step === 4) {
+        data.location = byId("lead-location").value.trim();
+        data.context = byId("lead-context").value.trim();
+      }
+      if (step === 5) {
+        const name = byId("lead-name");
+        if (!name.value.trim()) { name.focus(); name.reportValidity(); return; }
+        data.name = name.value.trim();
+      }
+      move(1);
+    }));
+    flow.querySelectorAll(".lead-back").forEach(button => button.addEventListener("click", () => move(-1)));
+    flow.querySelectorAll("input.form-field").forEach(input => input.addEventListener("keydown", event => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      input.closest(".lead-step")?.querySelector(".lead-next, #lead-submit")?.click();
     }));
 
-    const submit = document.getElementById("lead-submit");
+    const submit = byId("lead-submit");
     if (submit) submit.addEventListener("click", () => {
-      const email = document.getElementById("lead-email");
-      const phone = document.getElementById("lead-phone");
+      const email = byId("lead-email");
+      const phone = byId("lead-phone");
+      const error = byId("lead-contact-error");
       if (!email.checkValidity()) { email.reportValidity(); email.focus(); return; }
+      if (!email.value.trim() && !phone.value.trim()) { error?.classList.remove("hidden"); phone.focus(); return; }
+      error?.classList.add("hidden");
       data.email = email.value.trim();
       data.phone = phone.value.trim();
-      const subject = "Professional enquiry: " + data.purpose;
-      const body = [
-        "Enquiry type: " + data.purpose,
-        "Name: " + data.name,
-        "Email: " + data.email,
-        "Phone / WhatsApp: " + (data.phone || "Not provided"),
-        "",
-        "Context:",
-        data.context || "No additional context supplied."
-      ].join("\n");
+
+      const rows = [
+        ["Needs", data.needs.join(", ")],
+        ["Property", data.property],
+        ["Timing", data.timing],
+        ["Location", data.location],
+        ["Details", data.context],
+        ["Name", data.name],
+        ["Phone / WhatsApp", data.phone],
+        ["Email", data.email]
+      ].filter(row => row[1]);
+      const summary = byId("lead-summary");
+      if (summary) {
+        summary.textContent = "";
+        rows.forEach(([label, value]) => {
+          const row = document.createElement("div");
+          const term = document.createElement("dt");
+          const detail = document.createElement("dd");
+          term.textContent = label;
+          detail.textContent = value;
+          row.append(term, detail);
+          summary.appendChild(row);
+        });
+      }
+      const firstName = data.name.split(/\s+/)[0];
+      const title = flow.querySelector(".done-title");
+      if (title) title.textContent = "Thanks, " + firstName + ". Your brief is ready.";
+
+      const subject = "Project brief: " + data.needs.join(", ");
+      const body = ["Hello, this is " + data.name + ". Here is a short brief from gabriel-ioryem.vercel.app.", ""]
+        .concat(rows.map(([label, value]) => label + ": " + value)).join("\n");
       const mailto = "mailto:info@kellelectricals.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      const mailLink = document.getElementById("lead-mailto");
+      const mailLink = byId("lead-mailto");
       if (mailLink) mailLink.href = mailto;
-      const quoteLink = document.getElementById("lead-quote-link");
-      if (quoteLink && data.purpose.includes("Project enquiry")) quoteLink.classList.remove("hidden");
+      const whatsappLink = byId("lead-whatsapp");
+      if (whatsappLink) whatsappLink.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(body);
+      byId("lead-quote-link")?.classList.toggle("hidden", offsiteOnly());
       showStep("done");
     });
+    flow.querySelector(".lead-restart")?.addEventListener("click", () => showStep(6));
+  }
+
+  // Phone action bar: appears after the hero and steps aside once the contact section is on screen.
+  const mobileCta = document.getElementById("mobile-cta");
+  const hero = document.getElementById("home");
+  const contact = document.getElementById("contact");
+  if (mobileCta && hero && contact && "IntersectionObserver" in window) {
+    let pastHero = false;
+    let atContact = false;
+    const sync = () => mobileCta.classList.toggle("is-visible", pastHero && !atContact);
+    new IntersectionObserver(([entry]) => { pastHero = !entry.isIntersecting; sync(); }).observe(hero);
+    new IntersectionObserver(([entry]) => { atContact = entry.isIntersecting; sync(); }, { rootMargin: "0px 0px -30% 0px" }).observe(contact);
   }
 })();

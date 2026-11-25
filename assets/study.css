@@ -1,0 +1,97 @@
+/* Engineering study pages (projects/<slug>/). Loads after site.css.
+   Both page variants are covered: .detail-hero/.detail-grid/.detail-main and .hero/.layout/.main. */
+
+/* Hero */
+.detail-hero,main>.hero{position:relative;padding:clamp(56px,7vw,96px) 0 clamp(40px,5vw,64px)}
+.detail-hero h1,main>.hero h1{margin:22px 0 24px;max-width:17ch;color:var(--forest);font:500 clamp(2.9rem,6vw,5.4rem)/1 var(--serif);letter-spacing:-.04em;text-wrap:balance}
+.lead{max-width:60ch;margin:0;color:var(--copy);font-size:clamp(17px,1.4vw,20px);line-height:1.7;text-wrap:pretty}
+
+/* Banner that stands in for site photography */
+.study-plate{position:relative;overflow:hidden;display:grid;align-items:end;min-height:clamp(220px,26vw,320px);padding:clamp(28px,4vw,48px);background:radial-gradient(ellipse at 85% 10%,rgba(196,165,116,.22),transparent 45%),var(--forest-deep);color:#f4efe6}
+.study-plate:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 60%);mask-image:linear-gradient(90deg,transparent,#000 60%);pointer-events:none}
+.study-plate svg{position:absolute;left:0;right:0;top:34%;width:100%;height:120px;pointer-events:none}
+.study-plate svg path{fill:none;stroke:rgba(196,165,116,.35);stroke-width:1.2;stroke-dasharray:6 10;animation:plate-current 16s linear infinite}
+@keyframes plate-current{to{stroke-dashoffset:-320}}
+.study-plate>div{position:relative}
+.plate-kicker{margin:0 0 10px;color:var(--gold-soft);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.plate-title{margin:0;max-width:20ch;font:italic 500 clamp(30px,3.6vw,46px)/1.05 var(--serif);color:#fbf8f2}
+.plate-note{margin:12px 0 0;max-width:56ch;color:#b8c6be;font-size:14px}
+
+/* Editorial status note (earthing and EV pages) */
+.disclosure{margin:24px 0 0;padding:18px 22px;background:var(--warm);border-left:2px solid var(--gold);color:var(--copy);font-size:14.5px;line-height:1.7}
+.disclosure strong{color:var(--forest)}
+
+/* Body grid */
+.detail-grid,.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(40px,6vw,88px);padding:clamp(48px,6vw,80px) 0 clamp(72px,8vw,112px)}
+.detail-main h2,article.main h2{margin:56px 0 16px;color:var(--forest);font:500 clamp(30px,3vw,40px)/1.1 var(--serif);letter-spacing:-.02em}
+.detail-main>h2:first-child,article.main>h2:first-child{margin-top:0}
+.detail-main>p,article.main>p{max-width:68ch;color:var(--copy);font-size:16.5px;line-height:1.85}
+.detail-main>ol,article.main>ol{margin:24px 0;padding:0;list-style:none;counter-reset:step;border-top:1px solid var(--line)}
+.detail-main>ol>li,article.main>ol>li{counter-increment:step;display:grid;grid-template-columns:52px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);color:var(--copy);font-size:15.5px;line-height:1.7}
+.detail-main>ol>li:before,article.main>ol>li:before{content:counter(step,decimal-leading-zero);color:var(--gold-ink);font:500 22px/1.2 var(--serif)}
+.detail-main>ul,article.main>ul{color:var(--copy)}
+
+/* Sidebar */
+.side{position:sticky;top:110px;align-self:start;padding:26px;background:var(--white);border:1px solid var(--line);border-top:2px solid var(--gold)}
+.side h3{margin:22px 0 6px;color:var(--gold-ink);font:600 11.5px/1.4 var(--sans);letter-spacing:.17em;text-transform:uppercase}
+.side h3:first-child{margin-top:0}
+.side p,.side li{margin:0;color:var(--copy);font-size:14px;line-height:1.65}
+.side ul{margin:0;padding-left:18px}
+.side li+li{margin-top:6px}
+
+/* Interactive labs keep their own inline styling; give them the dark-surface line colour */
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab){--line:rgba(218,209,187,.16);margin:56px 0!important;border-radius:4px;box-shadow:0 30px 60px -40px rgba(10,31,27,.6)}
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is([aria-pressed=true],[aria-selected=true]){background:var(--gold-ink)!important;border-color:var(--gold)!important;color:#fff!important}
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) button{min-height:44px!important;padding:10px 16px!important;border-radius:999px;font-size:13px!important;cursor:pointer;transition:background .2s,border-color .2s}
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(.lab-kicker,small,[class$=-note],[class$=-footnote],[class$=-disclaimer]){font-size:12.5px!important;line-height:1.6}
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) button:hover{border-color:var(--gold)!important}
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(p,li){color:#cfdcd3}
+:is(.interactive-lab,.upgrade-lab,.automation-lab,.ats-lab,.explorer,.lab) :is(h2,h3){color:#fff}
+
+/* Static system diagrams */
+.system-diagram{margin:32px 0;padding:24px;background:var(--white);border:1px solid var(--line)}
+.system-diagram svg{display:block;width:100%;height:auto;overflow:visible}
+.system-diagram figcaption{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.7}
+.system-diagram .diagram-node{fill:var(--ivory);stroke:var(--forest);stroke-width:2}
+.system-diagram .diagram-node.accent{fill:#f6efe2;stroke:var(--gold-ink)}
+.system-diagram .diagram-label{fill:var(--forest);font:600 16px var(--sans);text-anchor:middle}
+.system-diagram .diagram-small{fill:var(--muted);font:12px var(--sans);text-anchor:middle}
+.system-diagram .diagram-line{stroke:var(--forest);stroke-width:2.5;fill:none}
+.system-diagram .diagram-data{stroke:var(--gold-ink);stroke-width:2.5;stroke-dasharray:7 6;fill:none}
+
+/* Design basis and verification checklist */
+.engineering-checks{margin:56px 0 0;padding:clamp(24px,3.5vw,40px);background:var(--white);border:1px solid var(--line);border-top:2px solid var(--gold)}
+.engineering-checks .checks-kicker{margin:0 0 10px;color:var(--gold-ink);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.engineering-checks h2{margin:0 0 12px;color:var(--forest);font:500 clamp(28px,2.8vw,36px)/1.1 var(--serif)}
+.engineering-checks .checks-intro{margin:0 0 26px;max-width:64ch;color:var(--copy);font-size:15px;line-height:1.75}
+.engineering-checks .checks-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.engineering-checks h3{margin:0 0 12px;color:var(--forest);font:600 14px/1.4 var(--sans)}
+.engineering-checks ul{margin:0;padding:0;list-style:none}
+.engineering-checks li{position:relative;padding:8px 0 8px 26px;border-top:1px solid var(--line);color:var(--copy);font-size:14.5px;line-height:1.6}
+.engineering-checks li:before{content:"";position:absolute;left:2px;top:15px;width:10px;height:10px;border:1.5px solid var(--gold-ink);border-radius:50%}
+.engineering-checks .checks-note{margin:24px 0 0;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.7}
+
+/* Closing call to action */
+.cta{position:relative;overflow:hidden;margin-top:56px;padding:clamp(32px,4.5vw,56px);background:radial-gradient(ellipse at 100% 0%,rgba(196,165,116,.2),transparent 50%),var(--forest-deep);color:#e6eee8;border-radius:4px}
+.cta h2{margin:14px 0 12px;color:#fff!important;font:500 clamp(30px,3.4vw,44px)/1.05 var(--serif)}
+.cta p{max-width:56ch;color:#c4d2c9}
+.cta .eyebrow{color:var(--gold-soft)!important}
+.cta a{display:inline-flex;align-items:center;gap:10px;margin-top:10px;min-height:50px;padding:13px 24px;border-radius:999px;background:var(--ivory);color:var(--forest);font-size:14px;font-weight:600;transition:background .25s,transform .25s}
+.cta a:hover{background:#fff;transform:translateY(-2px)}
+
+@media(max-width:960px){
+  .detail-grid,.layout{grid-template-columns:minmax(0,1fr)}
+  .side{position:static}
+}
+@media(max-width:640px){
+  .detail-hero h1,main>.hero h1{font-size:clamp(2.4rem,10vw,3.2rem)}
+  .engineering-checks .checks-grid{grid-template-columns:1fr;gap:20px}
+  .detail-main>ol>li,article.main>ol>li{grid-template-columns:40px 1fr}
+  .system-diagram{padding:12px}
+  .study-plate{min-height:220px}
+}
+@media(max-width:640px){
+  /* Keep wide system diagrams legible: scroll inside the frame instead of shrinking the text. */
+  .system-diagram{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .system-diagram svg{width:680px;max-width:none}
+}

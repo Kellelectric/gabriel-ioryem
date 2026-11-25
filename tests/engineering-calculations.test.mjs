@@ -86,3 +86,27 @@ test("static voltage-drop fallback matches the displayed default inputs", async 
 
   assert.equal(result, expected);
 });
+
+test("every calculator default value satisfies its own min, max and step", async () => {
+  const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
+  const inputs = [...page.matchAll(/<input id="([^"]+)" type="number"([^>]*)>/g)];
+  assert.ok(inputs.length >= 10, "calculator inputs are present");
+  for (const [, id, attrs] of inputs) {
+    const read = name => attrs.match(new RegExp(name + '="([^"]+)"'))?.[1];
+    const value = Number(read("value"));
+    const min = Number(read("min"));
+    const max = Number(read("max"));
+    const step = read("step");
+    assert.ok(value >= min && value <= max, id + " default is inside its range");
+    if (step && step !== "any") {
+      // Browsers count steps from the min attribute, not from zero.
+      const steps = (value - min) / Number(step);
+      assert.ok(Math.abs(steps - Math.round(steps)) < 1e-9, id + " default lands on a permitted increment");
+    }
+  }
+});
+
+test("conductor area accepts standard cable sizes", async () => {
+  const page = await readFile(new URL("../engineering-tools/index.html", import.meta.url), "utf8");
+  assert.match(page, /<input id="drop-area"[^>]*step="any"/);
+});

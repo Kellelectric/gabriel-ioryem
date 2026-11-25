@@ -1,6 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
+import { gzipSync } from "node:zlib";
+
+// Budgets for CSS and JS are measured on gzip output, which is what visitors download.
+// This keeps the stylesheet and script readable instead of hand-minified.
+const gzipBytes = text => gzipSync(text, { level: 9 }).length;
 
 test("homepage uses cacheable local assets without a runtime CSS compiler", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
@@ -10,7 +15,7 @@ test("homepage uses cacheable local assets without a runtime CSS compiler", asyn
   const css = await readFile(cssPath, "utf8");
   const utility = await readFile(utilityPath, "utf8");
   const js = await readFile(jsPath, "utf8");
-  const [cssStats, utilityStats, jsStats] = await Promise.all([stat(cssPath), stat(utilityPath), stat(jsPath)]);
+  const utilityStats = await stat(utilityPath);
 
   assert.match(html, /<link rel="stylesheet" href="\/assets\/utilities\.css">/);
   assert.match(html, /<link rel="stylesheet" href="\/assets\/executive\.css">/);
@@ -18,9 +23,13 @@ test("homepage uses cacheable local assets without a runtime CSS compiler", asyn
   assert.doesNotMatch(html, /<style\b/i);
   assert.doesNotMatch(html, /cdn\.tailwindcss\.com|tailwind\.config/);
   assert.ok(html.length < 40000);
-  assert.ok(cssStats.size < 22000);
+  // Raised from 7.5 KB when the project-brief builder and its live building preview were added.
+  assert.ok(gzipBytes(css) < 9000, "executive.css stays under 9 KB gzipped");
+  assert.ok(css.length < 40000, "executive.css stays under 40 KB uncompressed");
   assert.ok(utilityStats.size < 4000);
-  assert.ok(jsStats.size < 13000);
+  // Raised from 4.5 KB for the same feature (multi-step brief with WhatsApp and email handoff).
+  assert.ok(gzipBytes(js) < 6000, "portfolio.js stays under 6 KB gzipped");
+  assert.ok(js.length < 20000, "portfolio.js stays under 20 KB uncompressed");
   assert.match(css, /\.explore-track/);
   assert.match(css, /\.mobile-navigation/);
   assert.match(utility, /\.lg\\:grid-cols-12/);

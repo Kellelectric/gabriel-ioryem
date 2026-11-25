@@ -1,4 +1,4 @@
-# Gabriel Ioryem — Personal Executive Website
+# Gabriel Ioryem: Personal Executive Website
 
 Personal digital identity for **Gabriel Ioryem**, Electrical Engineer, Entrepreneur, and Founder & CEO of Kell Electricals Ltd (Abuja, Nigeria).
 
@@ -16,24 +16,42 @@ See `DESIGN.md` for the full visual system (colours, typography, spacing, ration
 
 ## Features
 
-- Editorial single-page layout (Hero → About → Leadership → Expertise → Ventures → Philosophy → Insights → Contact)
+- Editorial single-page layout (Hero → Profile → Expertise → Approach → Guiding principle → Project references → Technical studies → Tools → Contact)
+- Signature details: animated AC-waveform statement band, process timeline, pointer-tracked card glow, oversized footer wordmark
 - Professional studio portrait
 - Multi-step low-friction contact flow (one question at a time)
 - Advanced but restrained motion
 - Accessibility: skip link, ARIA, focus styles, reduced-motion
-- SEO: meta tags, Open Graph, Person structured data
+- SEO: meta tags, Open Graph share card (`assets/share/`), Person structured data, Apple touch icon
+- Performance budgets for CSS and JS are measured gzipped (see `tests/homepage-performance.test.mjs`), so stylesheets stay readable rather than hand-minified
 - Responsive
 
 ## Local preview
 
-Open `index.html` in a modern browser. Place portrait at `images/gabriel-ioryem.jpg`.
+Serve the folder with any static server (for example `python3 -m http.server`) and open http://localhost:8000. The homepage portrait is embedded in `index.html`; share images live in `assets/share/`.
 
-## Contact form backend (Formspree)
+## Contact: project brief
 
-1. Create a form at https://formspree.io
-2. Point it to your preferred email (e.g. info@kellelectricals.com)
-3. Copy the endpoint `https://formspree.io/f/xxxxxxxx`
-4. In `index.html` set `const FORMSPREE = 'https://formspree.io/f/xxxxxxxx';`
+The homepage contact section is a six-step project brief. When it is complete, the visitor sends it
+themselves on WhatsApp (Kell Electricals, +234 814 020 5895, set as `WHATSAPP` in `assets/portfolio.js`)
+or by email (info@kellelectricals.com). The site has no backend and transmits nothing.
+
+## Fonts
+
+Fonts are self-hosted in `assets/fonts/` (Latin subsets of Cormorant Garamond and Inter, SIL Open
+Font License) and declared in `assets/fonts.css`. No requests go to Google Fonts.
+
+## Stylesheets
+
+- `assets/executive.css`: homepage
+- `assets/site.css`: shared header, footer, tokens and buttons for every other page
+- `assets/study.css`, `assets/directory.css`, `assets/tools.css`, `assets/notfound.css`, `assets/cv.css`: page types
+
+## Tests
+
+```bash
+node --test tests/*.test.mjs
+```
 
 ## Deploy
 

@@ -23,15 +23,9 @@ for (const pagePath of pages) {
   test("responsive layout guardrails: " + pagePath, async () => {
     const html = await readFile(new URL("../" + pagePath, import.meta.url), "utf8");
     const inlineCss = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map(match => match[1]).join("\n");
-    let linkedCss = "";
-    if (pagePath === "index.html") {
-      linkedCss = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
-    } else if (pagePath === "cv/index.html") {
-      linkedCss = await readFile(new URL("../assets/cv.css", import.meta.url), "utf8");
-    } else if (pagePath.startsWith("projects/") && pagePath !== "projects/index.html" &&
-      !pagePath.includes("earthing-surge-protection") && !pagePath.includes("ev-charging-infrastructure")) {
-      linkedCss = await readFile(new URL("../assets/study-checks.css", import.meta.url), "utf8");
-    }
+    // Read every local stylesheet the page links, so the guardrails follow the real cascade.
+    const sheets = [...html.matchAll(/<link\s+rel="stylesheet"\s+href="(\/assets\/[^"]+\.css)"/gi)].map(match => match[1]);
+    const linkedCss = (await Promise.all(sheets.map(href => readFile(new URL(".." + href, import.meta.url), "utf8")))).join("\n");
     const css = inlineCss + "\n" + linkedCss;
 
     assert.match(html, /<meta\s+name=["']viewport["']/i, "viewport is configured");
