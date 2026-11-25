@@ -1,5 +1,5 @@
 /* Gabriel Ioryem executive homepage. Tokens follow DESIGN.md. */
-:root{--forest:#13322c;--forest-deep:#0a1f1b;--gold:#c4a574;--gold-ink:#9a6a35;--ivory:#f7f4ef;--warm:#f0ebe3;--graphite:#1a1c1e;--slate:#5a5f66;--mist:#e8e4dc;--line:var(--line);--ease:cubic-bezier(.16,1,.3,1);--serif:'Cormorant Garamond',Georgia,serif}
+:root{--forest:#13322c;--forest-deep:#0a1f1b;--gold:#c4a574;--gold-ink:#8a5d2c;--ivory:#f7f4ef;--warm:#f0ebe3;--graphite:#1a1c1e;--slate:#5a5f66;--mist:#e8e4dc;--line:var(--line);--ease:cubic-bezier(.16,1,.3,1);--serif:'Cormorant Garamond',Georgia,serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{min-height:100%;}
