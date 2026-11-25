@@ -57,6 +57,15 @@
   window.addEventListener("scroll", updateScroll, { passive: true });
   updateScroll();
 
+  // Soft glow that follows the pointer across engineering cards.
+  if (window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".expertise-card, .study-card").forEach(card => card.addEventListener("pointermove", event => {
+      const box = card.getBoundingClientRect();
+      card.style.setProperty("--mx", event.clientX - box.left + "px");
+      card.style.setProperty("--my", event.clientY - box.top + "px");
+    }));
+  }
+
   const revealItems = document.querySelectorAll(".fade-up, .reveal-line");
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {

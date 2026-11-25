@@ -16,7 +16,8 @@ See `DESIGN.md` for the full visual system (colours, typography, spacing, ration
 
 ## Features
 
-- Editorial single-page layout (Hero → About → Leadership → Expertise → Ventures → Philosophy → Insights → Contact)
+- Editorial single-page layout (Hero → Profile → Expertise → Approach → Guiding principle → Project references → Technical studies → Tools → Contact)
+- Signature details: animated AC-waveform statement band, process timeline, pointer-tracked card glow, oversized footer wordmark
 - Professional studio portrait
 - Multi-step low-friction contact flow (one question at a time)
 - Advanced but restrained motion
