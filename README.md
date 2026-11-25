@@ -22,7 +22,8 @@ See `DESIGN.md` for the full visual system (colours, typography, spacing, ration
 - Multi-step low-friction contact flow (one question at a time)
 - Advanced but restrained motion
 - Accessibility: skip link, ARIA, focus styles, reduced-motion
-- SEO: meta tags, Open Graph, Person structured data
+- SEO: meta tags, Open Graph share card (`assets/share/`), Person structured data, Apple touch icon
+- Performance budgets for CSS and JS are measured gzipped (see `tests/homepage-performance.test.mjs`), so stylesheets stay readable rather than hand-minified
 - Responsive
 
 ## Local preview

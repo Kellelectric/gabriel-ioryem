@@ -197,6 +197,10 @@
             if (active) link.setAttribute("aria-current", "location");
             else link.removeAttribute("aria-current");
           });
+          // Mirror the current section in the desktop header navigation.
+          document.querySelectorAll(".desktop-nav a[href^='#']").forEach(navLink => {
+            navLink.classList.toggle("is-current", navLink.getAttribute("href") === id);
+          });
           // Keep section observation passive; it must not change document scroll position.
         });
       }, { rootMargin: "-25% 0px -60% 0px" });
