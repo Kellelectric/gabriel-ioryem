@@ -35,7 +35,7 @@ test("homepage uses cacheable local assets without a runtime CSS compiler", asyn
   assert.match(utility, /\.lg\\:grid-cols-12/);
   assert.match(css, /prefers-reduced-motion/);
   assert.match(js, /aria-expanded/);
-  assert.match(js, /mailto:info@kellelectricals\.com/);
+  assert.match(js, /mailto:gabrielioryem@kellelectricals\.com/);
 });
 
 test("homepage portrait is accessible and reserves its display dimensions", async () => {
