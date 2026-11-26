@@ -41,3 +41,34 @@ test("panel never traps focus or hides content from keyboard users", () => {
   assert.doesNotMatch(html, /<button[^>]*class="sw"[^>]*tabindex="-1"/);
   assert.match(html, /<a href="#contact" class="btn-primary panel-go"/);
 });
+
+test("electric theme: palette tokens, dark header and a yellow call to action", async () => {
+  const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
+  const site = await readFile(new URL("../assets/site.css", import.meta.url), "utf8");
+  for (const [token, value] of [["--jet", "#0f1115"], ["--yellow", "#f5d90a"], ["--silver", "#d9dce1"]]) {
+    assert.match(css, new RegExp(token + ":" + value), token + " matches the brand palette in executive.css");
+  }
+  assert.match(site, /--yellow:#f5d90a/);
+  assert.match(css, /\.site-header\{background:rgba\(15,17,21/);
+  assert.match(html, /<\/nav>\s*<a href="#contact" class="nav-contact"/, "the yellow call to action sits outside the pill navigation");
+});
+
+test("focus rings are two-tone so they show on dark and light surfaces", async () => {
+  for (const name of ["executive.css", "site.css", "cv.css"]) {
+    const css = await readFile(new URL("../assets/" + name, import.meta.url), "utf8");
+    assert.match(css, /outline:3px solid #0f1115;outline-offset:2px;box-shadow:0 0 0 6px #f5d90a/, name + " uses the two-tone focus ring");
+  }
+});
+
+test("hero chips are fact-based and decorative badges are hidden from assistive technology", () => {
+  const chips = [...html.matchAll(/<ul class="hero-chips[^"]*" aria-label="Services">([\s\S]*?)<\/ul>/g)][0][1];
+  assert.deepEqual([...chips.matchAll(/<li>([^<]+)<\/li>/g)].map(m => m[1]), ["Installations", "Solar &amp; storage", "Generators", "Smart buildings"]);
+  for (const chip of html.matchAll(/<span class="float-chip[^>]*>/g)) assert.match(chip[0], /aria-hidden="true"/);
+});
+
+test("load chart is labelled as an illustration and described for assistive technology", () => {
+  assert.match(html, /<small>Illustration, not measured data<\/small>/);
+  assert.match(html, /<svg class="chart" id="chart"[^>]*role="img" aria-label="Illustrative daily load profile"/);
+  assert.match(js, /setAttribute\("aria-label", "Illustrative daily load profile\. " \+ text\)/);
+  assert.doesNotMatch(html, /Daily load profile[\s\S]{0,200}\d+\s?%/, "no invented percentages");
+});

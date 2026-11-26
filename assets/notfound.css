@@ -1,15 +1,18 @@
 /* 404 page. Loads after site.css. */
-.lost{position:relative;overflow:hidden;min-height:calc(100svh - 76px);display:flex;align-items:center;padding:clamp(64px,9vw,128px) 0;background:radial-gradient(ellipse at 85% 10%,rgba(201,149,111,.2),transparent 45%),var(--forest-deep);color:#e6eee8}
+.lost{position:relative;overflow:hidden;min-height:calc(100svh - 76px);display:flex;align-items:center;padding:clamp(64px,9vw,128px) 0;background:radial-gradient(ellipse at 85% 10%,rgba(247,224,75,.2),transparent 45%),var(--jet-deep);color:#e8e9ec}
 .lost:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(90deg,transparent 25%,#000);mask-image:linear-gradient(90deg,transparent 25%,#000);pointer-events:none}
 .lost>.wrap{position:relative}
-.lost .eyebrow{color:var(--copper-soft)}
-.code{margin:18px 0 0;color:transparent;-webkit-text-stroke:1px rgba(201,149,111,.6);font:italic 500 clamp(7rem,20vw,15rem)/.8 var(--serif);letter-spacing:-.05em}
-.lost h1{margin:12px 0 20px;max-width:16ch;color:#fbf8f2;font:500 clamp(2.6rem,5.4vw,4.6rem)/1 var(--serif);letter-spacing:-.04em}
-.lost h1 em{font-style:italic;color:var(--copper)}
-.copy{max-width:56ch;margin:0;color:#c4d2c9;font-size:17px;line-height:1.75}
+.lost .eyebrow{color:var(--yellow-soft)}
+.code{margin:18px 0 0;color:transparent;-webkit-text-stroke:1px rgba(247,224,75,.6);font:italic 500 clamp(7rem,20vw,15rem)/.8 var(--serif);letter-spacing:-.05em}
+.lost h1{margin:12px 0 20px;max-width:16ch;color:#f5f6f8;font:500 clamp(2.6rem,5.4vw,4.6rem)/1 var(--serif);letter-spacing:-.04em}
+.lost h1 em{font-style:italic;color:var(--yellow)}
+.copy{max-width:56ch;margin:0;color:#c6c9d0;font-size:17px;line-height:1.75}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.actions .btn{background:var(--ivory);border-color:var(--ivory);color:var(--forest)}
+.actions .btn{background:var(--ivory);border-color:var(--ivory);color:var(--jet)}
 .actions .btn:hover{background:#fff}
 .actions .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
 .actions .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}
 @media(max-width:640px){.actions{flex-direction:column;align-items:stretch}}
+.lost h1 em{color:var(--yellow)}
+.actions .btn{background:var(--yellow);border-color:var(--yellow);color:var(--jet)}
+.actions .btn:hover{background:var(--yellow-soft)}
