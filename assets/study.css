@@ -95,3 +95,5 @@
   .system-diagram{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .system-diagram svg{width:680px;max-width:none}
 }
+.plate-badge{position:absolute;top:clamp(24px,3.5vw,40px);right:clamp(24px,3.5vw,40px);z-index:1;display:grid;place-items:center;width:clamp(56px,6vw,76px);height:clamp(56px,6vw,76px);border-radius:18px;background:rgba(196,165,116,.14);border:1px solid rgba(196,165,116,.4);color:var(--gold)}
+.plate-badge svg{width:55%;height:55%}

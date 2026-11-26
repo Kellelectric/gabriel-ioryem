@@ -11,7 +11,10 @@ colors:
   charcoal: "#2C2F33"
   slate: "#5A5F66"
   mist: "#E8E4DC"
+  sage: "#E8EEE9"
+  gold-ink: "#8A5D2C"
 typography:
   display: "Cormorant Garamond"
   body: "Inter"
 rationale: Quiet authority. Editorial rather than corporate. Premium without pretension. Technically sophisticated without visual noise.
+notes: Sage is a cool light surface used to break up the dark forest sections. Gold-ink is the accessible gold for small text on light surfaces (at least 4.8:1). Discipline icons live in assets/icons.svg (24px grid, 1.5 stroke, currentColor).
