@@ -11,13 +11,14 @@ See `DESIGN.md` for the full visual system (colours, typography, spacing, ration
 **Core tokens**
 - Forest `#13322C`
 - Ivory `#F7F4EF`
-- Gold `#C4A574`
-- Typography: Cormorant Garamond (display) + Inter (UI/body)
+- Copper `#D9925A` (accent), with `#8C4519` for small text on light surfaces
+- Signal yellow `#F2C230` (only for live indicators)
+- Typography: Cormorant Garamond (display), Inter (UI and body), IBM Plex Mono (technical labels)
 
 ## Features
 
 - Editorial single-page layout (Hero → Profile → Expertise → Approach → Guiding principle → Project references → Technical studies → Tools → Contact)
-- Signature details: animated AC-waveform statement band, process timeline, pointer-tracked card glow, oversized footer wordmark
+- Signature details: a drawing-style cover sheet with title block, an interactive distribution-board panel (main breaker and system switches that light up a building drawing and pre-fill the project brief), a reference schedule table, a live busbar down the page edge, an animated AC-waveform band and an oversized footer wordmark
 - Professional studio portrait
 - Multi-step low-friction contact flow (one question at a time)
 - Advanced but restrained motion

@@ -22,15 +22,17 @@ test("homepage uses cacheable local assets without a runtime CSS compiler", asyn
   assert.match(html, /<script src="\/assets\/portfolio\.js" defer><\/script>/);
   assert.doesNotMatch(html, /<style\b/i);
   assert.doesNotMatch(html, /cdn\.tailwindcss\.com|tailwind\.config/);
-  assert.ok(html.length < 40000);
+  // Measured on gzip output, like the CSS and JS budgets: the interactive hero panel and project brief add markup.
+  assert.ok(gzipBytes(html) < 14000, "index.html stays under 14 KB gzipped");
+  assert.ok(html.length < 60000, "index.html stays under 60 KB uncompressed");
   // Raised from 7.5 KB for the project-brief builder, then to 10 KB for the drawing-set design
   // (cover-sheet frame, title blocks, reference schedule, busbar). Dead selectors were removed first.
   assert.ok(gzipBytes(css) < 10000, "executive.css stays under 10 KB gzipped");
-  assert.ok(css.length < 40000, "executive.css stays under 40 KB uncompressed");
+  assert.ok(css.length < 48000, "executive.css stays under 48 KB uncompressed");
   assert.ok(utilityStats.size < 4000);
   // Raised from 4.5 KB for the same feature (multi-step brief with WhatsApp and email handoff).
-  assert.ok(gzipBytes(js) < 6000, "portfolio.js stays under 6 KB gzipped");
-  assert.ok(js.length < 20000, "portfolio.js stays under 20 KB uncompressed");
+  assert.ok(gzipBytes(js) < 7000, "portfolio.js stays under 7 KB gzipped");
+  assert.ok(js.length < 32000, "portfolio.js stays under 32 KB uncompressed");
   assert.match(css, /\.explore-track/);
   assert.match(css, /\.mobile-navigation/);
   assert.match(utility, /\.lg\\:grid-cols-12/);
@@ -62,7 +64,7 @@ test("homepage content remains visible without JavaScript and reveals progressiv
 test("homepage preserves the restored editorial portrait and light hero design", async () => {
   const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
   assert.match(css, /--forest:#13322c/);
-  assert.match(css, /--gold:#c4a574/);
+  assert.match(css, /--copper:#d9925a/);
   assert.match(css, /\.site-header\{background:rgba\(247,244,239/);
   assert.match(css, /\.hero-section\{[^}]*background:radial-gradient/s);
   assert.match(css, /\.portrait-wrap\{position:relative;aspect-ratio:4\/5/);

@@ -244,15 +244,52 @@
     };
     const route = () => offsiteOnly() ? [1, 4, 5, 6] : [1, 2, 3, 4, 5, 6];
 
+    // The instrument panel and the brief share one source of truth: the brief's "needs" options.
+    const panel = byId("panel");
+    const panelSwitches = panel ? [...panel.querySelectorAll(".sw")] : [];
+    const briefVisual = document.querySelector(".brief-visual");
+    const panelSource = panel?.querySelector("svg.iso");
+    if (panelSource && briefVisual) {
+      // Reuse the one drawing in the brief instead of shipping the markup twice.
+      const copy = panelSource.cloneNode(true);
+      copy.removeAttribute("role");
+      copy.removeAttribute("aria-labelledby");
+      copy.setAttribute("aria-hidden", "true");
+      copy.querySelector("title")?.remove();
+      briefVisual.insertBefore(copy, briefVisual.firstChild);
+    }
     const paintBrief = () => {
       const parts = new Set([...flow.querySelectorAll('[data-field="needs"] [aria-pressed="true"]')].map(button => button.dataset.part).filter(Boolean));
       document.querySelectorAll(".iso-part").forEach(part => part.classList.toggle("on", parts.has(part.dataset.part)));
-      document.querySelector(".brief-visual")?.classList.toggle("has-parts", parts.size > 0);
+      document.querySelectorAll(".brief-visual, .panel-visual").forEach(el => el.classList.toggle("has-parts", parts.size > 0));
+      panelSwitches.forEach(button => button.setAttribute("aria-pressed", String(parts.has(button.dataset.part))));
+      const count = byId("panel-count");
+      if (count) count.textContent = parts.size ? parts.size + (parts.size === 1 ? " system selected" : " systems selected") : "No systems selected";
       const set = (id, value) => { const el = byId(id); if (el) el.textContent = value || "Not chosen yet"; };
       set("brief-needs", data.needs.join(", "));
       set("brief-property", data.property);
       set("brief-timing", data.timing);
     };
+
+    if (panel) {
+      const breaker = byId("breaker");
+      const visual = panel.querySelector(".panel-visual");
+      const hint = byId("panel-hint");
+      const setBreaker = on => {
+        breaker.setAttribute("aria-checked", String(on));
+        byId("breaker-state").textContent = on ? "ON" : "OFF";
+        visual.classList.toggle("is-off", !on);
+        panelSwitches.forEach(button => { button.disabled = !on; });
+        if (hint) hint.textContent = on ? "Main breaker closed. Switch on the systems you need; the building shows what each one adds." : "Flip the main breaker, then switch on the systems you need. Your choices carry into the project brief.";
+        panel.querySelector(".panel-controls").classList.toggle("nudge", on && !panelSwitches.some(button => button.getAttribute("aria-pressed") === "true"));
+      };
+      setBreaker(false);
+      breaker.addEventListener("click", () => setBreaker(breaker.getAttribute("aria-checked") !== "true"));
+      panelSwitches.forEach(button => button.addEventListener("click", () => {
+        flow.querySelector('[data-field="needs"] .lead-option[data-part="' + button.dataset.part + '"]')?.click();
+        panel.querySelector(".panel-controls").classList.remove("nudge");
+      }));
+    }
 
     const showStep = nextStep => {
       flow.querySelectorAll(".lead-step").forEach(panel => panel.classList.add("hidden"));
