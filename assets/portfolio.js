@@ -211,6 +211,24 @@
     }
   }
 
+  // Quick load-current check: I = P / (V x PF) single-phase, P / (sqrt(3) x V x PF) three-phase, PF 0.9.
+  const qcPower = document.getElementById("qc-power");
+  const qcSupply = document.getElementById("qc-supply");
+  const qcResult = document.getElementById("qc-result");
+  if (qcPower && qcSupply && qcResult) {
+    const quickCheck = () => {
+      const kw = Number(qcPower.value);
+      const three = qcSupply.value === "3";
+      if (!(kw > 0) || kw > 1000) { qcResult.textContent = "Enter a load between 0.1 and 1000 kW"; return; }
+      const amps = kw * 1000 / ((three ? Math.sqrt(3) * 400 : 230) * 0.9);
+      const value = document.createElement("strong");
+      value.textContent = amps.toFixed(2);
+      qcResult.replaceChildren(value, " A" + (three ? " per phase" : ""));
+    };
+    qcPower.addEventListener("input", quickCheck);
+    qcSupply.addEventListener("change", quickCheck);
+  }
+
   const flow = document.getElementById("lead-flow");
   if (flow) {
     const WHATSAPP = "2348140205895";
