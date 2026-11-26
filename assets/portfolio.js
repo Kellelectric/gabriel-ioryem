@@ -59,7 +59,7 @@
 
   // Soft glow that follows the pointer across engineering cards.
   if (window.matchMedia("(hover: hover)").matches) {
-    document.querySelectorAll(".expertise-card, .study-card").forEach(card => card.addEventListener("pointermove", event => {
+    document.querySelectorAll(".study-card").forEach(card => card.addEventListener("pointermove", event => {
       const box = card.getBoundingClientRect();
       card.style.setProperty("--mx", event.clientX - box.left + "px");
       card.style.setProperty("--my", event.clientY - box.top + "px");
@@ -371,6 +371,39 @@
       showStep("done");
     });
     flow.querySelector(".lead-restart")?.addEventListener("click", () => showStep(6));
+  }
+
+  // Live busbar: one node per section, placed by the section's position in the page.
+  const busbar = document.getElementById("busbar");
+  if (busbar) {
+    const sections = ["about", "expertise", "approach", "references", "studies", "tools", "contact"]
+      .map(id => document.getElementById(id)).filter(Boolean);
+    const nodes = sections.map((section, index) => {
+      const node = document.createElement("i");
+      node.className = "busbar-node";
+      const label = document.createElement("span");
+      label.textContent = "S" + String(index + 1).padStart(2, "0");
+      node.appendChild(label);
+      busbar.appendChild(node);
+      return node;
+    });
+    const place = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      sections.forEach((section, index) => {
+        nodes[index].style.top = Math.min(100, Math.max(0, (section.offsetTop - window.innerHeight * 0.4) / total * 100)) + "%";
+      });
+    };
+    const energise = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      busbar.style.setProperty("--busbar", total > 0 ? String(Math.min(1, window.scrollY / total)) : "0");
+      const reach = window.scrollY + window.innerHeight * 0.4;
+      sections.forEach((section, index) => nodes[index].classList.toggle("live", reach >= section.offsetTop));
+    };
+    place();
+    energise();
+    window.addEventListener("scroll", energise, { passive: true });
+    window.addEventListener("resize", () => { place(); energise(); });
+    window.addEventListener("load", () => { place(); energise(); });
   }
 
   // Phone action bar: appears after the hero and steps aside once the contact section is on screen.
