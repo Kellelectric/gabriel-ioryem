@@ -433,6 +433,13 @@
       showStep("done");
     });
     flow.querySelector(".lead-restart")?.addEventListener("click", () => showStep(6));
+
+    // Links from the study pages arrive as /?system=solar#contact and pre-select that system.
+    const preset = new URLSearchParams(window.location.search).get("system");
+    if (preset) {
+      const option = flow.querySelector('[data-field="needs"] .lead-option[data-part="' + CSS.escape(preset) + '"]');
+      if (option && option.getAttribute("aria-pressed") !== "true") option.click();
+    }
   }
 
   // Live busbar: one node per section, placed by the section's position in the page.

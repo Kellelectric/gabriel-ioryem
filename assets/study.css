@@ -97,3 +97,18 @@
 }
 .plate-badge{position:absolute;top:clamp(24px,3.5vw,40px);right:clamp(24px,3.5vw,40px);z-index:1;display:grid;place-items:center;width:clamp(56px,6vw,76px);height:clamp(56px,6vw,76px);border-radius:18px;background:rgba(201,149,111,.14);border:1px solid rgba(201,149,111,.4);color:var(--copper)}
 .plate-badge svg{width:55%;height:55%}
+
+/* Second call to action and previous/next navigation */
+.cta .cta-ghost{margin-left:10px;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff}
+.cta .cta-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
+.study-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 clamp(64px,8vw,104px)}
+.study-pager a{display:flex;flex-direction:column;gap:8px;padding:22px 26px;background:var(--white);border:1px solid var(--line);transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.study-pager a:hover{transform:translateY(-3px);border-color:rgba(217,146,90,.7);box-shadow:0 24px 48px -36px rgba(10,31,27,.5)}
+.study-pager small{color:var(--copper-ink);font:500 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.study-pager span{color:var(--forest);font:500 clamp(21px,2vw,26px)/1.15 var(--serif)}
+.pager-next{text-align:right;align-items:flex-end}
+@media(max-width:640px){
+  .study-pager{grid-template-columns:1fr}
+  .pager-next{text-align:left;align-items:flex-start}
+  .cta .cta-ghost{margin-left:0}
+}
