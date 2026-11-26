@@ -258,11 +258,36 @@
       copy.querySelector("title")?.remove();
       briefVisual.insertBefore(copy, briefVisual.firstChild);
     }
+    // Illustrative daily load profile: not measured data. Solar offsets daytime grid draw; automation trims the peaks.
+    const chartLine = byId("ch-line");
+    const drawChart = parts => {
+      if (!chartLine) return;
+      const solar = parts.has("solar"), smart = parts.has("automation");
+      const demand = [], grid = [];
+      for (let hour = 0; hour <= 24; hour += 0.5) {
+        const base = 0.28 + 0.3 * Math.exp(-(((hour - 7) / 2) ** 2)) + 0.55 * Math.exp(-(((hour - 19.5) / 2.6) ** 2));
+        const load = smart ? 0.28 + (base - 0.28) * 0.72 : base;
+        const sun = solar && hour > 6.5 && hour < 17.5 ? 0.62 * Math.sin(Math.PI * (hour - 6.5) / 11) : 0;
+        demand.push(load);
+        grid.push(Math.max(0.04, load - sun));
+      }
+      const point = (value, index) => (index / (demand.length - 1) * 320).toFixed(1) + " " + (112 - value * 100).toFixed(1);
+      const path = values => "M" + values.map(point).join(" L");
+      byId("ch-demand").setAttribute("d", path(demand));
+      chartLine.setAttribute("d", path(grid));
+      byId("ch-fill").setAttribute("d", path(grid) + " L320 118 L0 118 Z");
+      const note = byId("chart-note");
+      const text = solar && smart ? "Solar covers daytime demand and automation trims the peaks." : solar ? "Solar reduces grid draw through the day." : smart ? "Automation shifts and trims the peaks." : "Switch on systems to see how they change grid draw.";
+      if (note) note.textContent = text;
+      byId("chart")?.setAttribute("aria-label", "Illustrative daily load profile. " + text);
+    };
+    drawChart(new Set());
     const paintBrief = () => {
       const parts = new Set([...flow.querySelectorAll('[data-field="needs"] [aria-pressed="true"]')].map(button => button.dataset.part).filter(Boolean));
       document.querySelectorAll(".iso-part").forEach(part => part.classList.toggle("on", parts.has(part.dataset.part)));
       document.querySelectorAll(".brief-visual, .panel-visual").forEach(el => el.classList.toggle("has-parts", parts.size > 0));
       panelSwitches.forEach(button => button.setAttribute("aria-pressed", String(parts.has(button.dataset.part))));
+      drawChart(parts);
       const count = byId("panel-count");
       if (count) count.textContent = parts.size ? parts.size + (parts.size === 1 ? " system selected" : " systems selected") : "No systems selected";
       const set = (id, value) => { const el = byId(id); if (el) el.textContent = value || "Not chosen yet"; };
@@ -443,15 +468,20 @@
     window.addEventListener("load", () => { place(); energise(); });
   }
 
-  // Phone action bar: appears after the hero and steps aside once the contact section is on screen.
+  // Phone action bar: appears once the hero buttons scroll away, and steps aside while the
+  // dashboard or the contact section is on screen so it never covers their controls.
   const mobileCta = document.getElementById("mobile-cta");
-  const hero = document.getElementById("home");
+  const heroActions = document.querySelector("#home .btn-primary")?.parentElement;
+  const dashboard = document.getElementById("panel");
   const contact = document.getElementById("contact");
-  if (mobileCta && hero && contact && "IntersectionObserver" in window) {
+  if (mobileCta && heroActions && contact && "IntersectionObserver" in window) {
     let pastHero = false;
+    let atDashboard = false;
     let atContact = false;
-    const sync = () => mobileCta.classList.toggle("is-visible", pastHero && !atContact);
-    new IntersectionObserver(([entry]) => { pastHero = !entry.isIntersecting; sync(); }).observe(hero);
+    const sync = () => mobileCta.classList.toggle("is-visible", pastHero && !atDashboard && !atContact);
+    new IntersectionObserver(([entry]) => { pastHero = !entry.isIntersecting && entry.boundingClientRect.top < 0; sync(); }).observe(heroActions);
+    if (dashboard) new IntersectionObserver(([entry]) => { atDashboard = entry.isIntersecting; sync(); }).observe(dashboard);
     new IntersectionObserver(([entry]) => { atContact = entry.isIntersecting; sync(); }, { rootMargin: "0px 0px -30% 0px" }).observe(contact);
   }
+
 })();

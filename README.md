@@ -9,16 +9,15 @@ This is **not** the company website. The corporate site is [kellelectricals.com]
 See `DESIGN.md` for the full visual system (colours, typography, spacing, rationale).
 
 **Core tokens**
-- Forest `#13322C`
-- Ivory `#F7F4EF`
-- Copper `#D9925A` (accent), with `#8C4519` for small text on light surfaces
-- Signal yellow `#F2C230` (only for live indicators)
+- Jet black `#0F1115` (primary dark)
+- Silver `#D9DCE1` (light surface)
+- Electric yellow `#F5D90A` (the only accent; black text on yellow, never yellow small text on light)
 - Typography: Cormorant Garamond (display), Inter (UI and body), IBM Plex Mono (technical labels)
 
 ## Features
 
 - Editorial single-page layout (Hero → Profile → Expertise → Approach → Guiding principle → Project references → Technical studies → Tools → Contact)
-- Signature details: a drawing-style cover sheet with title block, an interactive distribution-board panel (main breaker and system switches that light up a building drawing and pre-fill the project brief), a reference schedule table, a live busbar down the page edge, an animated AC-waveform band and an oversized footer wordmark
+- Signature details: a drawing-style cover sheet with title block, an interactive distribution-board dashboard (main breaker and toggle switches that light up a building drawing, redraw an illustrative daily load chart and pre-fill the project brief), a reference schedule table, a live busbar down the page edge, an animated AC-waveform band and an oversized footer wordmark
 - Professional studio portrait
 - Multi-step low-friction contact flow (one question at a time)
 - Advanced but restrained motion
