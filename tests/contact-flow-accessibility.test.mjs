@@ -43,3 +43,11 @@ test("needs step is a labelled multi-select and the brief preview is described",
   assert.match(html, /<svg class="iso" viewBox="[^"]+" role="img" aria-labelledby="iso-title"><title id="iso-title">/);
   assert.match(html, /id="lead-contact-error"/, "missing contact details are explained, not silently rejected");
 });
+
+test("direct contact offers WhatsApp, a tap-to-call link and email using the published numbers", async () => {
+  const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
+  const aside = html.match(/<aside class="contact-aside">([\s\S]*?)<\/aside>/)[1];
+  assert.match(aside, /href="https:\/\/wa\.me\/2348140205895"/);
+  assert.match(aside, /href="tel:\+2348140205895"/);
+  assert.match(aside, /href="mailto:gabrielioryem@kellelectricals\.com"/);
+});
