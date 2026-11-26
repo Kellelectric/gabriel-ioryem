@@ -88,3 +88,6 @@ a:focus-visible,button:focus-visible,.sheet:focus-visible{outline:3px solid #a64
   a{color:inherit}
 }
 .action-group{display:flex;flex-wrap:wrap;gap:8px}
+:root{--mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow,.date,.stat span{font-family:var(--mono);font-weight:500;letter-spacing:.08em}
+.eyebrow:before{width:9px;height:9px;border:1.5px solid currentColor;border-radius:50%;background:radial-gradient(circle,currentColor 1.6px,transparent 2.2px);opacity:1}

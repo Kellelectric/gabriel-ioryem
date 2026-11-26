@@ -76,3 +76,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   html{scroll-behavior:auto}
   *,*:before,*:after{animation:none!important;transition:none!important}
 }
+
+/* Drawing-set accents shared with the homepage: technical labels in IBM Plex Mono, terminal-dot markers */
+:root{--mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow,.section-kicker,.kicker,.plate-kicker,.aside-label,.category,.verified-type,.project-index,.checks-kicker,.side h3,.result-label,.hero-meta span,.engineering-checks .checks-kicker{font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.08em!important}
+:is(.eyebrow,.section-kicker,.kicker):before{width:9px!important;height:9px!important;border:1.5px solid currentColor;border-radius:50%;background:radial-gradient(circle,currentColor 1.6px,transparent 2.2px)!important;opacity:1!important}
