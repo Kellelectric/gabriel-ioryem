@@ -26,7 +26,7 @@ test("homepage uses cacheable local assets without a runtime CSS compiler", asyn
   assert.ok(gzipBytes(html) < 14000, "index.html stays under 14 KB gzipped");
   assert.ok(html.length < 60000, "index.html stays under 60 KB uncompressed");
   // Raised from 7.5 KB for the project-brief builder, to 10 KB for the drawing-set design, then to 12 KB
-  // for the electric theme (dark pill navigation, service chips, floating badges, toggle switches, chart card)
+  // for the dark hero features (pill navigation, service chips, floating badges, toggle switches, chart card)
   // (cover-sheet frame, title blocks, reference schedule, busbar). Dead selectors were removed first.
   assert.ok(gzipBytes(css) < 12000, "executive.css stays under 12 KB gzipped");
   assert.ok(css.length < 48000, "executive.css stays under 48 KB uncompressed");
@@ -62,11 +62,11 @@ test("homepage content remains visible without JavaScript and reveals progressiv
   assert.match(js, /document\.documentElement\.classList\.add\("js-enabled"\)/);
 });
 
-test("homepage keeps the arch portrait and uses the jet, silver and electric yellow palette with a dark header", async () => {
+test("homepage keeps the arch portrait and uses the forest, ivory and copper palette with a dark header", async () => {
   const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
-  assert.match(css, /--jet:#0f1115/);
-  assert.match(css, /--yellow:#f5d90a/);
-  assert.match(css, /\.site-header\{background:rgba\(15,17,21/);
+  assert.match(css, /--forest:#13322c/);
+  assert.match(css, /--copper:#d9925a/);
+  assert.match(css, /\.site-header\{background:rgba\(10,31,27/);
   assert.match(css, /\.hero-section\{[^}]*background:radial-gradient/s);
   assert.match(css, /\.portrait-wrap\{position:relative;aspect-ratio:4\/5/);
   assert.match(css, /border-radius:46% 46% 3px 3px/);

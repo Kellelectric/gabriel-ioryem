@@ -42,21 +42,21 @@ test("panel never traps focus or hides content from keyboard users", () => {
   assert.match(html, /<a href="#contact" class="btn-primary panel-go"/);
 });
 
-test("electric theme: palette tokens, dark header and a yellow call to action", async () => {
+test("palette: forest, ivory and copper, a dark glass header and a copper call to action", async () => {
   const css = await readFile(new URL("../assets/executive.css", import.meta.url), "utf8");
   const site = await readFile(new URL("../assets/site.css", import.meta.url), "utf8");
-  for (const [token, value] of [["--jet", "#0f1115"], ["--yellow", "#f5d90a"], ["--silver", "#d9dce1"]]) {
+  for (const [token, value] of [["--forest", "#13322c"], ["--copper", "#d9925a"], ["--forest-deep", "#0a1f1b"]]) {
     assert.match(css, new RegExp(token + ":" + value), token + " matches the brand palette in executive.css");
   }
-  assert.match(site, /--yellow:#f5d90a/);
-  assert.match(css, /\.site-header\{background:rgba\(15,17,21/);
-  assert.match(html, /<\/nav>\s*<a href="#contact" class="nav-contact"/, "the yellow call to action sits outside the pill navigation");
+  assert.match(site, /--copper:#d9925a/);
+  assert.match(css, /\.site-header\{background:rgba\(10,31,27/);
+  assert.match(html, /<\/nav>\s*<a href="#contact" class="nav-contact"/, "the call to action sits outside the pill navigation");
 });
 
 test("focus rings are two-tone so they show on dark and light surfaces", async () => {
   for (const name of ["executive.css", "site.css", "cv.css"]) {
     const css = await readFile(new URL("../assets/" + name, import.meta.url), "utf8");
-    assert.match(css, /outline:3px solid #0f1115;outline-offset:2px;box-shadow:0 0 0 6px #f5d90a/, name + " uses the two-tone focus ring");
+    assert.match(css, /outline:3px solid #13322c;outline-offset:2px;box-shadow:0 0 0 6px #d9925a/, name + " uses the two-tone focus ring");
   }
 });
 

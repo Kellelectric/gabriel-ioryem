@@ -1,21 +1,22 @@
 version: alpha
-name: Gabriel Ioryem Electric
-description: Personal site for Gabriel Ioryem, Electrical Engineer and Founder of Kell Electricals Ltd. A dark, electric identity built from engineering drawings and switchgear, so the site reads as an electrical engineer's and not a generic consultant's.
+name: Gabriel Ioryem Executive
+description: Personal site for Gabriel Ioryem, Electrical Engineer and Founder of Kell Electricals Ltd. The visual language borrows from engineering drawings and switchgear so the site reads as an electrical engineer's, not a generic consultant's.
 colors:
-  jet: "#0F1115"
-  jet-deep: "#0A0C0F"
-  jet-panel: "#171A20"
-  silver: "#D9DCE1"
-  yellow: "#F5D90A"
-  yellow-soft: "#FBE95C"
-  accent-ink: "#23262D"
-  ivory: "#F3F4F6"
-  ivory-warm: "#E8EAEE"
+  forest: "#13322C"
+  forest-deep: "#0A1F1B"
+  copper: "#D9925A"
+  copper-ink: "#8C4519"
+  copper-soft: "#F0B88B"
+  signal: "#F2C230"
+  ivory: "#F7F4EF"
+  ivory-warm: "#F0EBE3"
   graphite: "#1A1C1E"
   slate: "#5A5F66"
+  mist: "#E8E4DC"
+  sage: "#E8EEE9"
 typography:
   display: "Cormorant Garamond"
   body: "Inter"
   technical: "IBM Plex Mono"
-rationale: Jet black, silver and electric yellow, the palette of an electrical trade site. Yellow is the only accent. On dark surfaces it is used as text and fills; on light surfaces it is never used as small text, only as a highlighter mark behind dark text, as button fills with black text, and as marker dots. Technical labels use a monospace face, like annotations on a drawing.
-notes: Yellow on jet is about 13:1. Body text on silver and ivory uses jet or graphite. Focus rings are two-tone (black ring inside a yellow ring) so they stay visible on dark and light surfaces. Discipline icons live in assets/icons.svg (24px grid, 1.5 stroke, currentColor). The header is a dark glass pill navigation with a separate yellow call to action. The hero is a dark drawing cover sheet with service chips, floating yellow chips and sparks, followed by an interactive distribution-board dashboard. Its main breaker and toggle switches drive the building drawing, an illustrative daily load chart and the project brief. Project references are a schedule table, and the footer is a title block.
+rationale: Engineered, not decorated. Quiet authority is replaced by a working, tactile identity. Copper is the material of the trade, so it replaces the gold that makes many professional sites look alike. Signal yellow is used only for things that are live, such as lamps and the main breaker. Technical labels use a monospace face, like annotations on a drawing.
+notes: Copper-ink is the accessible copper for small text on light surfaces (at least 5.5:1). Bright copper is for dark surfaces and non-text lines (at least 5.4:1 on forest). Signal yellow is reserved for live indicators such as the main breaker and switched-on toggles. Sage is a cool light surface that breaks up the dark sections. Focus rings are two-tone (forest inside copper) so they stay visible on dark and light surfaces. Discipline icons live in assets/icons.svg (24px grid, 1.5 stroke, currentColor). The header is dark glass with a pill navigation and a separate copper call to action. The hero is a dark forest drawing cover sheet with service chips, floating copper chips and sparks, followed by an interactive distribution-board dashboard. Its main breaker and toggle switches drive the building drawing, an illustrative daily load chart and the project brief. Project references are a schedule table, and the footer is a title block.
